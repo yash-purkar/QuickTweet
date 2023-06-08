@@ -6,5 +6,5 @@
 }
 
 body {
-  background-color: #f0f9ff;
+  background-color: var(--bg-color);
 }

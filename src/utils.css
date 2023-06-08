@@ -14,7 +14,9 @@
 .justify-center {
   justify-content: center;
 }
-
+.justify-around {
+  justify-content: space-around;
+}
 .align-center {
   align-items: center;
 }
@@ -26,4 +28,16 @@
 
 .letter-spacing-1 {
   letter-spacing: 1px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.padding-left-03 {
+  padding-left: 0.3rem;
+}
+
+.border-bottom-gray {
+  border-bottom: 1px solid var(--light-gray);
 }

@@ -1,0 +1,11 @@
+@media (min-width: 1024px) {
+  .app-container {
+    display: grid;
+    grid-template-columns: 280px 550px 280px;
+    grid-gap: 50px;
+    justify-content: center;
+  }
+  .hide-on-lg {
+    display: none;
+  }
+}

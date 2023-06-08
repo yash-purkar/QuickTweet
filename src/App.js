@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router';
 import './App.css';
 import Mockman from 'mockman-js'
 import { Home } from './Features/Home/Home';
+import { Navbar } from './Components/Navbar/Navbar';
 
 function App() {
   return (

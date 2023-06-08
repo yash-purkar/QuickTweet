@@ -1,12 +1,19 @@
 import React from 'react'
-import { Navbar } from '../../Components/Navbar/Navbar'
+import './Home.css'
 import { Search } from '../../Components/Search/Search'
+import { FollowBar } from '../../Components/FollowBar/FollowBar'
+import { ContentBox } from '../../Components/ContentBox/ContentBox'
+import { Navbar } from '../../Components/Navbar/Navbar'
 
 export const Home = () => {
   return (
-    <div>
+    <div className='app-container'>
       <Navbar />
-      <Search />
+      <div className='hide-on-lg'>
+        <Search />
+      </div>
+      <ContentBox />
+      <FollowBar />
     </div>
   )
 }
