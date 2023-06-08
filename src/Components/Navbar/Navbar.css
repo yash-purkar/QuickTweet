@@ -1,0 +1,60 @@
+.navigation {
+  padding: 0.6rem;
+  background-color: var(--white);
+  border-bottom: 1px solid lightgray;
+}
+.brand-logo {
+  width: 35px;
+}
+.nav-brand {
+  color: var(--primary);
+  display: none;
+}
+
+.icon-box {
+  width: 120px;
+}
+.icon {
+  color: var(--primary);
+  font-size: 1.4rem;
+}
+
+@media (min-width: 600px) {
+  .navigation {
+    padding: 0.8rem;
+  }
+  .brand-logo {
+    width: 40px;
+  }
+  .nav-brand {
+    display: block;
+    margin-left: 0.4rem;
+    font-size: 1.6rem;
+  }
+  .icon-box {
+    width: 150px;
+  }
+  .icon {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navigation {
+    padding: 1rem;
+  }
+  .brand-logo {
+    width: 45px;
+  }
+  .nav-brand {
+    display: block;
+    margin-left: 0.4rem;
+    font-size: 1.8rem;
+  }
+  .icon-box {
+    width: 200px;
+  }
+  .icon {
+    font-size: 1.8rem;
+  }
+}
