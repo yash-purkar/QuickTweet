@@ -1,0 +1,128 @@
+.single-post-card {
+  margin: 1rem;
+  background-color: var(--white);
+  padding: 1.5rem 0.7rem;
+  border-radius: 0.5rem;
+}
+
+.post-profile {
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+  color: var(--primary);
+}
+.user-name-1 {
+  color: var(--light-font-clr);
+}
+.user-name-2 {
+  margin-left: 0.4rem;
+  color: var(--gray);
+}
+
+.post-date,
+.post-time {
+  font-size: 0.9rem;
+  margin-right: 0.6rem;
+  color: var(--gray);
+  display: inline-block;
+  margin-top: 0.2rem;
+}
+
+.options-icon {
+  color: var(--gray);
+  align-self: center;
+}
+.options-icon:hover {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.post-desc {
+  margin: 0.9rem 0;
+  color: var(--gray);
+}
+.like-option,
+.bookmark-option {
+  margin-right: 1rem;
+  cursor: pointer;
+  color: var(--light-font-clr);
+}
+.bookmark-icon {
+  color: var(--gray);
+  margin-right: 0.2rem;
+}
+.like-icon {
+  font-size: 1.2rem;
+  color: var(--gray);
+  margin-right: 0.2rem;
+}
+
+.comment-box {
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.comment-profile-icon {
+  font-size: 1.6rem;
+  color: var(--primary);
+  width: 10%;
+}
+.comment-inner-box {
+  width: 85%;
+  border: 1px solid #bfc4c8;
+  padding: 0.3rem 0rem;
+  border-radius: 0.5rem;
+  flex-wrap: wrap;
+}
+.comment-input {
+  width: 80%;
+  border: none;
+  outline: none;
+  padding: 0 0.5rem 0 0.3rem;
+  color: var(--gray);
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+}
+.post-comment-btn {
+  background-color: inherit;
+  border: none;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.comments-container {
+  margin-top: 1rem;
+  margin-left: 7%;
+  width: 80%;
+}
+@media (min-width: 600px) {
+  .comment-profile-icon {
+    width: 5%;
+  }
+  .comment-input {
+    width: 88%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .single-post-card {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .post-desc {
+    font-size: 1.1rem;
+  }
+  .post-date,
+  .post-time {
+    font-size: 0.96rem;
+  }
+  .user-name-1 {
+    font-size: 1.2rem;
+  }
+  .user-name-2 {
+    font-size: 1rem;
+  }
+  .comment-input,
+  .post-comment-btn {
+    font-size: 1rem;
+  }
+}

@@ -1,6 +1,5 @@
 .search-box {
-  width: 250px;
-  margin: auto;
+  margin: 0 1rem;
   margin-top: 0.5rem;
   background-color: var(--white);
   border-bottom: 1px solid var(--primary);
@@ -29,7 +28,6 @@
 
 @media (min-width: 600px) {
   .search-box {
-    width: 450px;
     padding-left: 1.7rem;
   }
   .search-input {
@@ -47,6 +45,7 @@
     padding-left: 1.9rem;
     position: sticky;
     top: 0px;
+    margin: 0;
   }
   .search-input {
     padding: 0.9rem;

@@ -5,6 +5,7 @@ import { AiFillPlusCircle } from 'react-icons/ai'
 import { Search } from '../Search/Search'
 import { BiTrendingUp } from 'react-icons/bi'
 import { MdOpenInNew } from 'react-icons/md'
+import { SinglePost } from '../SinglePost/SinglePost'
 
 export const ContentBox = () => {
   return (
@@ -32,6 +33,28 @@ export const ContentBox = () => {
           <button className='latest-btn letter-spacing-1 cursor-pointer'><MdOpenInNew /><span className='padding-left-03'>Latest</span></button>
         </div>
 
+      </div>
+
+
+
+      {/* posts */}
+      <div className='posts'>
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
+        <SinglePost />
       </div>
 
     </div>

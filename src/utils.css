@@ -41,3 +41,7 @@
 .border-bottom-gray {
   border-bottom: 1px solid var(--light-gray);
 }
+
+.font-bold {
+  font-weight: bold;
+}

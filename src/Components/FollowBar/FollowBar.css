@@ -4,21 +4,21 @@
 
 .followbar-container {
   background-color: var(--white);
-  max-width: 270px;
+  max-width: 300px;
   position: sticky;
   top: 35px;
   padding: 2rem 0rem;
-  border-radius: 0.5rem;
 }
 
 .follow-user-card {
   margin: 1rem 0rem;
-  width: 200px;
+  max-width: 250px;
   background-color: var(--white);
   padding: 0.4rem;
   padding-top: 0;
   border-bottom: 1px solid #cacaca;
   color: var(--light-gray);
+  letter-spacing: 1.1px;
 }
 
 .follow-header {
@@ -31,14 +31,15 @@
   font-size: 1.7rem;
   align-self: center;
   margin-right: 0.5rem;
-  color: var(gray);
+  color: var(--primary);
 }
 
 .follow-btn {
   color: var(--primary);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   align-self: center;
   padding: 0.3rem;
+  padding-left: 0.5rem;
   cursor: pointer;
 }
 
