@@ -4,6 +4,7 @@ import { Search } from '../../Components/Search/Search'
 import { FollowBar } from '../../Components/FollowBar/FollowBar'
 import { ContentBox } from '../../Components/ContentBox/ContentBox'
 import { Navbar } from '../../Components/Navbar/Navbar'
+import { AddPost } from '../../Components/AddPost/AddPost'
 
 export const Home = () => {
   return (
@@ -14,6 +15,7 @@ export const Home = () => {
       </div>
       <ContentBox />
       <FollowBar />
+      <AddPost />
     </div>
   )
 }
