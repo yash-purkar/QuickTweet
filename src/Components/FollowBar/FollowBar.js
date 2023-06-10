@@ -16,8 +16,9 @@ export const FollowBar = () => {
               <small>adarshbalika_14</small>
             </div>
           </div>
-          <span className='follow-btn'><SlUserFollow /></span>
+          <button className='follow-btn letter-spacing-1 cursor-pointer'>Follow</button>
         </div>
+
         <div className='flex justify-between follow-user-card'>
           <div className='flex'>
             <span className='follow-user-profile'><CgProfile /></span>
@@ -26,8 +27,9 @@ export const FollowBar = () => {
               <small>adarshbalika_14</small>
             </div>
           </div>
-          <span className='follow-btn'><SlUserFollow /></span>
+          <button className='follow-btn letter-spacing-1 cursor-pointer'>Follow</button>
         </div>
+
         <div className='flex justify-between follow-user-card'>
           <div className='flex'>
             <span className='follow-user-profile'><CgProfile /></span>
@@ -36,7 +38,7 @@ export const FollowBar = () => {
               <small>adarshbalika_14</small>
             </div>
           </div>
-          <span className='follow-btn'><SlUserFollow /></span>
+          <button className='follow-btn letter-spacing-1 cursor-pointer'>Follow</button>
         </div>
 
       </div>

@@ -45,3 +45,12 @@
 .font-bold {
   font-weight: bold;
 }
+
+/* Dark Mode */
+.dark-bg {
+  background-color: var(--dark-color);
+}
+
+.font-for-dark {
+  color: var(--white);
+}

@@ -15,7 +15,7 @@ export const Home = () => {
       </div>
       <ContentBox />
       <FollowBar />
-      <AddPost />
+      {/* <AddPost /> */}
     </div>
   )
 }

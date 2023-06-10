@@ -6,7 +6,6 @@ import { Search } from '../Search/Search'
 import { BiTrendingUp } from 'react-icons/bi'
 import { MdOpenInNew } from 'react-icons/md'
 import { SinglePost } from '../SinglePost/SinglePost'
-import { AddPost } from '../AddPost/AddPost'
 
 export const ContentBox = () => {
   return (
@@ -15,13 +14,13 @@ export const ContentBox = () => {
         <Search />
       </div>
 
-      <div className='flex justify-between add-post-bar align-center cursor-pointer'>
+      <div className='flex justify-between add-post-bar align-center'>
         <p className='add-post-text flex align-center'>
           <span className='addpost-profile-icon'><CgProfile /></span>
-          <span className='add-post-text letter-spacing-1'>What is happening?</span>
+          <span className='add-post-text letter-spacing-1  cursor-pointer'>What is happening?</span>
         </p>
-        <span className='addpost-plus-icon'>
-          <AiFillPlusCircle />
+        <span className='addpost-plus-icon  cursor-pointer'>
+          <AiFillPlusCircle className='plus-icon' />
         </span>
       </div>
 
@@ -40,7 +39,8 @@ export const ContentBox = () => {
 
       {/* posts */}
       <div className='posts'>
-        {/* <SinglePost /> */}
+        <SinglePost />
+        <SinglePost />
 
       </div>
 

@@ -8,13 +8,14 @@
   position: sticky;
   top: 35px;
   padding: 2rem 0rem;
+  border-radius: 0.5rem;
 }
 
 .follow-user-card {
   margin: 1rem 0rem;
-  max-width: 250px;
+  width: 100%;
   background-color: var(--white);
-  padding: 0.4rem;
+  padding: 1rem;
   padding-top: 0;
   border-bottom: 1px solid #cacaca;
   color: var(--light-gray);
@@ -35,12 +36,17 @@
 }
 
 .follow-btn {
-  color: var(--primary);
-  font-size: 1.4rem;
   align-self: center;
-  padding: 0.3rem;
-  padding-left: 0.5rem;
-  cursor: pointer;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.9rem;
+  background-color: var(--primary);
+  color: var(--white);
+  border: 1px solid var(--primary);
+  border-radius: 1rem;
+}
+.follow-btn:hover {
+  background-color: var(--white);
+  color: var(--primary);
 }
 
 @media (min-width: 1024px) {

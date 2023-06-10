@@ -20,7 +20,7 @@ export const SinglePost = () => {
           </div>
 
         </div>
-        <span className='options-icon'><SlOptionsVertical /></span>
+        <span className='options-icon cursor-pointer'><SlOptionsVertical /></span>
 
       </div>
 
@@ -28,7 +28,7 @@ export const SinglePost = () => {
 
       <div className='flex letter-spacing-1'>
         <div className='like-option flex '> <span className='like-icon'><AiOutlineHeart /> </span> <span>1 Like</span> </div>
-        <div className='bookmark-option flex'><span className='bookmark-icon'><BsBookmark /></span><span> Bookmark</span></div>
+        <div className='bookmark-option flex'><span className='bookmark-icon-2'><BsBookmark /></span><span> Bookmark</span></div>
       </div>
 
       <div className='flex comment-box align-center'>
