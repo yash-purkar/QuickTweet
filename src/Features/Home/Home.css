@@ -1,0 +1,15 @@
+@media (min-width: 1024px) {
+  .app-container {
+    display: grid;
+    grid-template-columns: 2.5fr 4fr 2.5fr;
+    grid-gap: 50px;
+    /* justify-content: center;
+    align-content: center; */
+    /* place-items: center; */
+    /* align-content: center; */
+    /* align-items: center; */
+  }
+  .hide-on-lg {
+    display: none;
+  }
+}
