@@ -1,12 +1,13 @@
 .followbar-main-container {
   display: none;
+  margin-top: 1.5rem;
 }
 
 .followbar-container {
   background-color: var(--white);
   max-width: 300px;
   position: sticky;
-  top: 35px;
+  top: 0px;
   padding: 2rem 0rem;
   border-radius: 0.5rem;
 }
@@ -17,7 +18,7 @@
   background-color: var(--white);
   padding: 1rem;
   padding-top: 0;
-  border-bottom: 1px solid #cacaca;
+  border-bottom: 1px solid var(--border-clr);
   color: var(--light-gray);
   letter-spacing: 1.1px;
 }
