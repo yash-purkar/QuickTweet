@@ -12,7 +12,7 @@ export const SinglePost = () => {
 
       <div className='flex justify-between'>
         <div className='flex align-center post-user-details'>
-          <span className='post-profile'><CgProfile /></span>
+          <span className='post-profile'><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2qYGz5830vmlcv3GkXFoZsIvRucQcaCD6zfE3UZE0w&usqp=CAU&ec=48665699" className='post-user-img' alt="user-img" /></span>
 
           <div className='letter-spacing-1'>
             <p ><span className='font-bold letter-spacing-1 user-name-1'>John Doe</span> <small className='user-name-2 letter-spacing-1'>@john1221</small></p>

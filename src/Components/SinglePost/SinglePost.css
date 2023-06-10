@@ -126,6 +126,10 @@
   width: 80%;
 }
 
+.post-user-img {
+  width: 40px;
+}
+
 @media (min-width: 600px) {
   .comment-profile-icon {
     width: 5%;
@@ -156,5 +160,9 @@
   .comment-input,
   .post-comment-btn {
     font-size: 1rem;
+  }
+
+  .post-user-img {
+    width: 50px;
   }
 }

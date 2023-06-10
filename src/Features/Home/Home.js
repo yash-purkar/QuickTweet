@@ -9,7 +9,7 @@ import { AddComment } from '../../Components/AddComment/AddComment'
 import { SinglePost } from '../../Components/SinglePost/SinglePost'
 import { HomeContent } from '../HomeContent/HomeContent'
 
-export const Home = () => {
+export const Home = ({ children }) => {
   return (
     <div className='app-container'>
       <Navbar />
@@ -18,7 +18,7 @@ export const Home = () => {
       </div>
 
       <ContentBox>
-        <HomeContent />
+        {children}
       </ContentBox>
       <FollowBar />
       {/* <AddPost /> */}

@@ -4,6 +4,9 @@
   margin: 1rem;
   padding: 1.5rem;
   border-radius: 0.5rem;
+
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile-img {
@@ -16,8 +19,8 @@
   padding: 0rem 1rem;
 }
 .profile-name-info {
-  width: 100%;
   margin-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
 .profile-user-name {
   color: var(--light-font-clr);
@@ -44,7 +47,17 @@
   color: var(--light-font-clr);
   border-top: 1px solid var(--border-clr);
   padding-top: 0.5rem;
+
+  flex-wrap: wrap;
 }
+
+@media (min-width: 600px) {
+  .profile-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
 @media (min-width: 1024px) {
   .profile-img {
     width: 80px;

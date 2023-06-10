@@ -16,11 +16,11 @@ export const Navbar = () => {
       </div>
       <div className='icon-box flex justify-between align-center'>
         <NavLink to="/" className="tab-style-lg icon-li letter-spacing-1"><AiFillHome className='icon ' /> <span className='icon-page-name'>HOME</span> </NavLink>
-        <NavLink className="icon-li tab-style-lg letter-spacing-1"><MdOutlineExplore className='icon' /><span className='icon-page-name'>EXPLORE</span></NavLink>
-        <NavLink className="icon-li tab-style-lg letter-spacing-1"><BsFillBookmarkFill className='icon bookmark-icon' /><span className='icon-page-name '>BOOKMARK</span></NavLink>
-        <NavLink className="icon-li tab-style-lg letter-spacing-1"><MdOutlineDarkMode className='icon' /><span className='icon-page-name'>DARK MODE</span></NavLink>
+        <NavLink to="/explore" className="icon-li tab-style-lg letter-spacing-1"><MdOutlineExplore className='icon' /><span className='icon-page-name'>EXPLORE</span></NavLink>
+        <NavLink to="/bookmark" className="icon-li tab-style-lg letter-spacing-1"><BsFillBookmarkFill className='icon bookmark-icon' /><span className='icon-page-name '>BOOKMARK</span></NavLink>
+        <NavLink to="/a" className="icon-li tab-style-lg letter-spacing-1"><MdOutlineDarkMode className='icon' /><span className='icon-page-name'>DARK MODE</span></NavLink>
         <NavLink to="/profile" className="icon-li tab-style-lg letter-spacing-1 "><CgProfile className='icon' /><span className='icon-page-name'>PROFILE</span></NavLink>
-        <NavLink className="icon-li tab-style-lg letter-spacing-1 "><BiLogOut className='icon' /><span className='icon-page-name'>LOGOUT</span></NavLink>
+        <NavLink to="/a" className="icon-li tab-style-lg letter-spacing-1 "><BiLogOut className='icon' /><span className='icon-page-name'>LOGOUT</span></NavLink>
 
       </div>
     </nav>

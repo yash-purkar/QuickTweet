@@ -109,13 +109,17 @@
   }
 
   .active {
-    /* background-color: var(--white);
-    padding-bottom: 0.3rem;
-    border-radius: 0.5rem; */
+    background-color: var(--white);
+    border-radius: 0.5rem;
   }
-
+  .tab-style-lg {
+    padding-bottom: 0.3rem;
+  }
   .tab-style-lg:hover {
     border-radius: 0.5rem;
     background-color: #e6e6e6;
+  }
+  .active:hover {
+    background-color: var(--white);
   }
 }

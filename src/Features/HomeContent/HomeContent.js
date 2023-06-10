@@ -1,15 +1,15 @@
 import React from 'react'
 import { SinglePost } from '../../Components/SinglePost/SinglePost'
 import { AiFillPlusCircle } from 'react-icons/ai'
-import { CgProfile } from 'react-icons/cg'
 import { BiTrendingUp } from 'react-icons/bi'
 import { MdOpenInNew } from 'react-icons/md'
+import './HomeContent.css'
 export const HomeContent = () => {
   return (
     <>
       <div className='flex justify-between add-post-bar align-center'>
         <p className='add-post-text flex align-center'>
-          <span className='addpost-profile-icon'><CgProfile /></span>
+          <span className='addpost-profile-icon'><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2qYGz5830vmlcv3GkXFoZsIvRucQcaCD6zfE3UZE0w&usqp=CAU&ec=48665699" alt="user-img" className='user-image' /> </span>
           <span className='add-post-text letter-spacing-1  cursor-pointer'>What is happening?</span>
         </p>
         <span className='addpost-plus-icon  cursor-pointer'>
@@ -27,10 +27,6 @@ export const HomeContent = () => {
         </div>
 
       </div>
-
-
-
-
       <div className='posts'>
         <SinglePost />
         <SinglePost />

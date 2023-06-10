@@ -1,7 +1,5 @@
 import React from 'react'
 import './FollowBar.css'
-import { CgProfile } from 'react-icons/cg'
-import { SlUserFollow } from 'react-icons/sl'
 export const FollowBar = () => {
   return (
     <div className='followbar-main-container'>
@@ -9,8 +7,8 @@ export const FollowBar = () => {
         <h2 className='letter-spacing-1 follow-header'>Who to follow</h2>
 
         <div className='flex justify-between follow-user-card'>
-          <div className='flex'>
-            <span className='follow-user-profile'><CgProfile /></span>
+          <div className='flex align-center'>
+            <span className='follow-user-profile'><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2qYGz5830vmlcv3GkXFoZsIvRucQcaCD6zfE3UZE0w&usqp=CAU&ec=48665699" className='post-user-img' alt="user-img" /></span>
             <div>
               <h4>Adarsh Balika</h4>
               <small>adarshbalika_14</small>
@@ -20,8 +18,8 @@ export const FollowBar = () => {
         </div>
 
         <div className='flex justify-between follow-user-card'>
-          <div className='flex'>
-            <span className='follow-user-profile'><CgProfile /></span>
+          <div className='flex align-center'>
+            <span className='follow-user-profile'><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2qYGz5830vmlcv3GkXFoZsIvRucQcaCD6zfE3UZE0w&usqp=CAU&ec=48665699" className='post-user-img' alt="user-img" /></span>
             <div>
               <h4>Adarsh Balika</h4>
               <small>adarshbalika_14</small>
@@ -31,8 +29,8 @@ export const FollowBar = () => {
         </div>
 
         <div className='flex justify-between follow-user-card'>
-          <div className='flex'>
-            <span className='follow-user-profile'><CgProfile /></span>
+          <div className='flex align-center'>
+            <span className='follow-user-profile'><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2qYGz5830vmlcv3GkXFoZsIvRucQcaCD6zfE3UZE0w&usqp=CAU&ec=48665699" className='post-user-img' alt="user-img" /></span>
             <div>
               <h4>Adarsh Balika</h4>
               <small>adarshbalika_14</small>
