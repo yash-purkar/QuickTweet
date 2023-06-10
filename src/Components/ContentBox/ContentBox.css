@@ -53,7 +53,8 @@
     padding-top: 1.5rem;
     background-color: var(--bg-color);
   }
-  .add-post-bar {
+  .add-post-bar,
+  .trending-latest-box {
     margin-left: 0;
     margin-right: 0;
     padding: 0.8rem;

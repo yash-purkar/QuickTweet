@@ -2,6 +2,7 @@
   margin: 1rem;
   background-color: var(--white);
   padding: 1.5rem 0.7rem;
+  padding-bottom: 1rem;
   border-radius: 0.5rem;
 }
 
@@ -14,7 +15,6 @@
   color: var(--light-font-clr);
 }
 .user-name-2 {
-  margin-left: 0.4rem;
   color: var(--gray);
 }
 
@@ -39,58 +39,85 @@
 }
 
 .post-desc {
-  margin: 1.4rem 0;
+  padding: 1.4rem 0;
+  padding-bottom: 0.9rem;
   color: var(--gray);
+  border-bottom: 1px solid var(--border-clr);
+  margin-bottom: 0.5rem;
 }
 .like-option,
-.bookmark-option {
+.bookmark-option,
+.comment-option,
+.share-option {
   margin-right: 1rem;
   cursor: pointer;
-  color: var(--light-font-clr);
-  margin-bottom: 1rem;
-}
-.bookmark-icon-2 {
   color: var(--gray);
-  margin-right: 0.2rem;
-  font-size: 1.1rem;
 }
-.like-icon {
+
+.like-icon,
+.bookmark-icon-2,
+.comment-icon,
+.share-icon {
   font-size: 1.2rem;
   color: var(--gray);
   margin-right: 0.2rem;
 }
+.bookmark-icon-2,
+.comment-icon {
+  font-size: 1rem;
+}
 
+.share-icon {
+  font-size: 1.3rem;
+}
+.option {
+  color: var(--primary);
+}
+/*  */
 .comment-box {
   margin-top: 0.5rem;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .comment-profile-icon {
   font-size: 1.6rem;
   color: var(--primary);
   width: 10%;
+  top: 6px;
+  position: absolute;
 }
 .comment-inner-box {
   width: 85%;
-  border: 1px solid #bfc4c8;
+
   padding: 0.3rem 0rem;
   border-radius: 0.5rem;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 .comment-input {
   width: 80%;
   border: none;
   outline: none;
-  padding: 0 0.5rem 0 0.3rem;
+  border: 1px solid #bfc4c8;
+  padding: 0.3rem 0.5rem;
+  padding-left: 1.7rem;
   color: var(--gray);
   font-size: 0.9rem;
-  border-radius: 0.5rem;
+  border-top-left-radius: 0.4rem;
+  border-bottom-left-radius: 0.4rem;
 }
 .post-comment-btn {
-  background-color: inherit;
+  /* width: 15%; */
+  background-color: var(--primary);
+  font-size: 0.9rem;
+  color: var(--white);
   border: none;
-  color: var(--primary);
   font-weight: bold;
+  padding: 0.32rem 0.5rem;
+  border-top-right-radius: 0.4rem;
+  border-bottom-right-radius: 0.4rem;
+  position: absolute;
+  right: 20%;
 }
 
 .comments-container {
@@ -98,6 +125,7 @@
   margin-left: 7%;
   width: 80%;
 }
+
 @media (min-width: 600px) {
   .comment-profile-icon {
     width: 5%;
@@ -123,7 +151,7 @@
     font-size: 1.2rem;
   }
   .user-name-2 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   .comment-input,
   .post-comment-btn {
