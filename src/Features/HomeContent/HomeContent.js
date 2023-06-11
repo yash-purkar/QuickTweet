@@ -4,6 +4,7 @@ import { AiFillPlusCircle } from 'react-icons/ai'
 import { BiTrendingUp } from 'react-icons/bi'
 import { MdOpenInNew } from 'react-icons/md'
 import './HomeContent.css'
+import { FollowBar } from '../../Components/FollowBar/FollowBar'
 export const HomeContent = () => {
   return (
     <>
@@ -27,6 +28,12 @@ export const HomeContent = () => {
         </div>
 
       </div>
+
+      <div className='hide-follow-on-lg'>
+        <FollowBar />
+      </div>
+
+
       <div className='posts'>
         <SinglePost />
         <SinglePost />

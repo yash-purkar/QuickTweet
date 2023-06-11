@@ -37,7 +37,7 @@
 }
 
 .posts {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .user-image {
@@ -45,8 +45,13 @@
   height: 30px;
   border-radius: 50%;
 }
-
 @media (min-width: 1024px) {
+  .hide-follow-on-lg {
+    display: none;
+  }
+  .posts {
+    margin-top: 2rem;
+  }
   .add-post-bar,
   .trending-latest-box {
     margin-left: 0;
