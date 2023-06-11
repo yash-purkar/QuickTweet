@@ -1,57 +1,126 @@
 .followbar-main-container {
-  display: none;
+  /* display: none; */
+  margin: 1rem;
   margin-top: 1.5rem;
 }
 
 .followbar-container {
   background-color: var(--white);
-  max-width: 300px;
+
   position: sticky;
   top: 0px;
-  padding: 2rem 0rem;
   border-radius: 0.5rem;
+
+  overflow-x: scroll;
 }
 
 .follow-user-card {
-  margin: 1rem 0rem;
+  margin: 0.3rem 0rem;
   width: 100%;
   background-color: var(--white);
   padding: 1rem;
   padding-top: 0;
-  border-bottom: 1px solid var(--border-clr);
+  border-right: 1px solid var(--border-clr);
   color: var(--light-gray);
   letter-spacing: 1.1px;
+  flex-direction: column;
+}
+
+.followbar-card-inner {
+  flex-direction: column;
 }
 
 .follow-header {
   text-transform: capitalize;
   color: var(--primary);
   margin-bottom: 0.5rem;
+  display: none;
 }
 
 .follow-user-profile {
-  font-size: 1.7rem;
   align-self: center;
-  margin-right: 0.5rem;
+
   color: var(--primary);
+  /* width: 20px; */
 }
 
 .follow-btn {
   align-self: center;
-  padding: 0.3rem 0.9rem;
-  font-size: 0.9rem;
+
+  padding: 0.15rem 0.3rem;
+
   background-color: var(--primary);
   color: var(--white);
   border: 1px solid var(--primary);
   border-radius: 1rem;
+  margin-top: 0.5rem;
 }
 .follow-btn:hover {
   background-color: var(--white);
   color: var(--primary);
 }
 
+.follow-user-name {
+  font-size: 0.9rem;
+}
+
+.follow-user-img {
+  width: 60px;
+  height: 60px;
+}
+.follow-username-2 {
+  font-size: 0.83rem;
+  text-align: center;
+}
 @media (min-width: 1024px) {
+  .follow-header {
+    display: block;
+  }
   .followbar-main-container {
     display: block;
   }
+  .followbar-container {
+    max-width: 300px;
+    flex-direction: column;
+    padding: 2rem 0rem;
+  }
+  .follow-user-name {
+    font-size: 1rem;
+  }
+  .follow-user-card {
+    flex-direction: row;
+    border: none;
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border-clr);
+    margin: 0.2rem 0rem;
+  }
+  .follow-btn {
+    padding: 0.3rem 0.9rem;
+    font-size: 0.9rem;
+  }
+  .follow-user-profile {
+    margin-right: 0.5rem;
+  }
+  .followbar-card-inner {
+    flex-direction: row;
+  }
+  .follow-user-img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.followbar-container::-webkit-scrollbar {
+  width: 4px;
+  height: 2px;
+}
+
+.followbar-container::-webkit-scrollbar-track {
+  border-radius: 0;
+  background: #eeeeee;
+}
+
+.followbar-container::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background: var(--primary);
 }

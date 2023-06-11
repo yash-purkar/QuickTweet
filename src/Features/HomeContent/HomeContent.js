@@ -4,6 +4,7 @@ import { AiFillPlusCircle } from 'react-icons/ai'
 import { BiTrendingUp } from 'react-icons/bi'
 import { MdOpenInNew } from 'react-icons/md'
 import './HomeContent.css'
+import { FollowBar } from '../../Components/FollowBar/FollowBar'
 export const HomeContent = () => {
   return (
     <>
@@ -22,11 +23,18 @@ export const HomeContent = () => {
           <span></span>
           <button className='trending-btn letter-spacing-1 cursor-pointer'><BiTrendingUp /><span className='padding-left-03'>Trending</span></button>
         </div>
+        <div className='trending-mid-line'></div>
         <div className='latest-box'>
           <button className='latest-btn letter-spacing-1 cursor-pointer'><MdOpenInNew /><span className='padding-left-03'>Latest</span></button>
         </div>
 
       </div>
+
+      <div className='hide-follow-on-lg'>
+        <FollowBar />
+      </div>
+
+
       <div className='posts'>
         <SinglePost />
         <SinglePost />

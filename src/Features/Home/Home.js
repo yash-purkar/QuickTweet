@@ -20,7 +20,10 @@ export const Home = ({ children }) => {
       <ContentBox>
         {children}
       </ContentBox>
-      <FollowBar />
+      <div className='hide-on-md'>
+
+        <FollowBar />
+      </div>
       {/* <AddPost /> */}
       {/* <AddComment /> */}
     </div>

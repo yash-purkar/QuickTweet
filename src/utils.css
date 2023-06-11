@@ -54,3 +54,10 @@
 .font-for-dark {
   color: var(--white);
 }
+
+.display-inline-block {
+  display: inline-block;
+}
+.width-100 {
+  width: 100%;
+}
