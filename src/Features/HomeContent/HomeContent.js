@@ -23,6 +23,7 @@ export const HomeContent = () => {
           <span></span>
           <button className='trending-btn letter-spacing-1 cursor-pointer'><BiTrendingUp /><span className='padding-left-03'>Trending</span></button>
         </div>
+        <div className='trending-mid-line'></div>
         <div className='latest-box'>
           <button className='latest-btn letter-spacing-1 cursor-pointer'><MdOpenInNew /><span className='padding-left-03'>Latest</span></button>
         </div>

@@ -35,7 +35,9 @@
   font-size: 0.9rem;
   padding-left: 0.3rem;
 }
-
+.trending-mid-line {
+  border: 1px solid var(--gray);
+}
 .posts {
   margin-top: 1rem;
 }

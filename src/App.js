@@ -6,6 +6,7 @@ import { Profile } from './Features/Profile/Profile';
 import { HomeContent } from './Features/HomeContent/HomeContent';
 import { Explore } from './Features/Explore/Explore';
 import { Bookmark } from './Features/Bookmark/Bookmark';
+import { Login } from './Features/Login/Login';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/explore' element={<Home><Explore /></Home>} />
         <Route path='/bookmark' element={<Home><Bookmark /></Home>} />
         <Route path='/profile' element={<Home><Profile /></Home>} />
+        <Route path='/login' element={<Login />} />
         <Route path='/mockman' element={<Mockman />} />
       </Routes>
     </div>
