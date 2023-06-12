@@ -5,7 +5,7 @@ import { BsBookmark } from 'react-icons/bs'
 import { SlOptionsVertical } from 'react-icons/sl'
 import { FaRegComment } from 'react-icons/fa'
 import { UseData } from '../../Contexts/DataContext'
-import { likePostHandler } from '../../Services/PostServices'
+import { dislikePostHandler, likePostHandler } from '../../Services/PostServices'
 
 export const SinglePost = ({ post }) => {
   const { dataState: { users, posts }, dataDispatch } = UseData();
@@ -24,6 +24,9 @@ export const SinglePost = ({ post }) => {
     likePostHandler(_id, socialToken, dataDispatch)
   }
 
+  const handlePostDislike = () => {
+    dislikePostHandler(_id, socialToken, dataDispatch)
+  }
   const isUserLiked = post?.likes?.likedBy?.some(post => post.username === user.username);
 
   return (
@@ -46,10 +49,10 @@ export const SinglePost = ({ post }) => {
       <p className='post-desc letter-spacing-1'>{content}</p>
 
       <div className='flex letter-spacing-1 align-center justify-around'>
-        <div className='like-option flex ' onClick={handlePostLike}>
+        <div className='like-option flex ' >
 
           {
-            isUserLiked ? <span className='like-icon liked'><AiFillHeart /> </span> : <span className='like-icon'><AiOutlineHeart /> </span>
+            isUserLiked ? <span className='like-icon liked' onClick={handlePostDislike}><AiFillHeart /> </span> : <span className='like-icon' onClick={handlePostLike}><AiOutlineHeart /> </span>
           }
 
           {likeCount}
