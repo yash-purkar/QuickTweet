@@ -41,6 +41,10 @@
 .bookmark-icon {
   font-size: 1.2rem;
 }
+.logout-btn {
+  background-color: var(--bg-clr);
+  border: none;
+}
 
 @media (min-width: 600px) {
   .navigation {

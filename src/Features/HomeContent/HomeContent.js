@@ -5,7 +5,9 @@ import { BiTrendingUp } from 'react-icons/bi'
 import { MdOpenInNew } from 'react-icons/md'
 import './HomeContent.css'
 import { FollowBar } from '../../Components/FollowBar/FollowBar'
+import { UseData } from '../../Contexts/DataContext'
 export const HomeContent = () => {
+  const { dataState: { posts } } = UseData();
   return (
     <>
       <div className='flex justify-between add-post-bar align-center'>
@@ -36,9 +38,9 @@ export const HomeContent = () => {
 
 
       <div className='posts'>
-        <SinglePost />
-        <SinglePost />
-
+        {
+          posts?.map(post => <SinglePost key={post._id} post={post} />)
+        }
       </div>
     </>
   )

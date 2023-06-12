@@ -129,7 +129,9 @@
 .post-user-img {
   width: 40px;
 }
-
+.liked {
+  color: var(--red);
+}
 @media (min-width: 600px) {
   .comment-profile-icon {
     width: 5%;

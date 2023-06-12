@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from 'react-router-dom'
+import { AuthContextProvider } from './Contexts/AuthContext';
+import { DataContextProvider } from './Contexts/DataContext';
 
 
 // Call make Server
@@ -16,7 +18,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <AuthContextProvider>
+        <DataContextProvider>
+          <App />
+        </DataContextProvider>
+      </AuthContextProvider>
     </Router>
   </React.StrictMode>
 );

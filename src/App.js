@@ -8,15 +8,16 @@ import { Explore } from './Features/Explore/Explore';
 import { Bookmark } from './Features/Bookmark/Bookmark';
 import { Login } from './Features/Login/Login';
 import { SignUp } from './Features/SignUp/SignUp';
+import { RequiresAuth } from './Auth/RequiresAuth';
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Home><HomeContent /></Home>} />
-        <Route path='/explore' element={<Home><Explore /></Home>} />
-        <Route path='/bookmark' element={<Home><Bookmark /></Home>} />
-        <Route path='/profile' element={<Home><Profile /></Home>} />
+        <Route path='/' element={<RequiresAuth><Home><HomeContent /></Home></RequiresAuth>} />
+        <Route path='/explore' element={<RequiresAuth><Home><Explore /></Home></RequiresAuth>} />
+        <Route path='/bookmark' element={<RequiresAuth><Home><Bookmark /></Home></RequiresAuth>} />
+        <Route path='/profile' element={<RequiresAuth><Home><Profile /></Home></RequiresAuth>} />
         <Route path='/login' element={<Login />} />
         <Route path='/signUp' element={<SignUp />} />
         <Route path='/mockman' element={<Mockman />} />
