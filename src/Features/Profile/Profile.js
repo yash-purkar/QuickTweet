@@ -2,8 +2,8 @@ import React from 'react'
 import './Profile.css'
 export const Profile = () => {
   const user = JSON.parse(localStorage.getItem("socialUser"))
-
-  const { firstName, lastName, username } = user;
+  console.log(user)
+  const { firstName, lastName, username, followers, following } = user;
   return (
     <div>
       <div className="profile-container flex ">
@@ -25,8 +25,8 @@ export const Profile = () => {
 
           <div className='flex follow-details letter-spacing-1 justify-between'>
             <p><span className='font-bold'>13</span> Posts</p>
-            <p><span className='font-bold'>50</span> Followers</p>
-            <p><span className='font-bold'>10</span> Following</p>
+            <p><span className='font-bold'>{followers.length}</span> Followers</p>
+            <p><span className='font-bold'>{following.length}</span> Following</p>
           </div>
 
         </div>

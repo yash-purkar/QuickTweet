@@ -23,7 +23,6 @@ export const Navbar = () => {
         <NavLink to="/a" className="icon-li tab-style-lg letter-spacing-1"><MdOutlineDarkMode className='icon' /><span className='icon-page-name'>DARK MODE</span></NavLink>
         <NavLink to="/profile" className="icon-li tab-style-lg letter-spacing-1 "><CgProfile className='icon' /><span className='icon-page-name'>PROFILE</span></NavLink>
         <button onClick={() => setIsLoggedIn(false)} className="icon-li tab-style-lg letter-spacing-1 logout-btn cursor-pointer"><BiLogOut className='icon' /><span className='icon-page-name'>LOGOUT</span></button>
-
       </div>
     </nav>
   )

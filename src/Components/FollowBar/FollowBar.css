@@ -18,8 +18,9 @@
   margin: 0.3rem 0rem;
   width: 100%;
   background-color: var(--white);
-  padding: 1rem;
+  padding: 1.5rem;
   padding-top: 0;
+  padding-bottom: 0.6rem;
   border-right: 1px solid var(--border-clr);
   color: var(--light-gray);
   letter-spacing: 1.1px;
@@ -83,6 +84,8 @@
     max-width: 300px;
     flex-direction: column;
     padding: 2rem 0rem;
+    height: 425px;
+    overflow: hidden;
   }
   .follow-user-name {
     font-size: 1rem;

@@ -52,9 +52,9 @@ export const Login = () => {
         <h2 className='sign-in-heading letter-spacing-1 text-center'>Sign In</h2>
         <div className='flex direction-column'>
 
-          <input type="text" className='login-user-name letter-spacing-1' placeholder='Email' name='username' onChange={handleChange} value={username} />
+          <input type="text" className='login-user-name letter-spacing-1' placeholder='Email' name='username' onChange={handleChange} value={username} required />
 
-          <input type="password" className='login-password letter-spacing-1' placeholder='Password' name='password' onChange={handleChange} value={password} />
+          <input type="password" className='login-password letter-spacing-1' placeholder='Password' name='password' onChange={handleChange} value={password} required />
 
         </div>
         {/* <div> */}

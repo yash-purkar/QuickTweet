@@ -19,7 +19,6 @@ export const LoginUser = async (creds, setIsLoggedIn, prevLocation, navigate) =>
       }
     }
 
-
   } catch (error) {
     console.log(error)
   }
