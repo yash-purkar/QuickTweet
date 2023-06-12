@@ -1,6 +1,7 @@
 import React from 'react'
 import './SignUp.css'
 import { NavLink } from 'react-router-dom'
+import { useState } from 'react'
 export const SignUp = () => {
   return (
     <div className='login-main-container flex '>
