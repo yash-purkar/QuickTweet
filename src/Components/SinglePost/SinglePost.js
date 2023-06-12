@@ -1,19 +1,31 @@
 import React from 'react'
 import './SinglePost.css'
-import { AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai'
+import { AiFillHeart, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai'
 import { BsBookmark } from 'react-icons/bs'
 import { SlOptionsVertical } from 'react-icons/sl'
 import { FaRegComment } from 'react-icons/fa'
 import { UseData } from '../../Contexts/DataContext'
+import { likePostHandler } from '../../Services/PostServices'
 
 export const SinglePost = ({ post }) => {
-  const { dataState: { users } } = UseData();
+  const { dataState: { users, posts }, dataDispatch } = UseData();
   // const 
   // console.log(post)
   const { _id, content, likes: { likeCount }, username } = post;
 
+  const socialToken = localStorage.getItem("socialToken");
+  const user = JSON.parse(localStorage.getItem("socialUser"));
+
   const { firstName, lastName, profile_photo, userHandler } = users.find((el) => el.username === username);
   // console.log(user)
+
+
+  const handlePostLike = () => {
+    likePostHandler(_id, socialToken, dataDispatch)
+  }
+
+  const isUserLiked = post?.likes?.likedBy?.some(post => post.username === user.username);
+
   return (
     <div className='single-post-card'>
 
@@ -34,8 +46,13 @@ export const SinglePost = ({ post }) => {
       <p className='post-desc letter-spacing-1'>{content}</p>
 
       <div className='flex letter-spacing-1 align-center justify-around'>
-        <div className='like-option flex '>
-          <span className='like-icon'><AiOutlineHeart /> </span> {likeCount}
+        <div className='like-option flex ' onClick={handlePostLike}>
+
+          {
+            isUserLiked ? <span className='like-icon liked'><AiFillHeart /> </span> : <span className='like-icon'><AiOutlineHeart /> </span>
+          }
+
+          {likeCount}
         </div>
         <div className='comment-option flex'>
           <span className='comment-icon'><FaRegComment /></span> 3

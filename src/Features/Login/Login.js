@@ -35,7 +35,7 @@ export const Login = () => {
 
   const handleGuestLogin = () => {
     let prevLocation;
-    const creds = { username: "yashpurkar_02", password: "yash1234" }
+    const creds = { username: "yashpurkar@gmail.com", password: "100" }
     setLoginDetails({ ...creds })
     LoginUser(creds, setIsLoggedIn, prevLocation, navigate)
   }

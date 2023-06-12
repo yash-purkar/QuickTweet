@@ -13,6 +13,11 @@ export const dataReducer = (state, action) => {
     case "INITIALIZE_USERS": return {
       ...state, users: payload
     }
+
+    case "POST_OPERATIONS": return {
+      ...state, posts: payload
+    }
+
     default: return state;
   }
 }
