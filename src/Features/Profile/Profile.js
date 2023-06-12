@@ -1,6 +1,9 @@
 import React from 'react'
 import './Profile.css'
 export const Profile = () => {
+  const user = JSON.parse(localStorage.getItem("socialUser"))
+
+  const { firstName, lastName, username } = user;
   return (
     <div>
       <div className="profile-container flex ">
@@ -10,8 +13,8 @@ export const Profile = () => {
 
           <div className='flex justify-between align-center profile-name-info'>
             <div>
-              <h2 className='profile-user-name letter-spacing-1'>Yash</h2>
-              <p className='user-name-2 letter-spacing-1'>@yash1221</p>
+              <h2 className='profile-user-name letter-spacing-1'>{firstName} {lastName}</h2>
+              <p className='user-name-2 letter-spacing-1'>{username}</p>
             </div>
             <button className='edit-profile-btn letter-spacing-1 cursor-pointer'>Edit</button>
           </div>

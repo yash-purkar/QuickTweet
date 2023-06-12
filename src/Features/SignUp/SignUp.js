@@ -1,10 +1,31 @@
 import React from 'react'
 import './SignUp.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { SignupUser } from '../../Services/AuthServices'
+import { UseAuth } from '../../Contexts/AuthContext'
 export const SignUp = () => {
+  const [signUpDetails, setSignUpDetails] = useState({
+    firstName: "",
+    lastName: "",
+    username: "",
+    password: ""
+  })
+  const { setIsLoggedIn } = UseAuth();
+
+  const navigate = useNavigate();
+
+  const handleSignUpChange = (e) => {
+    const { name, value } = e.target;
+    setSignUpDetails({ ...signUpDetails, [name]: value })
+  }
+  const { firstName, lastName, username, password } = signUpDetails;
+
+  const handleCreateAccount = () => {
+    SignupUser({ ...signUpDetails }, setIsLoggedIn, navigate)
+  }
   return (
-    <div className='login-main-container flex '>
+    <form onSubmit={(e) => e.preventDefault()} className='login-main-container flex '>
 
       <div className='login-header flex align-center direction-column'>
         <h1 className='login-header-text letter-spacing-1'>QuickTweet</h1>
@@ -14,16 +35,20 @@ export const SignUp = () => {
       <div className='login-form-container flex direction-column'>
         <h2 className='sign-in-heading text-center letter-spacing-1'>Sign Up</h2>
         <div className='flex justify-between fname-lname-box letter-spacing-1'>
-          <input type="text" className='fname letter-spacing-1' placeholder='Name' />
-          <input type="text" className='lname letter-spacing-1' placeholder='Surname' />
+
+          <input type="text" className='fname letter-spacing-1' placeholder='Name' onChange={handleSignUpChange} value={firstName} name='firstName' required />
+
+          <input type="text" className='lname letter-spacing-1' placeholder='Surname' onChange={handleSignUpChange} value={lastName} name='lastName' required />
+
         </div>
 
         <div className='flex direction-column'>
-          <input type="text" className='login-user-name letter-spacing-1' placeholder='Email' />
-          <input type="password" className='login-password letter-spacing-1' placeholder='Password' />
+          <input type="text" className='login-user-name letter-spacing-1' placeholder='Email' onChange={handleSignUpChange} value={username} name='username' required />
+
+          <input type="password" className='login-password letter-spacing-1' placeholder='Password' onChange={handleSignUpChange} value={password} name='password' required />
         </div>
         {/* <div> */}
-        <button className='login-btn letter-spacing-1 font-bold cursor-pointer create-acc'>Create Account</button>
+        <button onClick={handleCreateAccount} className='login-btn letter-spacing-1 font-bold cursor-pointer create-acc'>Create Account</button>
 
         {/* </div> */}
 
@@ -34,6 +59,6 @@ export const SignUp = () => {
 
 
 
-    </div>
+    </form>
   )
 }

@@ -41,7 +41,7 @@ export const Login = () => {
   }
 
   return (
-    <div className='login-main-container flex '>
+    <form onSubmit={(e) => e.preventDefault()} className='login-main-container flex '>
 
       <div className='login-header flex align-center direction-column'>
         <h1 className='login-header-text letter-spacing-1'>QuickTweet</h1>
@@ -68,6 +68,6 @@ export const Login = () => {
         <NavLink to="/signUp" className="create-new-account"> <button className=' letter-spacing-1 font-bold cursor-pointer create-new-acc-btn'>Create new account</button></NavLink>
       </div>
 
-    </div>
+    </form>
   )
 }
