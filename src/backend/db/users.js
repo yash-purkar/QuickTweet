@@ -16,6 +16,7 @@ export const users = [
     password: "100",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bookmarked: []
   },
   {
     _id: uuid(),
@@ -27,6 +28,7 @@ export const users = [
     password: "100",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bookmarked: []
   },
   {
     _id: uuid(),
@@ -38,6 +40,7 @@ export const users = [
     password: "100",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bookmarked: []
   },
   {
     _id: uuid(),
@@ -49,6 +52,7 @@ export const users = [
     password: "100",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bookmarked: []
   },
   {
     _id: uuid(),
@@ -60,5 +64,6 @@ export const users = [
     password: "100",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bookmarked: []
   },
 ];

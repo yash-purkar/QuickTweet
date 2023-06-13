@@ -1,18 +1,18 @@
 import React from 'react'
 import './SinglePost.css'
 import { AiFillHeart, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai'
-import { BsBookmark } from 'react-icons/bs'
+import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs'
 import { SlOptionsVertical } from 'react-icons/sl'
 import { FaRegComment } from 'react-icons/fa'
 import { UseData } from '../../Contexts/DataContext'
-import { dislikePostHandler, likePostHandler } from '../../Services/PostServices'
+import { bookmarkPostHandler, dislikePostHandler, likePostHandler, removeBookmarkPostHandler } from '../../Services/PostServices'
 import { useNavigate } from 'react-router'
 import { SingleComment } from './SingleComment/SingleComment'
 import { AddPost } from '../AddPost/AddPost'
 import { UsePost } from '../../Contexts/PostContext'
 
 export const SinglePost = ({ post, showDetail }) => {
-  const { dataState: { users, posts }, dataDispatch } = UseData();
+  const { dataState: { users, posts, bookmarks }, dataDispatch } = UseData();
   const navigate = useNavigate();
 
   const { postDispatch } = UsePost();
@@ -40,6 +40,13 @@ export const SinglePost = ({ post, showDetail }) => {
     navigate(`/post/${postId}`)
   }
 
+  const handleBookmarkClick = () => {
+    bookmarkPostHandler(_id, socialToken, dataDispatch)
+  }
+
+  const handleRemoveBookmark = () => {
+    removeBookmarkPostHandler(_id, socialToken, dataDispatch)
+  }
   const isUserLiked = post?.likes?.likedBy?.some(post => post.username === user.username);
 
   return (
@@ -76,8 +83,10 @@ export const SinglePost = ({ post, showDetail }) => {
         })}>
           <span className='comment-icon'><FaRegComment /></span> {comments?.length}
         </div>
-        <div className='bookmark-option flex'>
-          <span className='bookmark-icon-2'><BsBookmark /></span>
+        <div className='bookmark-option flex' >
+          {
+            bookmarks?.some(el => el?.username === username) ? <span onClick={handleRemoveBookmark} className='bookmark-icon-2'><BsFillBookmarkFill /></span> : <span onClick={handleBookmarkClick} className='bookmark-icon-2'><BsBookmark /></span>
+          }
         </div>
         <div className='share-option flex'>
           <span className='share-icon'><AiOutlineShareAlt /></span>

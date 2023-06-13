@@ -47,3 +47,44 @@ export const addCommentHandler = (posts, username, comment, dataDispatch) => {
   console.log(comment.username, "user")
   dataDispatch({ type: "POST_OPERATIONS", payload: updatedPosts })
 }
+
+export const bookmarkPostHandler = async (postId, socialToken, dataDispatch) => {
+  try {
+    const { status, data: { bookmarks } } = await axios.post(`/api/users/bookmark/${postId}`,
+      {},
+      {
+        headers: {
+          authorization: socialToken
+        }
+      }
+    )
+    // console.log(response)
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "BOOKMARK_OPERATIONS", payload: bookmarks })
+    }
+
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatch) => {
+  try {
+    const { status, data: { bookmarks } } = await axios.post(`/api/users/remove-bookmark/${postId}`,
+      {},
+      {
+        headers: {
+          authorization: socialToken
+        }
+      }
+    )
+
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "BOOKMARK_OPERATIONS", payload: bookmarks })
+    }
+
+  } catch (error) {
+    console.log(error)
+  }
+}

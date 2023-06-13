@@ -1,6 +1,7 @@
 export const dataInitialState = {
   posts: [],
-  users: []
+  users: [],
+  bookmarks: []
 }
 
 export const dataReducer = (state, action) => {
@@ -14,6 +15,9 @@ export const dataReducer = (state, action) => {
       ...state, users: payload
     }
 
+    case "BOOKMARK_OPERATIONS": return {
+      ...state, bookmarks: payload
+    }
     case "POST_OPERATIONS": return {
       ...state, posts: payload
     }
