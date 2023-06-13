@@ -26,7 +26,8 @@ export const AddComment = () => {
       <div className='add-comment-container'>
         <div className='add-comment-inner-container'>
           <span className='go-back cursor-pointer' onClick={() => postDispatch({ type: "HIDE_COMMENT_MODEL" })}><BiArrowBack /></span>
-          <textarea name="" id="" className='comment-text-area letter-spacing-1' onChange={(e) => setCommentText(e.target.value)} placeholder='Comment Your Thoughts...'></textarea>
+
+          <textarea name="" id="" className='comment-text-area letter-spacing-1' onChange={(e) => setCommentText(e.target.value)} placeholder='Comment Your Thoughts...' autoFocus></textarea>
 
           <div className='flex justify-center'>
             <button className='new-comment-button cursor-pointer letter-spacing-1' onClick={() => handleAddComment(posts, commentPostUser, { _id: uuid(), username: user?.username, text: commentText }, dataDispatch)}>Comment</button>

@@ -1,5 +1,25 @@
 import axios from "axios"
 
+export const createPostHandler = async (postData, socialToken, dataDispatch) => {
+  try {
+    const { status, data: { posts } } = await axios.post(`/api/posts`, {
+      postData
+    }
+      ,
+      {
+        headers: {
+          authorization: socialToken
+        }
+      }
+    )
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "POST_OPERATIONS", payload: posts })
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export const likePostHandler = async (postId, socialToken, dataDispatch) => {
   try {
     const { status, data: { posts } } = await axios.post(`/api/posts/like/${postId}`,
