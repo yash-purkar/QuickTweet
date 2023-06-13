@@ -12,7 +12,7 @@ import { AddPost } from '../AddPost/AddPost'
 import { UsePost } from '../../Contexts/PostContext'
 
 export const SinglePost = ({ post, showDetail }) => {
-  const { dataState: { users, posts, bookmarks }, dataDispatch } = UseData();
+  const { dataState: { users, posts, bookmarksIDs }, dataDispatch } = UseData();
   const navigate = useNavigate();
 
   const { postDispatch } = UsePost();
@@ -85,7 +85,7 @@ export const SinglePost = ({ post, showDetail }) => {
         </div>
         <div className='bookmark-option flex' >
           {
-            bookmarks?.some(el => el?.username === username) ? <span onClick={handleRemoveBookmark} className='bookmark-icon-2'><BsFillBookmarkFill /></span> : <span onClick={handleBookmarkClick} className='bookmark-icon-2'><BsBookmark /></span>
+            bookmarksIDs?.some(el => el === _id) ? <span onClick={handleRemoveBookmark} className='bookmark-icon-2'><BsFillBookmarkFill /></span> : <span onClick={handleBookmarkClick} className='bookmark-icon-2'><BsBookmark /></span>
           }
         </div>
         <div className='share-option flex'>

@@ -58,7 +58,7 @@ export const bookmarkPostHandler = async (postId, socialToken, dataDispatch) => 
         }
       }
     )
-    // console.log(response)
+    console.log(bookmarks, "new")
     if (status === 200 || status === 201) {
       dataDispatch({ type: "BOOKMARK_OPERATIONS", payload: bookmarks })
     }
@@ -79,7 +79,7 @@ export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatc
         }
       }
     )
-
+    console.log(bookmarks)
     if (status === 200 || status === 201) {
       dataDispatch({ type: "BOOKMARK_OPERATIONS", payload: bookmarks })
     }
