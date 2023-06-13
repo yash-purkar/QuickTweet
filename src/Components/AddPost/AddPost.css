@@ -79,7 +79,7 @@
 
 @media (min-width: 600px) {
   .create-post-container {
-    width: 50%;
+    /* width: 50%; */
   }
 }
 

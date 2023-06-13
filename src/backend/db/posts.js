@@ -18,6 +18,18 @@ export const posts = [
       dislikedBy: [],
     },
     username: "yashpurkar@gmail.com",
+    comments: [
+      {
+        _id: uuid(),
+        username: "amitshah@gmail.com",
+        text: "WOW🔥",
+      },
+      {
+        _id: uuid(),
+        username: "akshaykumar@gmail.com",
+        text: "AWESOME🎉",
+      }
+    ],
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
@@ -31,6 +43,18 @@ export const posts = [
       dislikedBy: [],
     },
     username: "arjunrajput@gmail.com",
+    comments: [
+      {
+        _id: uuid(),
+        username: "amitshah@gmail.com",
+        text: "Nice arjun👌🏻",
+      },
+      {
+        _id: uuid(),
+        username: "yashpurkar@gmail.com",
+        text: "Great🎉",
+      }
+    ],
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },

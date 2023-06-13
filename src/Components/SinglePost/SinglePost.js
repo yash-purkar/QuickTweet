@@ -6,13 +6,19 @@ import { SlOptionsVertical } from 'react-icons/sl'
 import { FaRegComment } from 'react-icons/fa'
 import { UseData } from '../../Contexts/DataContext'
 import { dislikePostHandler, likePostHandler } from '../../Services/PostServices'
+import { useNavigate } from 'react-router'
+import { SingleComment } from './SingleComment/SingleComment'
+import { AddPost } from '../AddPost/AddPost'
+import { UsePost } from '../../Contexts/PostContext'
 
-export const SinglePost = ({ post }) => {
+export const SinglePost = ({ post, showDetail }) => {
   const { dataState: { users, posts }, dataDispatch } = UseData();
-  // const 
-  // console.log(post)
-  const { _id, content, likes: { likeCount }, username } = post;
+  const navigate = useNavigate();
 
+  const { postDispatch } = UsePost();
+
+  const { _id, content, likes: { likeCount }, username, comments } = post;
+  console.log(comments)
   const socialToken = localStorage.getItem("socialToken");
   const user = JSON.parse(localStorage.getItem("socialUser"));
 
@@ -27,11 +33,16 @@ export const SinglePost = ({ post }) => {
   const handlePostDislike = () => {
     dislikePostHandler(_id, socialToken, dataDispatch)
   }
+
+
+  const handlePostClick = (postId) => {
+    navigate(`/post/${postId}`)
+  }
+
   const isUserLiked = post?.likes?.likedBy?.some(post => post.username === user.username);
 
   return (
     <div className='single-post-card'>
-
       <div className='flex justify-between'>
         <div className='flex align-center post-user-details'>
           <span className='post-profile'><img src={profile_photo} className='post-user-img' alt="user-img" /></span>
@@ -46,7 +57,7 @@ export const SinglePost = ({ post }) => {
 
       </div>
 
-      <p className='post-desc letter-spacing-1'>{content}</p>
+      <p onClick={() => handlePostClick(_id)} className='post-desc letter-spacing-1 cursor-pointer'>{content}</p>
 
       <div className='flex letter-spacing-1 align-center justify-around'>
         <div className='like-option flex ' >
@@ -57,7 +68,7 @@ export const SinglePost = ({ post }) => {
 
           {likeCount}
         </div>
-        <div className='comment-option flex'>
+        <div className='comment-option flex' onClick={() => postDispatch({ type: "SHOW_COMMENT_MODEL" })}>
           <span className='comment-icon'><FaRegComment /></span> 3
         </div>
         <div className='bookmark-option flex'>
@@ -67,6 +78,16 @@ export const SinglePost = ({ post }) => {
           <span className='share-icon'><AiOutlineShareAlt /></span>
         </div>
 
+      </div>
+
+      <div className='comments-container'>
+        {
+          showDetail && <>
+            {
+              comments?.map(comment => <SingleComment key={comment._id} comment={comment} />)
+            }
+          </>
+        }
       </div>
     </div>
   )
