@@ -39,3 +39,11 @@ export const dislikePostHandler = async (postId, socialToken, dataDispatch) => {
     console.log(error)
   }
 }
+
+
+export const addCommentHandler = (posts, username, comment, dataDispatch) => {
+  const updatedPosts = posts?.map(el => el.username === username ? { ...el, comments: [...el.comments, comment] } : el);
+  // console.log(updatedPosts, "posts",username,"ff")
+  console.log(comment.username, "user")
+  dataDispatch({ type: "POST_OPERATIONS", payload: updatedPosts })
+}

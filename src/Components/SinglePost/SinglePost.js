@@ -18,6 +18,7 @@ export const SinglePost = ({ post, showDetail }) => {
   const { postDispatch } = UsePost();
 
   const { _id, content, likes: { likeCount }, username, comments } = post;
+
   console.log(comments)
   const socialToken = localStorage.getItem("socialToken");
   const user = JSON.parse(localStorage.getItem("socialUser"));
@@ -68,8 +69,12 @@ export const SinglePost = ({ post, showDetail }) => {
 
           {likeCount}
         </div>
-        <div className='comment-option flex' onClick={() => postDispatch({ type: "SHOW_COMMENT_MODEL" })}>
-          <span className='comment-icon'><FaRegComment /></span> 3
+        <div className='comment-option flex' onClick={() => postDispatch({
+          type: "SHOW_COMMENT_MODEL", payload: {
+            commentPostUser: username
+          }
+        })}>
+          <span className='comment-icon'><FaRegComment /></span> {comments?.length}
         </div>
         <div className='bookmark-option flex'>
           <span className='bookmark-icon-2'><BsBookmark /></span>
