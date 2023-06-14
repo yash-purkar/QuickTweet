@@ -41,7 +41,9 @@
 .posts {
   margin-top: 1rem;
 }
-
+.add-post-text:hover {
+  cursor: text;
+}
 .user-image {
   width: 30px;
   height: 30px;

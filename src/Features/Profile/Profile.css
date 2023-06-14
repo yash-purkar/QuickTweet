@@ -25,7 +25,9 @@
 .profile-user-name {
   color: var(--light-font-clr);
 }
-.edit-profile-btn {
+.edit-profile-btn,
+.follow-profile-btn,
+.unfollow-profile-btn {
   padding: 0.2rem 0.8rem;
   border: 1px solid var(--primary);
   background-color: var(--primary);
@@ -49,6 +51,12 @@
   padding-top: 0.5rem;
 
   flex-wrap: wrap;
+}
+
+.unfollow-profile-btn {
+  color: #ff6363;
+  background-color: var(--white);
+  border: 1px solid #ff6363;
 }
 
 @media (min-width: 600px) {
@@ -79,11 +87,17 @@
     font-size: 1.1rem;
     margin-top: 0.8rem;
   }
-  .edit-profile-btn {
+  .edit-profile-btn,
+  .follow-profile-btn,
+  .unfollow-profile-btn {
     font-size: 1rem;
   }
-  .edit-profile-btn:hover {
+  .profile-btns:hover {
     background-color: var(--white);
     color: var(--primary);
+  }
+  .unfollow-profile-btn:hover {
+    color: var(--red);
+    border-color: var(--red);
   }
 }
