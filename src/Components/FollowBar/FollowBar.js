@@ -23,11 +23,9 @@ export const FollowBar = () => {
   // Bcz we are not setting the updated data in localstorage so we are taking updated data of user.
   const user = users.find(el => el.username === socialUser.username)
 
-  // Remove loggedIn user from followbar.
-  const usersByRemoveLoggedInUser = users?.filter(el => el.username !== socialUser.username)
 
-  //It will give me users which I haven't followed yet. 
-  const notFollowedUsers = usersByRemoveLoggedInUser?.filter(el => user.following.every(item => item.username !== el.username));
+  // bcz we don't want loggedIn user as followed user
+  const notFollowedUsers = users?.filter(el => el.username !== socialUser.username && user.following.every(item => item.username !== el.username));
 
 
   // console.log(notFollowedUsers)
