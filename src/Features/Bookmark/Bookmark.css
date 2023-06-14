@@ -1,7 +1,12 @@
 .bookmarke-heading {
   color: #45454585;
-  margin-top: -1rem;
   margin-bottom: 1rem;
   letter-spacing: 3px;
   text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+  .bookmarke-heading {
+    margin-top: -1rem;
+  }
 }

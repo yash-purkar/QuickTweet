@@ -45,7 +45,7 @@ export const HomeContent = () => {
 
       <div className='posts'>
         {
-          posts?.map(post => <SinglePost key={post._id} post={post} />)
+          [...posts]?.reverse()?.map(post => <SinglePost key={post._id} post={post} />)
         }
       </div>
     </>

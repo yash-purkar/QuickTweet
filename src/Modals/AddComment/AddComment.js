@@ -10,7 +10,7 @@ export const AddComment = () => {
   const [commentText, setCommentText] = useState();
 
   const user = JSON.parse(localStorage.getItem("socialUser"));
-  console.log(user, "ss")
+  // console.log(user, "ss")
 
   const { postDispatch } = UsePost();
   const { dataState: { posts }, dataDispatch } = UseData();

@@ -1,8 +1,16 @@
 import React from 'react'
 import './FollowBar.css'
 import { UseData } from '../../Contexts/DataContext'
+import { useNavigate } from 'react-router';
 export const FollowBar = () => {
   const { dataState: { users } } = UseData();
+
+  const navigate = useNavigate();
+
+  const handleUserProfile = (userHandler) => {
+    navigate(`/profile/${userHandler}`)
+  }
+
   return (
     <div className='followbar-main-container'>
       <div className='followbar-container flex  align-center '>
@@ -13,8 +21,8 @@ export const FollowBar = () => {
           return (
             <div key={_id} className='flex justify-between follow-user-card'>
               <div className='flex followbar-card-inner align-center'>
-                <span className='follow-user-profile'><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2qYGz5830vmlcv3GkXFoZsIvRucQcaCD6zfE3UZE0w&usqp=CAU&ec=48665699" className='follow-user-img ' alt="user-img" /></span>
-                <div>
+                <span className='follow-user-profile cursor-pointer' onClick={() => handleUserProfile(userHandler)}><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2qYGz5830vmlcv3GkXFoZsIvRucQcaCD6zfE3UZE0w&usqp=CAU&ec=48665699" className='follow-user-img ' alt="user-img" /></span>
+                <div onClick={() => handleUserProfile(userHandler)} className='cursor-pointer'>
                   <h4 className='follow-user-name text-center' >{firstName} {lastName}</h4>
                   <small className='follow-username-2'>@{userHandler}</small>
                 </div>

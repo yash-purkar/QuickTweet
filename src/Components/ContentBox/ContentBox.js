@@ -1,8 +1,8 @@
 import React from 'react'
 import './ContentBox.css'
 import { Search } from '../Search/Search'
-import { AddPost } from '../AddPost/AddPost'
-import { AddComment } from '../AddComment/AddComment'
+import { AddPost } from '../../Modals/AddPost/AddPost'
+import { AddComment } from '../../Modals/AddComment/AddComment'
 import { UsePost } from '../../Contexts/PostContext'
 
 

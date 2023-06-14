@@ -1,9 +1,22 @@
 import React from 'react'
 import './Profile.css'
+import { useParams } from 'react-router';
+import { UseData } from '../../Contexts/DataContext';
+import { SinglePost } from '../../Components/SinglePost/SinglePost';
 export const Profile = () => {
-  const user = JSON.parse(localStorage.getItem("socialUser"))
-  console.log(user)
+
+  const { userhandler } = useParams();
+
+  const { dataState: { users, posts } } = UseData();
+
+  const user = users?.find(el => el.userHandler === userhandler);
+
+
   const { firstName, lastName, username, followers, following } = user;
+
+  const profileUserPosts = posts?.filter(post => post.username === username)
+  // console.log(profileUserPosts)
+
   return (
     <div>
       <div className="profile-container flex ">
@@ -31,6 +44,12 @@ export const Profile = () => {
 
         </div>
 
+      </div>
+
+      <div className='posts'>
+        {
+          profileUserPosts?.map(post => <SinglePost key={post.username} post={post} />)
+        }
       </div>
     </div>
   )

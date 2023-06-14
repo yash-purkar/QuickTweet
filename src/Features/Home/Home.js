@@ -4,10 +4,7 @@ import { Search } from '../../Components/Search/Search'
 import { FollowBar } from '../../Components/FollowBar/FollowBar'
 import { ContentBox } from '../../Components/ContentBox/ContentBox'
 import { Navbar } from '../../Components/Navbar/Navbar'
-import { AddPost } from '../../Components/AddPost/AddPost'
-import { AddComment } from '../../Components/AddComment/AddComment'
-import { SinglePost } from '../../Components/SinglePost/SinglePost'
-import { HomeContent } from '../HomeContent/HomeContent'
+
 
 export const Home = ({ children }) => {
   return (
@@ -24,8 +21,6 @@ export const Home = ({ children }) => {
 
         <FollowBar />
       </div>
-      {/* <AddPost /> */}
-      {/* <AddComment /> */}
     </div>
   )
 }

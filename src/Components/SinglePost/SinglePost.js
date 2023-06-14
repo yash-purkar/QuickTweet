@@ -8,7 +8,6 @@ import { UseData } from '../../Contexts/DataContext'
 import { bookmarkPostHandler, dislikePostHandler, likePostHandler, removeBookmarkPostHandler } from '../../Services/PostServices'
 import { useNavigate } from 'react-router'
 import { SingleComment } from './SingleComment/SingleComment'
-import { AddPost } from '../AddPost/AddPost'
 import { UsePost } from '../../Contexts/PostContext'
 
 export const SinglePost = ({ post, showDetail }) => {
@@ -21,6 +20,7 @@ export const SinglePost = ({ post, showDetail }) => {
 
   console.log(comments)
   const socialToken = localStorage.getItem("socialToken");
+
   const user = JSON.parse(localStorage.getItem("socialUser"));
 
   const { firstName, lastName, profile_photo, userHandler } = users.find((el) => el.username === username);
@@ -47,16 +47,21 @@ export const SinglePost = ({ post, showDetail }) => {
   const handleRemoveBookmark = () => {
     removeBookmarkPostHandler(_id, socialToken, dataDispatch)
   }
+
+  const handleUserProfile = (userHandler) => {
+    navigate(`/profile/${userHandler}`)
+  }
+
   const isUserLiked = post?.likes?.likedBy?.some(post => post.username === user.username);
 
   return (
     <div className='single-post-card'>
       <div className='flex justify-between'>
         <div className='flex align-center post-user-details'>
-          <span className='post-profile'><img src={profile_photo} className='post-user-img' alt="user-img" /></span>
+          <span className='post-profile cursor-pointer' onClick={() => handleUserProfile(userHandler)}><img src={profile_photo} className='post-user-img' alt="user-img" /></span>
 
           <div className='letter-spacing-1'>
-            <p ><span className='font-bold letter-spacing-1 user-name-1'>{firstName} {lastName}</span> <small className='user-name-2 letter-spacing-1'>@{userHandler}</small></p>
+            <p onClick={() => handleUserProfile(userHandler)}><span className='font-bold letter-spacing-1 user-name-1 cursor-pointer'>{firstName} {lastName}</span> <small className='user-name-2 letter-spacing-1 cursor-pointer'>@{userHandler}</small></p>
             <p><span className='post-date'>2022/09/06</span><span className='post-time'>11:46</span></p>
           </div>
 
