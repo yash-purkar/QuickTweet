@@ -8,7 +8,7 @@ export const PostDetail = () => {
   const { postId } = useParams();
   const { dataState: { posts } } = UseData();
 
-  const foundPost = posts?.find(post => post?._id === postId) || {};
+  const foundPost = posts?.find(post => post?._id === postId);
   console.log(foundPost)
   return (
     <>

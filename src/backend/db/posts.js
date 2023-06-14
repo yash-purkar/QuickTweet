@@ -39,7 +39,18 @@ export const posts = [
       "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
     likes: {
       likeCount: 0,
-      likedBy: [],
+      likedBy: [{
+        _id: uuid(),
+        firstName: "Arjun",
+        lastName: "Rajput",
+        username: "arjunrajput@gmail.com",
+        profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
+        userHandler: "arjun28",
+        password: "100",
+        createdAt: formatDate(),
+        updatedAt: formatDate(),
+        bookmarks: []
+      }],
       dislikedBy: [],
     },
     username: "arjunrajput@gmail.com",

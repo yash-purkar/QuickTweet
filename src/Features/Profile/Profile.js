@@ -11,7 +11,7 @@ export const Profile = () => {
 
   const user = users?.find(el => el.userHandler === userhandler);
 
-
+  console.log(user)
   const { firstName, lastName, username, followers, following } = user;
 
   const profileUserPosts = posts?.filter(post => post.username === username)
