@@ -4,7 +4,8 @@ import { useParams } from 'react-router';
 import { UseData } from '../../Contexts/DataContext';
 import { SinglePost } from '../../Components/SinglePost/SinglePost';
 import { followUserHandler, unfollowUserHandler } from '../../Services/UserServices';
-export const Profile = () => {
+
+export const UsersProfile = () => {
 
   const { userhandler } = useParams();
 
@@ -14,21 +15,21 @@ export const Profile = () => {
 
   const socialToken = localStorage.getItem("socialToken")
 
+  const foundUser = users?.find(el => el.userHandler === userhandler);
+  const { firstName, lastName, username, followers, following } = foundUser;
 
-  const profileUserPosts = posts?.filter(post => post.username === socialUser.username)
-  // console.log(profileUserPosts)
+  const foundUsersPosts = posts?.filter(post => post.username === username)
 
-  const loggedInUser = users?.find(user => user.username === socialUser.username);
 
-  const { firstName, lastName, username, followers, following } = loggedInUser;
 
-  // const handleFollow = (followUserId, socialToken, dataDispatch) => {
-  //   followUserHandler(followUserId, socialToken, dataDispatch)
-  // }
 
-  // const handleUnfollow = (followUserId, socialToken, dataDispatch) => {
-  //   unfollowUserHandler(followUserId, socialToken, dataDispatch)
-  // }
+  const handleFollow = (followUserId, socialToken, dataDispatch) => {
+    followUserHandler(followUserId, socialToken, dataDispatch)
+  }
+
+  const handleUnfollow = (followUserId, socialToken, dataDispatch) => {
+    unfollowUserHandler(followUserId, socialToken, dataDispatch)
+  }
 
   return (
     <div>
@@ -43,7 +44,14 @@ export const Profile = () => {
               <p className='user-name-2 letter-spacing-1'>{username}</p>
             </div>
 
-            <button className='edit-profile-btn letter-spacing-1 profile-btns cursor-pointer'>Edit</button>
+            {
+              socialUser?.following?.some(el => el.username === foundUser.username)
+                ?
+                <button onClick={() => handleUnfollow(foundUser._id, socialToken, dataDispatch)} className='unfollow-profile-btn letter-spacing-1 profile-btns cursor-pointer'>Unfollow</button>
+                :
+                <button onClick={() => handleFollow(foundUser._id, socialToken, dataDispatch)} className='follow-profile-btn letter-spacing-1 profile-btns cursor-pointer'>Follow</button>
+            }
+
           </div>
 
           <p className='letter-spacing-1 user-profile-status'>An Aspiring Web Developer🚀</p>
@@ -62,7 +70,7 @@ export const Profile = () => {
 
       <div className='posts'>
         {
-          profileUserPosts?.map(post => <SinglePost key={post.username} post={post} />)
+          foundUsersPosts?.map(post => <SinglePost key={post.username} post={post} />)
         }
       </div>
     </div>

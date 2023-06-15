@@ -7,13 +7,30 @@ import './HomeContent.css'
 import { FollowBar } from '../../Components/FollowBar/FollowBar'
 import { UseData } from '../../Contexts/DataContext'
 import { UsePost } from '../../Contexts/PostContext'
+import { useState } from 'react'
 export const HomeContent = () => {
-  const { dataState: { posts } } = UseData();
+  const { dataState: { posts, users } } = UseData();
   const { postDispatch } = UsePost();
+  const [postsType, setPostsType] = useState("latest");
+
+  const socialUser = JSON.parse(localStorage.getItem("socialUser"));
 
   const openPostModel = () => {
     postDispatch({ type: "SHOW_POST_MODEL" })
   }
+
+
+  const loggedInUserPosts = posts?.filter(post => post?.username === socialUser?.username);
+
+  const homePosts = posts?.filter(post => socialUser?.following?.some(el => el.username === post.username));
+
+  // For trending
+  const likedPosts = posts?.filter(post => post?.likes?.likedBy?.length > 0);
+
+  const sortPostsByLikes = [...likedPosts]?.sort((a, b) => a.likes.likedBy.length - b.likes.likedBy.length)
+
+  const postsByType = postsType === "latest" ? [...loggedInUserPosts, ...homePosts] : sortPostsByLikes;
+
   return (
     <>
       <div className='flex justify-between add-post-bar align-center'>
@@ -27,15 +44,17 @@ export const HomeContent = () => {
       </div>
 
       <div className='flex justify-around trending-latest-box '>
-        <div className='trending-box flex align-center'>
-          <span></span>
-          <button className='trending-btn letter-spacing-1 cursor-pointer'><BiTrendingUp /><span className='padding-left-03'>Trending</span></button>
-        </div>
-        <div className='trending-mid-line'></div>
+
         <div className='latest-box'>
-          <button className='latest-btn letter-spacing-1 cursor-pointer'><MdOpenInNew /><span className='padding-left-03'>Latest</span></button>
+          <button onClick={() => setPostsType("latest")} className={`latest-btn letter-spacing-1 cursor-pointer ${postsType === "latest" && "type-active"}`} ><MdOpenInNew /><span className='padding-left-03'>Latest</span></button>
         </div>
 
+        <div className='trending-mid-line'></div>
+
+        <div className='trending-box flex align-center'>
+          <span></span>
+          <button onClick={() => setPostsType("trending")} className={`trending-btn letter-spacing-1 cursor-pointer ${postsType === "trending" && "type-active"}`}><BiTrendingUp /><span className='padding-left-03'>Trending</span></button>
+        </div>
       </div>
 
       <div className='hide-follow-on-lg'>
@@ -43,11 +62,15 @@ export const HomeContent = () => {
       </div>
 
 
-      <div className='posts'>
-        {
-          [...posts]?.reverse()?.map(post => <SinglePost key={post._id} post={post} />)
-        }
-      </div>
+      {
+        postsByType?.length > 0 ? <div className='posts'>
+          {
+            postsByType?.reverse()?.map(post => <SinglePost key={post._id} post={post} />)
+          }
+        </div>
+          :
+          <h2 className='likes-posts-heading text-center'>Liked Some Posts To See</h2>
+      }
     </>
   )
 }

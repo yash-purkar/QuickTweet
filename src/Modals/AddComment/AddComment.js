@@ -9,7 +9,7 @@ import { useState } from 'react'
 export const AddComment = () => {
   const [commentText, setCommentText] = useState();
 
-  const user = JSON.parse(localStorage.getItem("socialUser"));
+  const socialUser = JSON.parse(localStorage.getItem("socialUser"));
   // console.log(user, "ss")
 
   const { postDispatch } = UsePost();
@@ -30,7 +30,7 @@ export const AddComment = () => {
           <textarea name="" id="" className='comment-text-area letter-spacing-1' onChange={(e) => setCommentText(e.target.value)} placeholder='Comment Your Thoughts...' autoFocus></textarea>
 
           <div className='flex justify-center'>
-            <button className='new-comment-button cursor-pointer letter-spacing-1' onClick={() => handleAddComment(posts, commentPostUser, { _id: uuid(), username: user?.username, text: commentText }, dataDispatch)}>Comment</button>
+            <button className='new-comment-button cursor-pointer letter-spacing-1' onClick={() => handleAddComment(posts, commentPostUser, { _id: uuid(), username: socialUser?.username, text: commentText }, dataDispatch)}>Comment</button>
           </div>
         </div>
       </div>
