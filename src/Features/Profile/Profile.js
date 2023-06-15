@@ -3,7 +3,7 @@ import './Profile.css'
 import { useParams } from 'react-router';
 import { UseData } from '../../Contexts/DataContext';
 import { SinglePost } from '../../Components/SinglePost/SinglePost';
-import { followUserHandler } from '../../Services/UserServices';
+import { followUserHandler, unfollowUserHandler } from '../../Services/UserServices';
 export const Profile = () => {
 
   const { userhandler } = useParams();
@@ -36,6 +36,10 @@ export const Profile = () => {
     followUserHandler(followUserId, socialToken, dataDispatch)
   }
 
+  const handleUnfollow = (followUserId, socialToken, dataDispatch) => {
+    unfollowUserHandler(followUserId, socialToken, dataDispatch)
+  }
+
   return (
     <div>
       <div className="profile-container flex ">
@@ -57,7 +61,7 @@ export const Profile = () => {
                   {
                     loggedInUserFollowings.some(el => el.username === user.username)
                       ?
-                      <button className='unfollow-profile-btn letter-spacing-1 profile-btns cursor-pointer'>Unfollow</button>
+                      <button onClick={() => handleUnfollow(user._id, socialToken, dataDispatch)} className='unfollow-profile-btn letter-spacing-1 profile-btns cursor-pointer'>Unfollow</button>
                       :
                       <button onClick={() => handleFollow(user._id, socialToken, dataDispatch)} className='follow-profile-btn letter-spacing-1 profile-btns cursor-pointer'>Follow</button>
                   }
