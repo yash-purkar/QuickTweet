@@ -1,7 +1,6 @@
 export const dataInitialState = {
   posts: [],
   users: [],
-  bookmarksIDs: []
 }
 
 export const dataReducer = (state, action) => {
@@ -16,8 +15,10 @@ export const dataReducer = (state, action) => {
     }
 
     case "BOOKMARK_OPERATIONS": return {
-      ...state, bookmarksIDs: payload
+
+      ...state, users: state.users.map(el => el.username === payload.username ? { ...el, bookmarks: payload.bookmarks } : el)
     }
+
     case "POST_OPERATIONS": return {
       ...state, posts: payload
     }

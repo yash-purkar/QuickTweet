@@ -4,9 +4,14 @@ import './Bookmark.css'
 import { UseData } from '../../Contexts/DataContext'
 
 export const Bookmark = () => {
-  const { dataState: { posts, bookmarksIDs } } = UseData();
+  const { dataState: { posts, users } } = UseData();
 
-  const bookmarkPosts = posts?.filter(post => bookmarksIDs.some(el => el === post._id))
+  const socialUser = JSON.parse(localStorage.getItem("socialUser"));
+
+  const user = users?.find(el => el.username === socialUser.username);
+
+  const bookmarkPosts = posts?.filter(post => user.bookmarks.includes(post._id))
+
   return (
     <div className='posts'>
       <h2 className='bookmarke-heading text-center letter-spacing-1'>{bookmarkPosts.length > 0 ? "Bookmarked" : "No Bookmarks Yet"}</h2>

@@ -68,7 +68,7 @@ export const addCommentHandler = (posts, username, comment, dataDispatch) => {
   dataDispatch({ type: "POST_OPERATIONS", payload: updatedPosts })
 }
 
-export const bookmarkPostHandler = async (postId, socialToken, dataDispatch) => {
+export const bookmarkPostHandler = async (postId, socialToken, dataDispatch, socialUser) => {
   try {
     const { status, data: { bookmarks } } = await axios.post(`/api/users/bookmark/${postId}`,
       {},
@@ -78,9 +78,9 @@ export const bookmarkPostHandler = async (postId, socialToken, dataDispatch) => 
         }
       }
     )
-    console.log(bookmarks, "new")
+    console.log(bookmarks, "newwwwwwwwwwwwww")
     if (status === 200 || status === 201) {
-      dataDispatch({ type: "BOOKMARK_OPERATIONS", payload: bookmarks })
+      dataDispatch({ type: "BOOKMARK_OPERATIONS", payload: { bookmarks, username: socialUser.username } })
     }
 
 
@@ -89,7 +89,7 @@ export const bookmarkPostHandler = async (postId, socialToken, dataDispatch) => 
   }
 }
 
-export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatch) => {
+export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatch, socialUser) => {
   try {
     const { status, data: { bookmarks } } = await axios.post(`/api/users/remove-bookmark/${postId}`,
       {},
@@ -99,9 +99,13 @@ export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatc
         }
       }
     )
-    console.log(bookmarks)
+    console.log(bookmarks, "removeClick")
     if (status === 200 || status === 201) {
-      dataDispatch({ type: "BOOKMARK_OPERATIONS", payload: bookmarks })
+      dataDispatch({
+        type: "BOOKMARK_OPERATIONS", payload: {
+          bookmarks, username: socialUser.username
+        }
+      })
     }
 
   } catch (error) {

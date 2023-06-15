@@ -11,7 +11,7 @@ import { SingleComment } from './SingleComment/SingleComment'
 import { UsePost } from '../../Contexts/PostContext'
 
 export const SinglePost = ({ post, showDetail }) => {
-  const { dataState: { users, posts, bookmarksIDs }, dataDispatch } = UseData();
+  const { dataState: { users, posts }, dataDispatch } = UseData();
   const navigate = useNavigate();
 
   const { postDispatch } = UsePost();
@@ -21,11 +21,13 @@ export const SinglePost = ({ post, showDetail }) => {
   console.log(comments)
   const socialToken = localStorage.getItem("socialToken");
 
-  const user = JSON.parse(localStorage.getItem("socialUser"));
+  const socialUser = JSON.parse(localStorage.getItem("socialUser"));
+  const loggedInUser = users?.find(el => el.username === socialUser.username)
 
-  const { firstName, lastName, profile_photo, userHandler } = users.find((el) => el.username === username);
+  const postUser = users.find((el) => el.username === username);
   // console.log(user)
 
+  const { firstName, lastName, profile_photo, userHandler, bookmarks } = postUser
 
   const handlePostLike = () => {
     likePostHandler(_id, socialToken, dataDispatch)
@@ -41,19 +43,24 @@ export const SinglePost = ({ post, showDetail }) => {
   }
 
   const handleBookmarkClick = () => {
-    bookmarkPostHandler(_id, socialToken, dataDispatch)
+    bookmarkPostHandler(_id, socialToken, dataDispatch, loggedInUser)
   }
 
   const handleRemoveBookmark = () => {
-    removeBookmarkPostHandler(_id, socialToken, dataDispatch)
+    removeBookmarkPostHandler(_id, socialToken, dataDispatch, loggedInUser)
   }
 
   const handleUserProfile = (userHandler) => {
     navigate(`/profile/${userHandler}`)
   }
 
-  const isUserLiked = post?.likes?.likedBy?.some(post => post.username === user.username);
 
+  const isUserLiked = post?.likes?.likedBy?.some(post => post.username === loggedInUser.username);
+
+  const isBookMarked = loggedInUser?.bookmarks?.includes(_id);
+
+  console.log(isBookMarked, "isBokmarkedddd", userHandler)
+  console.log(bookmarks, "userbookmarks", userHandler)
   return (
     <div className='single-post-card'>
       <div className='flex justify-between'>
@@ -90,7 +97,8 @@ export const SinglePost = ({ post, showDetail }) => {
         </div>
         <div className='bookmark-option flex' >
           {
-            bookmarksIDs?.some(el => el === _id) ? <span onClick={handleRemoveBookmark} className='bookmark-icon-2'><BsFillBookmarkFill /></span> : <span onClick={handleBookmarkClick} className='bookmark-icon-2'><BsBookmark /></span>
+            isBookMarked ? <span onClick={handleRemoveBookmark} className='bookmark-icon-2'><BsFillBookmarkFill /></span> :
+              <span onClick={handleBookmarkClick} className='bookmark-icon-2'><BsBookmark /></span>
           }
         </div>
         <div className='share-option flex'>
