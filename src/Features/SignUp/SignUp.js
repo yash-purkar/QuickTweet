@@ -1,15 +1,23 @@
 import React from 'react'
+import { v4 as uuid } from "uuid";
 import './SignUp.css'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { SignupUser } from '../../Services/AuthServices'
 import { UseAuth } from '../../Contexts/AuthContext'
+import { UseData } from '../../Contexts/DataContext';
 export const SignUp = () => {
   const [signUpDetails, setSignUpDetails] = useState({
+    _id: uuid(),
     firstName: "",
     lastName: "",
     username: "",
-    password: ""
+    password: "",
+    bookmarks: [],
+    following: [],
+    followers: [],
+    userHandler: `${this?.firstName}`,
+    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699"
   })
   const { setIsLoggedIn } = UseAuth();
 
@@ -21,8 +29,10 @@ export const SignUp = () => {
   }
   const { firstName, lastName, username, password } = signUpDetails;
 
+  const { dataDispatch } = UseData();
+
   const handleCreateAccount = () => {
-    SignupUser({ ...signUpDetails }, setIsLoggedIn, navigate)
+    SignupUser({ ...signUpDetails }, setIsLoggedIn, navigate, dataDispatch)
   }
   return (
     <form onSubmit={(e) => e.preventDefault()} className='login-main-container flex '>

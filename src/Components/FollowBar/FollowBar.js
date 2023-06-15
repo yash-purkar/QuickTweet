@@ -12,20 +12,15 @@ export const FollowBar = () => {
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
 
   const handleUserProfile = (userHandler) => {
-    navigate(`/profile/${userHandler}`)
+    navigate(`/user-profile/${userHandler}`)
   }
 
   const handleFollowUser = (followUserId, socialToken, dataDispatch) => {
     followUserHandler(followUserId, socialToken, dataDispatch)
   }
 
-
-  // Bcz we are not setting the updated data in localstorage so we are taking updated data of user.
-  const user = users.find(el => el.username === socialUser.username)
-
-
   // bcz we don't want loggedIn user as followed user
-  const notFollowedUsers = users?.filter(el => el.username !== socialUser.username && user.following.every(item => item.username !== el.username));
+  const notFollowedUsers = users?.filter(el => el.username !== socialUser.username && socialUser.following.every(item => item.username !== el.username));
 
 
   // console.log(notFollowedUsers)

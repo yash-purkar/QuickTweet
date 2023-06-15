@@ -10,6 +10,7 @@ import { Login } from './Features/Login/Login';
 import { SignUp } from './Features/SignUp/SignUp';
 import { RequiresAuth } from './Auth/RequiresAuth';
 import { PostDetail } from './Features/PostDetail/PostDetail';
+import { UsersProfile } from './Features/Profile/UsersProfile';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path='/' element={<RequiresAuth><Home><HomeContent /></Home></RequiresAuth>} />
         <Route path='/explore' element={<RequiresAuth><Home><Explore /></Home></RequiresAuth>} />
         <Route path='/bookmark' element={<RequiresAuth><Home><Bookmark /></Home></RequiresAuth>} />
-        <Route path='/profile/:userhandler' element={<RequiresAuth><Home><Profile /></Home></RequiresAuth>} />
+        <Route path='/profile' element={<RequiresAuth><Home><Profile /></Home></RequiresAuth>} />
+        <Route path='/user-profile/:userhandler' element={<RequiresAuth><Home><UsersProfile /></Home></RequiresAuth>} />
         <Route path='/post/:postId' element={<Home><PostDetail /></Home>} />
         <Route path='/login' element={<Login />} />
         <Route path='/signUp' element={<SignUp />} />

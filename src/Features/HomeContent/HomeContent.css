@@ -49,6 +49,18 @@
   height: 30px;
   border-radius: 50%;
 }
+.type-active {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.likes-posts-heading {
+  color: #45454585;
+  margin-bottom: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
 @media (min-width: 1024px) {
   .hide-follow-on-lg {
     display: none;
@@ -73,5 +85,8 @@
   }
   .plus-icon {
     font-size: 1.5rem;
+  }
+  .likes-posts-heading {
+    margin-top: 1rem;
   }
 }

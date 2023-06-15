@@ -16,9 +16,6 @@ export const Navbar = () => {
     localStorage.removeItem("socialUser")
   }
 
-  const socialUser = JSON.parse(localStorage.getItem("socialUser"));
-  const { userHandler } = socialUser;
-  // console.log(socialUser, "s")
   return (
     <nav className='navigation flex justify-between'>
       <div className='flex align-center nav-header-box justify-center '>
@@ -30,7 +27,7 @@ export const Navbar = () => {
         <NavLink to="/explore" className="icon-li tab-style-lg letter-spacing-1"><MdOutlineExplore className='icon' /><span className='icon-page-name'>EXPLORE</span></NavLink>
         <NavLink to="/bookmark" className="icon-li tab-style-lg letter-spacing-1"><BsFillBookmarkFill className='icon bookmark-icon' /><span className='icon-page-name '>BOOKMARK</span></NavLink>
         <NavLink to="/a" className="icon-li tab-style-lg letter-spacing-1"><MdOutlineDarkMode className='icon' /><span className='icon-page-name'>DARK MODE</span></NavLink>
-        <NavLink to={`/profile/${userHandler}`} className="icon-li tab-style-lg letter-spacing-1 "><CgProfile className='icon' /><span className='icon-page-name'>PROFILE</span></NavLink>
+        <NavLink to={`/profile`} className="icon-li tab-style-lg letter-spacing-1 "><CgProfile className='icon' /><span className='icon-page-name'>PROFILE</span></NavLink>
         <button onClick={handleLogOut} className="icon-li tab-style-lg letter-spacing-1 logout-btn cursor-pointer"><BiLogOut className='icon' /><span className='icon-page-name'>LOGOUT</span></button>
       </div>
     </nav>

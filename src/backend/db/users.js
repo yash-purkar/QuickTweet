@@ -32,7 +32,7 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
   },
   {
     _id: uuid(),

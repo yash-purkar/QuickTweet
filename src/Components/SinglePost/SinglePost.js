@@ -23,9 +23,6 @@ export const SinglePost = ({ post, showDetail }) => {
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
 
-  //bcz user we are setting in localStorage is not updating
-  const loggedInUser = users?.find(el => el.username === socialUser.username)
-
   const postUser = users.find((el) => el.username === username);
   // console.log(user)
 
@@ -45,21 +42,21 @@ export const SinglePost = ({ post, showDetail }) => {
   }
 
   const handleBookmarkClick = () => {
-    bookmarkPostHandler(_id, socialToken, dataDispatch, loggedInUser)
+    bookmarkPostHandler(_id, socialToken, dataDispatch, socialUser)
   }
 
   const handleRemoveBookmark = () => {
-    removeBookmarkPostHandler(_id, socialToken, dataDispatch, loggedInUser)
+    removeBookmarkPostHandler(_id, socialToken, dataDispatch, socialUser)
   }
 
   const handleUserProfile = (userHandler) => {
-    navigate(`/profile/${userHandler}`)
+    navigate(`/user-profile/${userHandler}`)
   }
 
 
-  const isUserLiked = post?.likes?.likedBy?.some(post => post.username === loggedInUser.username);
+  const isUserLiked = post?.likes?.likedBy?.some(post => post.username === socialUser.username);
 
-  const isBookMarked = loggedInUser?.bookmarks?.includes(_id);
+  const isBookMarked = socialUser?.bookmarks?.includes(_id);
 
   console.log(isBookMarked, "isBokmarkedddd", userHandler)
   console.log(bookmarks, "userbookmarks", userHandler)

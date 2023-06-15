@@ -8,9 +8,7 @@ export const Bookmark = () => {
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
 
-  const loggedInUser = users?.find(el => el.username === socialUser.username);
-
-  const bookmarkPosts = posts?.filter(post => loggedInUser.bookmarks.includes(post._id))
+  const bookmarkPosts = posts?.filter(post => socialUser.bookmarks.includes(post._id))
 
   return (
     <div className='posts'>
