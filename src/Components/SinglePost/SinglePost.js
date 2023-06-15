@@ -22,6 +22,8 @@ export const SinglePost = ({ post, showDetail }) => {
   const socialToken = localStorage.getItem("socialToken");
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
+
+  //bcz user we are setting in localStorage is not updating
   const loggedInUser = users?.find(el => el.username === socialUser.username)
 
   const postUser = users.find((el) => el.username === username);

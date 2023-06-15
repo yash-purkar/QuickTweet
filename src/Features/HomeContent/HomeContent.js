@@ -8,12 +8,21 @@ import { FollowBar } from '../../Components/FollowBar/FollowBar'
 import { UseData } from '../../Contexts/DataContext'
 import { UsePost } from '../../Contexts/PostContext'
 export const HomeContent = () => {
-  const { dataState: { posts } } = UseData();
+  const { dataState: { posts, users } } = UseData();
   const { postDispatch } = UsePost();
+
+  const socialUser = JSON.parse(localStorage.getItem("socialUser"));
+  const loggedInUser = users?.find(el => el.username === socialUser.username);
 
   const openPostModel = () => {
     postDispatch({ type: "SHOW_POST_MODEL" })
   }
+
+
+  const loggedInUserPosts = posts?.filter(post => post?.username === loggedInUser?.username);
+
+  const homePosts = posts?.filter(post => loggedInUser?.following?.some(el => el.username === post.username));
+
   return (
     <>
       <div className='flex justify-between add-post-bar align-center'>
@@ -45,7 +54,7 @@ export const HomeContent = () => {
 
       <div className='posts'>
         {
-          [...posts]?.reverse()?.map(post => <SinglePost key={post._id} post={post} />)
+          [...loggedInUserPosts, ...homePosts]?.reverse()?.map(post => <SinglePost key={post._id} post={post} />)
         }
       </div>
     </>
