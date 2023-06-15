@@ -23,6 +23,12 @@ export const dataReducer = (state, action) => {
       ...state, posts: payload
     }
 
+    // It will add or remove the user from loggedInUser following.
+
+    case "FOLLOWING_OPERATIONS": return {
+      ...state, users: state?.users?.map(el => el.username === payload.user?.username ? { ...el, following: payload?.user?.following } : el)
+    }
+
     // It will add follower in user account to whom I'm following
     case "ADD_FOLLOWER": return {
       ...state, users: state.users.map(user => user.username === payload.followUser.username ? { ...user, followers: payload.followUser.followers } : user)

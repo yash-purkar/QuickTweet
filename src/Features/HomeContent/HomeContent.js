@@ -14,15 +14,17 @@ export const HomeContent = () => {
   const [postsType, setPostsType] = useState("latest");
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
+  const loggedInUser = users?.find(el => el.username === socialUser.username)
+
 
   const openPostModel = () => {
     postDispatch({ type: "SHOW_POST_MODEL" })
   }
 
 
-  const loggedInUserPosts = posts?.filter(post => post?.username === socialUser?.username);
+  const loggedInUserPosts = posts?.filter(post => post?.username === loggedInUser?.username);
 
-  const homePosts = posts?.filter(post => socialUser?.following?.some(el => el.username === post.username));
+  const homePosts = posts?.filter(post => loggedInUser?.following?.some(el => el.username === post.username));
 
   // For trending
   const likedPosts = posts?.filter(post => post?.likes?.likedBy?.length > 0);
