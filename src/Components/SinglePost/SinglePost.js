@@ -25,10 +25,10 @@ export const SinglePost = ({ post, showDetail }) => {
   const loggedInUser = users?.find(el => el.username === socialUser.username)
 
 
-  const postUser = users.find((el) => el.username === username);
+  const postUser = users?.find((el) => el.username === username);
   // console.log(user)
 
-  const { firstName, lastName, profile_photo, userHandler, bookmarks } = postUser
+  const { firstName, lastName, profile_photo, userHandler, bookmarks } = postUser || {}
 
   const handlePostLike = () => {
     likePostHandler(_id, socialToken, dataDispatch)
@@ -52,7 +52,12 @@ export const SinglePost = ({ post, showDetail }) => {
   }
 
   const handleUserProfile = (userHandler) => {
-    navigate(`/user-profile/${userHandler}`)
+    if (userHandler === loggedInUser?.userHandler) {
+      navigate(`/profile`)
+    }
+    else {
+      navigate(`/user-profile/${userHandler}`)
+    }
   }
 
 

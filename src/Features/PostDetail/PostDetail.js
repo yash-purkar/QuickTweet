@@ -11,8 +11,8 @@ export const PostDetail = () => {
   const foundPost = posts?.find(post => post?._id === postId);
   console.log(foundPost)
   return (
-    <>
+    <div className='post-detail-container'>
       <SinglePost post={foundPost} showDetail />
-    </>
+    </div>
   )
 }

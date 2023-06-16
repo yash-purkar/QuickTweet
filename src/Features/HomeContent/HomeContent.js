@@ -67,7 +67,7 @@ export const HomeContent = () => {
       {
         postsByType?.length > 0 ? <div className='posts'>
           {
-            postsByType?.reverse()?.map(post => <SinglePost key={post._id} post={post} />)
+            postsByType?.map(post => <SinglePost key={post._id} post={post} />)
           }
         </div>
           :

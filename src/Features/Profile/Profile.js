@@ -43,9 +43,9 @@ export const Profile = () => {
           <a href="https://yashpurkar-portfolio.netlify.app/" className='user-portfolio-link letter-spacing-1' target='_blank' rel='noreferrer'>https://yashpurkar-portfolio.netlify.app/</a>
 
           <div className='flex follow-details letter-spacing-1 justify-between'>
-            <p><span className='font-bold'>13</span> Posts</p>
-            <p><span className='font-bold'>{followers.length}</span> Followers</p>
-            <p><span className='font-bold'>{following.length}</span> Following</p>
+            <p><span className='font-bold'>{profileUserPosts?.length}</span> Posts</p>
+            <p><span className='font-bold'>{followers?.length}</span> Followers</p>
+            <p><span className='font-bold'>{following?.length}</span> Following</p>
           </div>
 
         </div>
