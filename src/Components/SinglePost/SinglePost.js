@@ -22,6 +22,8 @@ export const SinglePost = ({ post, showDetail }) => {
   const socialToken = localStorage.getItem("socialToken");
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
+  const loggedInUser = users?.find(el => el.username === socialUser.username)
+
 
   const postUser = users.find((el) => el.username === username);
   // console.log(user)
@@ -42,11 +44,11 @@ export const SinglePost = ({ post, showDetail }) => {
   }
 
   const handleBookmarkClick = () => {
-    bookmarkPostHandler(_id, socialToken, dataDispatch, socialUser)
+    bookmarkPostHandler(_id, socialToken, dataDispatch, loggedInUser)
   }
 
   const handleRemoveBookmark = () => {
-    removeBookmarkPostHandler(_id, socialToken, dataDispatch, socialUser)
+    removeBookmarkPostHandler(_id, socialToken, dataDispatch, loggedInUser)
   }
 
   const handleUserProfile = (userHandler) => {
@@ -54,9 +56,9 @@ export const SinglePost = ({ post, showDetail }) => {
   }
 
 
-  const isUserLiked = post?.likes?.likedBy?.some(post => post.username === socialUser.username);
+  const isUserLiked = post?.likes?.likedBy?.some(post => post.username === loggedInUser.username);
 
-  const isBookMarked = socialUser?.bookmarks?.includes(_id);
+  const isBookMarked = loggedInUser?.bookmarks?.includes(_id);
 
   console.log(isBookMarked, "isBokmarkedddd", userHandler)
   console.log(bookmarks, "userbookmarks", userHandler)

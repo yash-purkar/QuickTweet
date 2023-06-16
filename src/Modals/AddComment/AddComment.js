@@ -8,9 +8,11 @@ import { UseData } from '../../Contexts/DataContext'
 import { useState } from 'react'
 export const AddComment = () => {
   const [commentText, setCommentText] = useState();
+  const { dataState: { users } } = UseData()
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
-  // console.log(user, "ss")
+  const loggedInUser = users?.find(el => el.username === socialUser.username)
+
 
   const { postDispatch } = UsePost();
   const { dataState: { posts }, dataDispatch } = UseData();
@@ -30,7 +32,7 @@ export const AddComment = () => {
           <textarea name="" id="" className='comment-text-area letter-spacing-1' onChange={(e) => setCommentText(e.target.value)} placeholder='Comment Your Thoughts...' autoFocus></textarea>
 
           <div className='flex justify-center'>
-            <button className='new-comment-button cursor-pointer letter-spacing-1' onClick={() => handleAddComment(posts, commentPostUser, { _id: uuid(), username: socialUser?.username, text: commentText }, dataDispatch)}>Comment</button>
+            <button className='new-comment-button cursor-pointer letter-spacing-1' onClick={() => handleAddComment(posts, commentPostUser, { _id: uuid(), username: loggedInUser?.username, text: commentText }, dataDispatch)}>Comment</button>
           </div>
         </div>
       </div>

@@ -22,14 +22,6 @@ export const Profile = () => {
 
   const { firstName, lastName, username, followers, following } = loggedInUser;
 
-  // const handleFollow = (followUserId, socialToken, dataDispatch) => {
-  //   followUserHandler(followUserId, socialToken, dataDispatch)
-  // }
-
-  // const handleUnfollow = (followUserId, socialToken, dataDispatch) => {
-  //   unfollowUserHandler(followUserId, socialToken, dataDispatch)
-  // }
-
   return (
     <div>
       <div className="profile-container flex ">
