@@ -34,6 +34,10 @@ export const dataReducer = (state, action) => {
       ...state, users: state.users.map(user => user.username === payload.followUser.username ? { ...user, followers: payload.followUser.followers } : user)
     }
 
+    case "ADD_NEW_USER": return {
+      ...state, users: [...state.users, payload]
+    }
+
     case "REMOVE_FOLLOWER": return {
       ...state, users: state.users.map(el => el.username === payload.unfollowedUser.username ? {
         ...el, followers: payload.unfollowedUser.followers

@@ -12,7 +12,7 @@ export const Bookmark = () => {
   const bookmarkPosts = posts?.filter(post => loggedInUser.bookmarks.includes(post._id))
 
   return (
-    <div className='posts'>
+    <div className='bookmarks-container'>
       <h2 className='bookmarke-heading text-center letter-spacing-1'>{bookmarkPosts.length > 0 ? "Bookmarked" : "No Bookmarks Yet"}</h2>
       {
         bookmarkPosts?.map(post => <SinglePost key={post._id} post={post} />)

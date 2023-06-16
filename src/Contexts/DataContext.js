@@ -10,6 +10,7 @@ const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState);
+  const [searchedUserValue, setSearchedUserValue] = useState("")
   const getAllPosts = async () => {
     try {
       const { status, data: { posts } } = await axios.get('/api/posts');
@@ -43,7 +44,7 @@ export const DataContextProvider = ({ children }) => {
 
 
   return (
-    <DataContext.Provider value={{ dataState, dataDispatch, }}>{children}</DataContext.Provider>
+    <DataContext.Provider value={{ dataState, dataDispatch, searchedUserValue, setSearchedUserValue }}>{children}</DataContext.Provider>
   )
 }
 

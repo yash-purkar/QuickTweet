@@ -8,6 +8,9 @@
   border-radius: 0.5rem;
   margin-top: 1rem;
 }
+.add-post-bar {
+  margin-top: 4.5rem;
+}
 
 .addpost-profile-icon,
 .addpost-plus-icon {
@@ -73,6 +76,9 @@
     margin-left: 0;
     margin-right: 0;
     font-size: 1.2rem;
+  }
+  .add-post-bar {
+    margin-top: 2rem;
   }
   .trending-btn,
   .latest-btn {

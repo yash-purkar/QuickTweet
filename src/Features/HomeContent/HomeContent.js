@@ -31,7 +31,7 @@ export const HomeContent = () => {
 
   const sortPostsByLikes = [...likedPosts]?.sort((a, b) => a.likes.likedBy.length - b.likes.likedBy.length)
 
-  const postsByType = postsType === "latest" ? [...loggedInUserPosts, ...homePosts] : sortPostsByLikes;
+  const postsByType = postsType === "latest" ? [...loggedInUserPosts, ...homePosts].reverse() : sortPostsByLikes;
 
   return (
     <>

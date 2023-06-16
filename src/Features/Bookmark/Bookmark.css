@@ -4,9 +4,15 @@
   letter-spacing: 3px;
   text-transform: uppercase;
 }
+.bookmarks-container {
+  margin-top: 5rem;
+}
 
 @media (min-width: 1024px) {
   .bookmarke-heading {
     margin-top: -1rem;
+  }
+  .bookmarks-container {
+    margin-top: 3rem;
   }
 }
