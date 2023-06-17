@@ -120,6 +120,4 @@ export const users = [
     following: []
   }
 
-
-
 ];

@@ -17,7 +17,7 @@ export const UsersProfile = () => {
   const socialToken = localStorage.getItem("socialToken")
 
   const foundUser = users?.find(el => el.userHandler === userhandler);
-
+  console.log(foundUser, "Fuuuuuuu")
 
   const userPosts = posts?.filter(post => post.username === foundUser.username)
 
@@ -71,7 +71,7 @@ export const UsersProfile = () => {
 
       <div className='posts'>
         {
-          userPosts?.map(post => <SinglePost key={post.username} post={post} />)
+          userPosts?.map(post => <SinglePost key={post._id} post={post} />)
         }
       </div>
     </div>
