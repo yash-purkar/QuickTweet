@@ -19,8 +19,8 @@ export const Navbar = () => {
   return (
     <nav className='navigation flex justify-between'>
       <div className='flex align-center nav-header-box justify-center '>
-        <img src={brand_logo} alt="logo" className='brand-logo' />
-        <h1 className='nav-brand text-center letter-spacing-1'>QuickTweet</h1>
+        <NavLink to="/" className="nav-brand-logo decoration-none"><img src={brand_logo} alt="logo" className='brand-logo' /></NavLink>
+        <NavLink to="/" className="nav-brand-header decoration-none"><h1 className='nav-brand text-center letter-spacing-1'>QuickTweet</h1></NavLink>
       </div>
       <div className='icon-box flex justify-between align-center'>
         <NavLink to="/" className="tab-style-lg icon-li letter-spacing-1"><AiFillHome className='icon ' /> <span className='icon-page-name'>HOME</span> </NavLink>

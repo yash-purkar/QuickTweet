@@ -8,13 +8,13 @@ import { UseData } from '../../Contexts/DataContext'
 import { bookmarkPostHandler, dislikePostHandler, likePostHandler, removeBookmarkPostHandler } from '../../Services/PostServices'
 import { useNavigate } from 'react-router'
 import { SingleComment } from './SingleComment/SingleComment'
-import { UsePost } from '../../Contexts/PostContext'
+import { UseModal } from '../../Contexts/ModalContext'
 
 export const SinglePost = ({ post, showDetail }) => {
   const { dataState: { users, posts }, dataDispatch } = UseData();
   const navigate = useNavigate();
 
-  const { postDispatch } = UsePost();
+  const { modalDispatch } = UseModal();
 
   const { _id, content, likes: { likeCount }, username, comments, postImg } = post;
 
@@ -71,7 +71,9 @@ export const SinglePost = ({ post, showDetail }) => {
     <div className='single-post-card'>
       <div className='flex justify-between'>
         <div className='flex align-center post-user-details'>
-          <span className='post-profile cursor-pointer' onClick={() => handleUserProfile(userHandler)}><img src={profile_photo} className='post-user-img' alt="user-img" /></span>
+          <span className='post-profile cursor-pointer' onClick={() => handleUserProfile(userHandler)}>
+
+            <img src={profile_photo} className='post-user-img' alt="user-img" /></span>
 
           <div className='letter-spacing-1'>
             <p onClick={() => handleUserProfile(userHandler)}><span className='font-bold letter-spacing-1 user-name-1 cursor-pointer'>{firstName} {lastName}</span> <small className='user-name-2 letter-spacing-1 cursor-pointer'>@{userHandler}</small></p>
@@ -103,8 +105,8 @@ export const SinglePost = ({ post, showDetail }) => {
 
           {likeCount}
         </div>
-        <div className='comment-option flex' onClick={() => postDispatch({
-          type: "SHOW_COMMENT_MODEL", payload: {
+        <div className='comment-option flex' onClick={() => modalDispatch({
+          type: "SHOW_COMMENT_MODAL", payload: {
             commentPostId: _id
           }
         })}>

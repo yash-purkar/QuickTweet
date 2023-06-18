@@ -2,7 +2,7 @@ import React from 'react'
 import './SingleComment.css'
 import { UseData } from '../../../Contexts/DataContext';
 import { AiFillDelete } from 'react-icons/ai';
-import { UsePost } from '../../../Contexts/PostContext';
+import { UsePost } from '../../../Contexts/ModalContext';
 import { deleteCommentHandler } from '../../../Services/PostServices';
 
 export const SingleComment = ({ comment, postId }) => {

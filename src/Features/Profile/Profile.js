@@ -4,43 +4,40 @@ import { useParams } from 'react-router';
 import { UseData } from '../../Contexts/DataContext';
 import { SinglePost } from '../../Components/SinglePost/SinglePost';
 import { followUserHandler, unfollowUserHandler } from '../../Services/UserServices';
+import { UseModal } from '../../Contexts/ModalContext';
 export const Profile = () => {
 
-  const { userhandler } = useParams();
-
-  const { dataState: { users, posts }, dataDispatch } = UseData();
+  const { dataState: { users, posts } } = UseData();
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
 
-  const socialToken = localStorage.getItem("socialToken")
-
+  const { modalDispatch } = UseModal();
 
   const profileUserPosts = posts?.filter(post => post.username === socialUser.username)
-  // console.log(profileUserPosts)
 
   const loggedInUser = users?.find(user => user.username === socialUser.username);
 
-  const { firstName, lastName, username, followers, following } = loggedInUser;
+  const { firstName, lastName, followers, following, link, bio, profile_photo, userHandler } = loggedInUser;
 
   return (
     <div>
       <div className="profile-container flex ">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2qYGz5830vmlcv3GkXFoZsIvRucQcaCD6zfE3UZE0w&usqp=CAU&ec=48665699" alt="profile" className='profile-img' />
+        <img src={profile_photo} alt="profile" className='profile-img' />
 
         <div className='profile-info'>
 
           <div className='flex justify-between align-center profile-name-info'>
             <div>
               <h2 className='profile-user-name letter-spacing-1'>{firstName} {lastName}</h2>
-              <p className='user-name-2 letter-spacing-1'>{username}</p>
+              <p className='user-name-2 letter-spacing-1'>{userHandler}</p>
             </div>
 
-            <button className='edit-profile-btn letter-spacing-1 profile-btns cursor-pointer'>Edit</button>
+            <button onClick={() => modalDispatch({ type: "SHOW_PROFILE_EDIT_MODAL" })} className='edit-profile-btn letter-spacing-1 profile-btns cursor-pointer'>Edit</button>
           </div>
 
-          <p className='letter-spacing-1 user-profile-status'>An Aspiring Web Developer🚀</p>
+          <p className='letter-spacing-1 user-profile-status'>{bio}</p>
 
-          <a href="https://yashpurkar-portfolio.netlify.app/" className='user-portfolio-link letter-spacing-1' target='_blank' rel='noreferrer'>https://yashpurkar-portfolio.netlify.app/</a>
+          <a href={link} className='user-portfolio-link letter-spacing-1' target='_blank' rel='noreferrer'>{link}</a>
 
           <div className='flex follow-details letter-spacing-1 justify-between'>
             <p><span className='font-bold'>{profileUserPosts?.length}</span> Posts</p>
@@ -57,6 +54,7 @@ export const Profile = () => {
           [...profileUserPosts]?.reverse().map(post => <SinglePost key={post.username} post={post} />)
         }
       </div>
+
     </div>
   )
 }

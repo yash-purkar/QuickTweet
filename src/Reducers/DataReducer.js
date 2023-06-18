@@ -23,6 +23,10 @@ export const dataReducer = (state, action) => {
       ...state, posts: payload
     }
 
+    case "USER_OPERATIONS": return {
+      ...state, users: state.users.map(user => payload.username === user.username ? payload : user)
+    }
+
     // It will add or remove the user from loggedInUser following.
 
     case "FOLLOWING_OPERATIONS": return {

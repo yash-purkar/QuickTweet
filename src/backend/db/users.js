@@ -18,7 +18,9 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   },
   {
     _id: uuid(),
@@ -33,6 +35,8 @@ export const users = [
     bookmarks: [],
     followers: [],
     following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   },
   {
     _id: uuid(),
@@ -46,7 +50,9 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   },
   {
     _id: uuid(),
@@ -60,7 +66,9 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   },
   {
     _id: uuid(),
@@ -74,7 +82,9 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   },
   {
     _id: uuid(),
@@ -88,7 +98,9 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   },
   {
     _id: uuid(),
@@ -102,7 +114,9 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   }
   ,
   {
@@ -117,7 +131,9 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   }
 
 ];

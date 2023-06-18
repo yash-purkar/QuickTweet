@@ -17,6 +17,9 @@
 .justify-around {
   justify-content: space-around;
 }
+.justify-end {
+  justify-content: flex-end;
+}
 .align-center {
   align-items: center;
 }
@@ -60,4 +63,8 @@
 }
 .width-100 {
   width: 100%;
+}
+
+.decoration-none {
+  text-decoration: none;
 }

@@ -5,7 +5,7 @@ import { IoMdRemoveCircle } from 'react-icons/io'
 import './AddPost.css'
 import { createPostHandler } from '../../Services/PostServices';
 import { useState } from 'react';
-import { UsePost } from '../../Contexts/PostContext';
+import { UseModal } from '../../Contexts/ModalContext';
 import { UseData } from '../../Contexts/DataContext';
 
 export const AddPost = () => {
@@ -17,7 +17,7 @@ export const AddPost = () => {
   })
 
   const { dataDispatch } = UseData();
-  const { postDispatch } = UsePost();
+  const { modalDispatch } = UseModal();
 
   const socialToken = localStorage.getItem("socialToken");
 
@@ -30,7 +30,7 @@ export const AddPost = () => {
   const handlePostClick = () => {
     if (postData.content || postData.postImg) {
       createPostHandler(postData, socialToken, dataDispatch)
-      postDispatch({ type: "HIDE_POST_MODEL" })
+      modalDispatch({ type: "HIDE_POST_MODAL" })
     }
   }
 
@@ -42,7 +42,7 @@ export const AddPost = () => {
     <div className='create-post-main'>
       <div className='create-post-container'>
         <div className='create-post-inner-container'>
-          <span className='go-back cursor-pointer' onClick={() => postDispatch({ type: "HIDE_POST_MODEL" })}><BiArrowBack /></span>
+          <span className='go-back cursor-pointer' onClick={() => modalDispatch({ type: "HIDE_POST_MODAL" })}><BiArrowBack /></span>
 
           <textarea name="" id="" className='post-textarea letter-spacing-1' onChange={(e) => setPostData(prev => ({ ...prev, content: e.target.value }))} placeholder='What is happening?' autoFocus>
           </textarea>

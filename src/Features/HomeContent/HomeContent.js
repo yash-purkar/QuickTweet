@@ -6,11 +6,11 @@ import { MdOpenInNew } from 'react-icons/md'
 import './HomeContent.css'
 import { FollowBar } from '../../Components/FollowBar/FollowBar'
 import { UseData } from '../../Contexts/DataContext'
-import { UsePost } from '../../Contexts/PostContext'
+import { UseModal } from '../../Contexts/ModalContext'
 import { useState } from 'react'
 export const HomeContent = () => {
   const { dataState: { posts, users } } = UseData();
-  const { postDispatch } = UsePost();
+  const { modalDispatch } = UseModal();
   const [postsType, setPostsType] = useState("latest");
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
@@ -18,7 +18,7 @@ export const HomeContent = () => {
 
 
   const openPostModel = () => {
-    postDispatch({ type: "SHOW_POST_MODEL" })
+    modalDispatch({ type: "SHOW_POST_MODAL" })
   }
 
 
@@ -37,7 +37,7 @@ export const HomeContent = () => {
     <>
       <div className='flex justify-between add-post-bar align-center'>
         <p className='add-post-text flex align-center'>
-          <span className='addpost-profile-icon'><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2qYGz5830vmlcv3GkXFoZsIvRucQcaCD6zfE3UZE0w&usqp=CAU&ec=48665699" alt="user-img" className='user-image' /> </span>
+          <span className='addpost-profile-icon'><img src={loggedInUser?.profile_photo} alt="user-img" className='user-image' /> </span>
           <span className='add-post-text letter-spacing-1  cursor-pointer' onClick={openPostModel}>What is happening?</span>
         </p>
         <span className='addpost-plus-icon  cursor-pointer' onClick={openPostModel}>

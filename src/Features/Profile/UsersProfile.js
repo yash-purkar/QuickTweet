@@ -35,14 +35,14 @@ export const UsersProfile = () => {
   return (
     <div>
       <div className="profile-container flex ">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2qYGz5830vmlcv3GkXFoZsIvRucQcaCD6zfE3UZE0w&usqp=CAU&ec=48665699" alt="profile" className='profile-img' />
+        <img src={foundUser?.profile_photo} alt="profile" className='profile-img' />
 
         <div className='profile-info'>
 
           <div className='flex justify-between align-center profile-name-info'>
             <div>
               <h2 className='profile-user-name letter-spacing-1'>{foundUser.firstName} {foundUser.lastName}</h2>
-              <p className='user-name-2 letter-spacing-1'>{foundUser.username}</p>
+              <p className='user-name-2 letter-spacing-1'>{foundUser.userHandler}</p>
             </div>
 
             {
@@ -55,9 +55,9 @@ export const UsersProfile = () => {
 
           </div>
 
-          <p className='letter-spacing-1 user-profile-status'>An Aspiring Web Developer🚀</p>
+          <p className='letter-spacing-1 user-profile-status'>{foundUser?.bio}</p>
 
-          <a href="https://yashpurkar-portfolio.netlify.app/" className='user-portfolio-link letter-spacing-1' target='_blank' rel='noreferrer'>https://yashpurkar-portfolio.netlify.app/</a>
+          <a href={foundUser?.link} className='user-portfolio-link letter-spacing-1' target='_blank' rel='noreferrer'>{foundUser.link}</a>
 
           <div className='flex follow-details letter-spacing-1 justify-between'>
             <p><span className='font-bold'>{userPosts?.length}</span> Posts</p>

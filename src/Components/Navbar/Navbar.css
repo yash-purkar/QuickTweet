@@ -126,4 +126,13 @@
   .active:hover {
     background-color: var(--white);
   }
+  .nav-brand-logo,
+  .nav-brand-header {
+    background-color: var(--bg-clr);
+  }
+  .nav-brand-logo:hover,
+  .nav-brand-header:hover {
+    cursor: pointer;
+    background-color: var(--bg-clr);
+  }
 }

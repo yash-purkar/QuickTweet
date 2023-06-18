@@ -3,13 +3,14 @@ import './ContentBox.css'
 import { Search } from '../Search/Search'
 import { AddPost } from '../../Modals/AddPost/AddPost'
 import { AddComment } from '../../Modals/AddComment/AddComment'
-import { UsePost } from '../../Contexts/PostContext'
+import { UseModal } from '../../Contexts/ModalContext'
 import { UseData } from '../../Contexts/DataContext'
 import { useNavigate } from 'react-router'
+import { EditProfile } from '../../Modals/EditProfile/EditProfile'
 
 
 export const ContentBox = ({ children }) => {
-  const { postState: { showPostModel, showCommentModel } } = UsePost();
+  const { modalState: { showPostModal, showCommentModal, showProfileEditModal } } = UseModal();
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"))
 
@@ -26,8 +27,10 @@ export const ContentBox = ({ children }) => {
 
   return (
     <>
-      {showPostModel && <AddPost />}
-      {showCommentModel && <AddComment />}
+      {showPostModal && <AddPost />}
+      {showCommentModal && <AddComment />}
+      {showProfileEditModal && <EditProfile />}
+
       <div className='content-box-container'>
 
         <div className='hide-on-md'>
