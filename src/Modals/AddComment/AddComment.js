@@ -19,8 +19,10 @@ export const AddComment = () => {
 
   const handleAddComment = () => {
     // addCommentHandler(posts, commentPostUser, comment, dataDispatch);
-    addCommentHandler(commentPostId, commentText, socialToken, dataDispatch)
-    postDispatch({ type: "HIDE_COMMENT_MODEL" })
+    if (commentText) {
+      addCommentHandler(commentPostId, commentText, socialToken, dataDispatch)
+      postDispatch({ type: "HIDE_COMMENT_MODEL" })
+    }
   }
 
   return (

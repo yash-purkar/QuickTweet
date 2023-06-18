@@ -16,7 +16,7 @@ export const SinglePost = ({ post, showDetail }) => {
 
   const { postDispatch } = UsePost();
 
-  const { _id, content, likes: { likeCount }, username, comments } = post;
+  const { _id, content, likes: { likeCount }, username, comments, postImg } = post;
 
   console.log(comments, "cmtttttttttttts")
 
@@ -83,7 +83,16 @@ export const SinglePost = ({ post, showDetail }) => {
 
       </div>
 
-      <p onClick={() => handlePostClick(_id)} className='post-desc letter-spacing-1 cursor-pointer'>{content}</p>
+      <div onClick={() => handlePostClick(_id)} className='post-content-box'>{
+        content && <p className='post-desc letter-spacing-1 cursor-pointer'>{content}</p>
+      }
+        {postImg &&
+          <>
+            <br />
+            <img src={postImg} alt="img" className='post-img' />
+          </>
+        }
+      </div>
 
       <div className='flex letter-spacing-1 align-center justify-around'>
         <div className='like-option flex ' >

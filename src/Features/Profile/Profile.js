@@ -54,7 +54,7 @@ export const Profile = () => {
 
       <div className='posts'>
         {
-          profileUserPosts?.map(post => <SinglePost key={post.username} post={post} />)
+          [...profileUserPosts]?.reverse().map(post => <SinglePost key={post.username} post={post} />)
         }
       </div>
     </div>

@@ -31,7 +31,7 @@ export const HomeContent = () => {
 
   const sortPostsByLikes = [...likedPosts]?.sort((a, b) => a.likes.likedBy.length - b.likes.likedBy.length)
 
-  const postsByType = postsType === "latest" ? [...loggedInUserPosts, ...homePosts].reverse() : sortPostsByLikes;
+  const postsByType = postsType === "latest" ? [...loggedInUserPosts.reverse(), ...homePosts].reverse() : sortPostsByLikes;
 
   return (
     <>
@@ -67,7 +67,7 @@ export const HomeContent = () => {
       {
         postsByType?.length > 0 ? <div className='posts'>
           {
-            postsByType?.map(post => <SinglePost key={post._id} post={post} />)
+            [...postsByType]?.reverse().map(post => <SinglePost key={post._id} post={post} />)
           }
         </div>
           :

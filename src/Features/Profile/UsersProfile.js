@@ -71,7 +71,7 @@ export const UsersProfile = () => {
 
       <div className='posts'>
         {
-          userPosts?.map(post => <SinglePost key={post._id} post={post} />)
+          [...userPosts]?.reverse().map(post => <SinglePost key={post._id} post={post} />)
         }
       </div>
     </div>

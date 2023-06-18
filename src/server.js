@@ -48,6 +48,7 @@ export function makeServer({ environment = "development" } = {}) {
           following: [],
           bookmarks: [],
           comments: [],
+          postImg: "",
           ...item,
         })
       );

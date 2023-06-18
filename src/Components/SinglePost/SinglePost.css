@@ -37,13 +37,14 @@
   box-shadow: 0px 2px 4px rgba(29, 155, 240, 0.3);
   border-radius: 1rem;
 }
-
-.post-desc {
-  padding: 1.4rem 0;
-  padding-bottom: 0.9rem;
-  color: var(--gray);
+.post-content-box {
   border-bottom: 1px solid var(--border-clr);
   margin-bottom: 0.5rem;
+  padding: 1rem 0;
+}
+.post-desc {
+  padding-bottom: 0.9rem;
+  color: var(--gray);
 }
 .like-option,
 .bookmark-option,
@@ -132,6 +133,13 @@
 .liked {
   color: var(--red);
 }
+
+.post-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
 @media (min-width: 600px) {
   .comment-profile-icon {
     width: 5%;
@@ -166,5 +174,9 @@
 
   .post-user-img {
     width: 50px;
+  }
+  .post-img {
+    width: 200px;
+    height: 200px;
   }
 }
