@@ -18,7 +18,8 @@ export const SinglePost = ({ post, showDetail }) => {
 
   const { _id, content, likes: { likeCount }, username, comments } = post;
 
-  console.log(comments)
+  console.log(comments, "cmtttttttttttts")
+
   const socialToken = localStorage.getItem("socialToken");
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
@@ -37,7 +38,6 @@ export const SinglePost = ({ post, showDetail }) => {
   const handlePostDislike = () => {
     dislikePostHandler(_id, socialToken, dataDispatch)
   }
-
 
   const handlePostClick = (postId) => {
     navigate(`/post/${postId}`)
@@ -96,7 +96,7 @@ export const SinglePost = ({ post, showDetail }) => {
         </div>
         <div className='comment-option flex' onClick={() => postDispatch({
           type: "SHOW_COMMENT_MODEL", payload: {
-            commentPostUser: username
+            commentPostId: _id
           }
         })}>
           <span className='comment-icon'><FaRegComment /></span> {comments?.length}

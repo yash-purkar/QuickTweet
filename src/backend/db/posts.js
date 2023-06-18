@@ -310,7 +310,7 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "commenter20@gmail.com",
+        username: "johndoe@gmail.com",
         text: "Bravo!"
       }
     ],

@@ -11,15 +11,15 @@ export const AddComment = () => {
   const { dataState: { users } } = UseData()
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
-  const loggedInUser = users?.find(el => el.username === socialUser.username)
+  const socialToken = localStorage.getItem("socialToken");
+  // const loggedInUser = users?.find(el => el.username === socialUser.username)
 
-
-  const { postDispatch } = UsePost();
   const { dataState: { posts }, dataDispatch } = UseData();
-  const { postState: { commentPostUser } } = UsePost();
+  const { postState: { commentPostId }, postDispatch } = UsePost();
 
-  const handleAddComment = (posts, commentPostUser, comment, dataDispatch) => {
-    addCommentHandler(posts, commentPostUser, comment, dataDispatch);
+  const handleAddComment = () => {
+    // addCommentHandler(posts, commentPostUser, comment, dataDispatch);
+    addCommentHandler(commentPostId, commentText, socialToken, dataDispatch)
     postDispatch({ type: "HIDE_COMMENT_MODEL" })
   }
 
@@ -32,7 +32,7 @@ export const AddComment = () => {
           <textarea name="" id="" className='comment-text-area letter-spacing-1' onChange={(e) => setCommentText(e.target.value)} placeholder='Comment Your Thoughts...' autoFocus></textarea>
 
           <div className='flex justify-center'>
-            <button className='new-comment-button cursor-pointer letter-spacing-1' onClick={() => handleAddComment(posts, commentPostUser, { _id: uuid(), username: loggedInUser?.username, text: commentText }, dataDispatch)}>Comment</button>
+            <button className='new-comment-button cursor-pointer letter-spacing-1' onClick={handleAddComment}>Comment</button>
           </div>
         </div>
       </div>

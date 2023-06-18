@@ -23,8 +23,7 @@ export const DataContextProvider = ({ children }) => {
     }
   }
 
-  const a = JSON.parse(localStorage.getItem("socialUser"))
-  console.log({ ...a }, "dddddddddddddddddd")
+
   const getAllUsers = async () => {
     try {
       const { status, data: { users } } = await axios.get('/api/users');

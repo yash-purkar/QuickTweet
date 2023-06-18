@@ -1,7 +1,7 @@
 export const postInitialState = {
   showPostModel: false,
   showCommentModel: false,
-  commentPostUser: null
+  commentPostId: null
 }
 
 export const postReducer = (state, action) => {
@@ -16,12 +16,12 @@ export const postReducer = (state, action) => {
 
     case "SHOW_COMMENT_MODEL": return {
       ...state, showCommentModel: true,
-      commentPostUser: action?.payload?.commentPostUser
+      commentPostId: action?.payload?.commentPostId
     }
 
     case "HIDE_COMMENT_MODEL": return {
       ...state, showCommentModel: false,
-      commentPostUser: null
+      commentPostId: null
     }
     default: return state
   }

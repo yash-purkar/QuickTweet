@@ -61,12 +61,6 @@ export const dislikePostHandler = async (postId, socialToken, dataDispatch) => {
 }
 
 
-export const addCommentHandler = (posts, username, comment, dataDispatch) => {
-  const updatedPosts = posts?.map(el => el.username === username ? { ...el, comments: [...el.comments, comment] } : el);
-  // console.log(updatedPosts, "posts",username,"ff")
-  console.log(comment.username, "user")
-  dataDispatch({ type: "POST_OPERATIONS", payload: updatedPosts })
-}
 
 export const bookmarkPostHandler = async (postId, socialToken, dataDispatch, socialUser) => {
   try {
@@ -108,6 +102,46 @@ export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatc
       })
     }
 
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+export const addCommentHandler = async (postId, commentData, socialToken, dataDispatch) => {
+  try {
+    const { status, data: { posts } } = await axios.post(`/api/comments/add/${postId}`,
+      {
+        commentData
+      },
+      {
+        headers: {
+          authorization: socialToken
+        }
+      }
+    )
+
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "POST_OPERATIONS", payload: posts })
+    }
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+export const deleteCommentHandler = async (postId, commentId, socialToken) => {
+  try {
+    const response = await axios.post(`/comments/delete/${postId}/${commentId}`,
+      {}
+      , {
+        headers: {
+          authorization: socialToken
+        }
+      }
+    )
+    console.log(response.data)
   } catch (error) {
     console.log(error)
   }
