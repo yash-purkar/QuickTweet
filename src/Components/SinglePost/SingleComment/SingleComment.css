@@ -21,6 +21,11 @@
   color: var(--gray);
 }
 
+.delete-comment-icon {
+  color: var(--red);
+  font-size: 1.1rem;
+}
+
 @media (min-width: 1024px) {
   .comment-user-name {
     font-size: 1.06rem;
@@ -30,5 +35,9 @@
   }
   .user-comment-profile {
     width: 40px;
+  }
+  .delete-comment-icon {
+    color: var(--red);
+    font-size: 1.3rem;
   }
 }

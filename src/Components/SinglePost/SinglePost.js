@@ -117,7 +117,7 @@ export const SinglePost = ({ post, showDetail }) => {
         {
           showDetail && <>
             {
-              comments?.map(comment => <SingleComment key={comment._id} comment={comment} />)
+              comments?.map(comment => <SingleComment key={comment._id} comment={comment} postId={_id} />)
             }
           </>
         }

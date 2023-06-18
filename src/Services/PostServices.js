@@ -93,7 +93,7 @@ export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatc
         }
       }
     )
-    console.log(bookmarks, "removeClick")
+    // console.log(bookmarks, "removeClick")
     if (status === 200 || status === 201) {
       dataDispatch({
         type: "BOOKMARK_OPERATIONS", payload: {
@@ -131,17 +131,19 @@ export const addCommentHandler = async (postId, commentData, socialToken, dataDi
 }
 
 
-export const deleteCommentHandler = async (postId, commentId, socialToken) => {
+export const deleteCommentHandler = async (postId, commentId, socialToken, dataDispatch) => {
   try {
-    const response = await axios.post(`/comments/delete/${postId}/${commentId}`,
-      {}
-      , {
-        headers: {
-          authorization: socialToken
-        }
+    const { status, data: { posts } } = await axios.delete(`/api/comments/delete/${postId}/${commentId}`, {
+      headers: {
+        authorization: socialToken
       }
+    }
     )
-    console.log(response.data)
+
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "POST_OPERATIONS", payload: posts })
+    }
+
   } catch (error) {
     console.log(error)
   }

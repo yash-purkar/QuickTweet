@@ -238,8 +238,8 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "commenter14@gmail.com",
-        text: "arjunrajput@gmail.com"
+        username: "arjunrajput@gmail.com",
+        text: "Nice"
       }
     ],
     createdAt: formatDate(),
@@ -306,7 +306,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "arjunrajput@gmail.com",
-        text: "yashpurkar@gmail.com"
+        text: "Great"
       },
       {
         _id: uuid(),

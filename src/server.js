@@ -72,7 +72,7 @@ export function makeServer({ environment = "development" } = {}) {
       this.post("/posts/like/:postId", likePostHandler.bind(this));
       this.post("/posts/dislike/:postId", dislikePostHandler.bind(this));
       this.post("/comments/add/:postId", addPostCommentHandler.bind(this));
-      this.post("/comments/delete/:postId/:commentId", deletePostCommentHandler.bind(this));
+      this.delete("/comments/delete/:postId/:commentId", deletePostCommentHandler.bind(this));
 
 
       // user routes (public)
