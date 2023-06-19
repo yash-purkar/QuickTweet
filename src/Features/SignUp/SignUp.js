@@ -16,7 +16,6 @@ export const SignUp = () => {
     bookmarks: [],
     following: [],
     followers: [],
-    userHandler: `${this?.firstName}`,
     profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699"
   })
   const { setIsLoggedIn } = UseAuth();
@@ -32,7 +31,7 @@ export const SignUp = () => {
   const { dataDispatch } = UseData();
 
   const handleCreateAccount = () => {
-    SignupUser({ ...signUpDetails }, setIsLoggedIn, navigate, dataDispatch)
+    SignupUser({ ...signUpDetails, userHandler: `@${firstName}` }, setIsLoggedIn, navigate, dataDispatch)
   }
   return (
     <form onSubmit={(e) => e.preventDefault()} className='login-main-container flex '>
