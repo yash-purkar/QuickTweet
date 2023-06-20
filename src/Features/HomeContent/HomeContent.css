@@ -8,6 +8,9 @@
   border-radius: 0.5rem;
   margin-top: 1rem;
 }
+.add-post-bar {
+  margin-top: 4.5rem;
+}
 
 .addpost-profile-icon,
 .addpost-plus-icon {
@@ -31,7 +34,7 @@
 .latest-btn {
   background-color: var(--white);
   border: none;
-  color: var(--gray);
+  color: var(--primary);
   font-size: 0.9rem;
   padding-left: 0.3rem;
 }
@@ -51,11 +54,10 @@
 }
 .type-active {
   font-weight: bold;
-  color: var(--primary);
+  color: var(--primary) !important;
 }
 
 .likes-posts-heading {
-  color: #45454585;
   margin-bottom: 1rem;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -73,6 +75,9 @@
     margin-left: 0;
     margin-right: 0;
     font-size: 1.2rem;
+  }
+  .add-post-bar {
+    margin-top: 2rem;
   }
   .trending-btn,
   .latest-btn {

@@ -4,9 +4,17 @@
   letter-spacing: 3px;
   text-transform: uppercase;
 }
+.bookmarks-container {
+  margin-top: 4.5rem;
+  padding: 0.5rem;
+  height: 100vh;
+}
 
 @media (min-width: 1024px) {
   .bookmarke-heading {
     margin-top: -1rem;
+  }
+  .bookmarks-container {
+    margin-top: 3rem;
   }
 }

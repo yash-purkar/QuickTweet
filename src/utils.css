@@ -17,8 +17,15 @@
 .justify-around {
   justify-content: space-around;
 }
+.justify-end {
+  justify-content: flex-end;
+}
 .align-center {
   align-items: center;
+}
+
+.relative {
+  position: relative;
 }
 
 /*  */
@@ -60,4 +67,27 @@
 }
 .width-100 {
   width: 100%;
+}
+
+.decoration-none {
+  text-decoration: none;
+}
+
+/* DARK MODE */
+.color-white {
+  color: var(--white) !important;
+}
+
+.bg-dark {
+  background-color: #0b2239 !important;
+}
+
+.bg-dark-light {
+  background-color: #1e293b !important;
+}
+.dark-hover-effect:hover {
+  background-color: #1e293b !important;
+}
+.border-color-dark {
+  border-color: #354656 !important;
 }

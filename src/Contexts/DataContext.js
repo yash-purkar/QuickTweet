@@ -10,6 +10,9 @@ const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState);
+  const [searchedUserValue, setSearchedUserValue] = useState("")
+  const themeMode = localStorage.getItem("QUICK_TWEET_THEME")
+  const [isDarkMode, setIsDarkMode] = useState(themeMode === "DARK");
   const getAllPosts = async () => {
     try {
       const { status, data: { posts } } = await axios.get('/api/posts');
@@ -22,8 +25,7 @@ export const DataContextProvider = ({ children }) => {
     }
   }
 
-  const a = JSON.parse(localStorage.getItem("socialUser"))
-  console.log({ ...a }, "dddddddddddddddddd")
+
   const getAllUsers = async () => {
     try {
       const { status, data: { users } } = await axios.get('/api/users');
@@ -43,7 +45,7 @@ export const DataContextProvider = ({ children }) => {
 
 
   return (
-    <DataContext.Provider value={{ dataState, dataDispatch, }}>{children}</DataContext.Provider>
+    <DataContext.Provider value={{ dataState, dataDispatch, searchedUserValue, setSearchedUserValue, isDarkMode, setIsDarkMode }}>{children}</DataContext.Provider>
   )
 }
 

@@ -1,7 +1,7 @@
 .login-main-container {
   flex-direction: column;
   justify-content: center;
-  margin-top: 5rem;
+  height: 100vh;
 }
 .login-header-text {
   color: var(--primary);
@@ -98,7 +98,6 @@
     align-items: center;
     justify-content: center;
     margin-top: 0;
-    height: 90vh;
   }
   .login-form-container {
     width: 28%;

@@ -51,3 +51,23 @@ export const unfollowUserHandler = async (followUserId, socialToken, dataDispatc
     console.log(error)
   }
 }
+
+export const editUserHandler = async (userData, socialToken, dataDispatch) => {
+  try {
+    const { status, data: { user } } = await axios.post(`/api/users/edit`, {
+      userData
+    },
+      {
+        headers: {
+          authorization: socialToken
+        }
+      })
+
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "USER_OPERATIONS", payload: user })
+    }
+
+  } catch (error) {
+    console.log(error)
+  }
+}

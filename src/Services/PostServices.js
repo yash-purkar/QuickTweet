@@ -61,12 +61,6 @@ export const dislikePostHandler = async (postId, socialToken, dataDispatch) => {
 }
 
 
-export const addCommentHandler = (posts, username, comment, dataDispatch) => {
-  const updatedPosts = posts?.map(el => el.username === username ? { ...el, comments: [...el.comments, comment] } : el);
-  // console.log(updatedPosts, "posts",username,"ff")
-  console.log(comment.username, "user")
-  dataDispatch({ type: "POST_OPERATIONS", payload: updatedPosts })
-}
 
 export const bookmarkPostHandler = async (postId, socialToken, dataDispatch, socialUser) => {
   try {
@@ -99,13 +93,91 @@ export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatc
         }
       }
     )
-    console.log(bookmarks, "removeClick")
+    // console.log(bookmarks, "removeClick")
     if (status === 200 || status === 201) {
       dataDispatch({
         type: "BOOKMARK_OPERATIONS", payload: {
           bookmarks, username: socialUser.username
         }
       })
+    }
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+export const addCommentHandler = async (postId, commentData, socialToken, dataDispatch) => {
+  try {
+    const { status, data: { posts } } = await axios.post(`/api/comments/add/${postId}`,
+      {
+        commentData
+      },
+      {
+        headers: {
+          authorization: socialToken
+        }
+      }
+    )
+
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "POST_OPERATIONS", payload: posts })
+    }
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+export const deleteCommentHandler = async (postId, commentId, socialToken, dataDispatch) => {
+  try {
+    const { status, data: { posts } } = await axios.delete(`/api/comments/delete/${postId}/${commentId}`, {
+      headers: {
+        authorization: socialToken
+      }
+    }
+    )
+
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "POST_OPERATIONS", payload: posts })
+    }
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+export const editPostHandler = async (postId, postData, socialToken, dataDispatch) => {
+  try {
+    const { status, data: { posts } } = await axios.post(`/api/posts/edit/${postId}`, {
+      postData
+    },
+      {
+        headers: {
+          authorization: socialToken
+        }
+      })
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "POST_OPERATIONS", payload: posts })
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const deletePostHandler = async (postId, socialToken, dataDispatch) => {
+  try {
+    const { status, data: { posts } } = await axios.delete(`/api/posts/${postId}`, {
+      headers: {
+        authorization: socialToken
+      }
+    })
+
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "POST_OPERATIONS", payload: posts })
     }
 
   } catch (error) {

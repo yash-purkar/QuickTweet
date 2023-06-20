@@ -28,6 +28,7 @@
 }
 
 .options-icon {
+  user-select: none;
   color: var(--gray);
   align-self: center;
   padding: 0.3rem;
@@ -37,13 +38,14 @@
   box-shadow: 0px 2px 4px rgba(29, 155, 240, 0.3);
   border-radius: 1rem;
 }
-
-.post-desc {
-  padding: 1.4rem 0;
-  padding-bottom: 0.9rem;
-  color: var(--gray);
+.post-content-box {
   border-bottom: 1px solid var(--border-clr);
   margin-bottom: 0.5rem;
+  padding: 1rem 0;
+}
+.post-desc {
+  padding-bottom: 0.9rem;
+  color: var(--gray);
 }
 .like-option,
 .bookmark-option,
@@ -59,7 +61,6 @@
 .comment-icon,
 .share-icon {
   font-size: 1.2rem;
-  color: var(--gray);
   margin-right: 0.2rem;
 }
 .bookmark-icon-2,
@@ -80,46 +81,6 @@
   position: relative;
 }
 
-.comment-profile-icon {
-  font-size: 1.6rem;
-  color: var(--primary);
-  width: 10%;
-  top: 6px;
-  position: absolute;
-}
-.comment-inner-box {
-  width: 85%;
-
-  padding: 0.3rem 0rem;
-  border-radius: 0.5rem;
-  /* flex-wrap: wrap; */
-}
-.comment-input {
-  width: 80%;
-  border: none;
-  outline: none;
-  border: 1px solid #bfc4c8;
-  padding: 0.3rem 0.5rem;
-  padding-left: 1.7rem;
-  color: var(--gray);
-  font-size: 0.9rem;
-  border-top-left-radius: 0.4rem;
-  border-bottom-left-radius: 0.4rem;
-}
-.post-comment-btn {
-  /* width: 15%; */
-  background-color: var(--primary);
-  font-size: 0.9rem;
-  color: var(--white);
-  border: none;
-  font-weight: bold;
-  padding: 0.32rem 0.5rem;
-  border-top-right-radius: 0.4rem;
-  border-bottom-right-radius: 0.4rem;
-  position: absolute;
-  right: 20%;
-}
-
 .comments-container {
   margin-top: 1.5rem;
   margin-left: 7%;
@@ -128,9 +89,45 @@
 
 .post-user-img {
   width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 .liked {
   color: var(--red);
+}
+
+.post-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+/*  */
+.post-operations-container {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  padding: 0.1rem;
+  background-color: var(--bg-color);
+  border-radius: 0.5rem;
+
+  z-index: 0;
+}
+.operation-btn {
+  user-select: none;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  background-color: var(--bg-color);
+  color: var(--light-font-clr);
+}
+.operation-btn:hover {
+  color: black;
+}
+.edit-post-btn:hover {
+  color: var(--primary) !important;
+}
+.delete-post-btn:hover {
+  color: var(--red) !important;
 }
 @media (min-width: 600px) {
   .comment-profile-icon {
@@ -166,5 +163,10 @@
 
   .post-user-img {
     width: 50px;
+    height: 50px;
+  }
+  .post-img {
+    width: 200px;
+    height: 200px;
   }
 }

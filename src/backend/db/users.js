@@ -18,7 +18,9 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   },
   {
     _id: uuid(),
@@ -33,6 +35,8 @@ export const users = [
     bookmarks: [],
     followers: [],
     following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   },
   {
     _id: uuid(),
@@ -46,7 +50,9 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   },
   {
     _id: uuid(),
@@ -60,7 +66,9 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   },
   {
     _id: uuid(),
@@ -74,6 +82,58 @@ export const users = [
     updatedAt: formatDate(),
     bookmarks: [],
     followers: [],
-    following: []
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
   },
+  {
+    _id: uuid(),
+    firstName: "Mahi",
+    lastName: "Dhoni",
+    username: "mahidhoni@gmail.com",
+    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
+    userHandler: "mahi_11",
+    password: "100",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    bookmarks: [],
+    followers: [],
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
+  },
+  {
+    _id: uuid(),
+    firstName: "John",
+    lastName: "Doe",
+    username: "johndoe@gmail.com",
+    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
+    userHandler: "john_d",
+    password: "abc123",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    bookmarks: [],
+    followers: [],
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
+  }
+  ,
+  {
+    _id: uuid(),
+    firstName: "Emma",
+    lastName: "Smith",
+    username: "emmasmith@gmail.com",
+    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
+    userHandler: "emma_s",
+    password: "pass123",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    bookmarks: [],
+    followers: [],
+    following: [],
+    link: "https://yashpurkar-portfolio.netlify.app/",
+    bio: "Aspiring Web Developer"
+  }
+
 ];
