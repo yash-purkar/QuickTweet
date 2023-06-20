@@ -5,7 +5,7 @@ import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs'
 import { SlOptionsVertical } from 'react-icons/sl'
 import { FaRegComment } from 'react-icons/fa'
 import { UseData } from '../../Contexts/DataContext'
-import { bookmarkPostHandler, dislikePostHandler, likePostHandler, removeBookmarkPostHandler } from '../../Services/PostServices'
+import { bookmarkPostHandler, deletePostHandler, dislikePostHandler, likePostHandler, removeBookmarkPostHandler } from '../../Services/PostServices'
 import { useNavigate } from 'react-router'
 import { SingleComment } from './SingleComment/SingleComment'
 import { UseModal } from '../../Contexts/ModalContext'
@@ -76,6 +76,7 @@ export const SinglePost = ({ post, showDetail }) => {
 
   const handleDeletePost = () => {
     setShowEditDeleteBox(false);
+    deletePostHandler(_id, socialToken, dataDispatch)
   }
 
   return (
@@ -106,9 +107,9 @@ export const SinglePost = ({ post, showDetail }) => {
         {
           showEditDeleteBox && <div className={`${isDarkMode && "bg-dark"} post-operations-container flex direction-column`}>
 
-            <button className={`operation-btn letter-spacing-1 cursor-pointer edit-post-btn flex align-center ${isDarkMode && "bg-dark color-white"}`} onClick={handleEditClick}><span><BiEdit /></span><span>Edit</span></button>
+            <button onClick={handleEditClick} className={`operation-btn letter-spacing-1 cursor-pointer edit-post-btn flex align-center ${isDarkMode && "bg-dark color-white"}`}><span><BiEdit /></span><span>Edit</span></button>
 
-            <button className={`operation-btn letter-spacing-1 cursor-pointer delete-post-btn flex-align-center ${isDarkMode && "bg-dark color-white "}`}><span><AiFillDelete /></span><span>Delete</span></button>
+            <button onClick={handleDeletePost} className={`operation-btn letter-spacing-1 cursor-pointer delete-post-btn flex-align-center ${isDarkMode && "bg-dark color-white "}`}><span><AiFillDelete /></span><span>Delete</span></button>
           </div>
         }
 
