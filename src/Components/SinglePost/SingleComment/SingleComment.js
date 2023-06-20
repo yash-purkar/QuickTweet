@@ -8,7 +8,7 @@ import { deleteCommentHandler } from '../../../Services/PostServices';
 export const SingleComment = ({ comment, postId }) => {
   const { _id, username, text } = comment;
 
-  const { dataState: { users, posts }, dataDispatch } = UseData();
+  const { dataState: { users, posts }, dataDispatch, isDarkMode } = UseData();
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
   const socialToken = localStorage.getItem("socialToken")
@@ -17,14 +17,15 @@ export const SingleComment = ({ comment, postId }) => {
     deleteCommentHandler(postId, _id, socialToken, dataDispatch)
   }
 
-  const { firstName, lastName } = users?.find(el => el?.username === username) || {};
+  const { firstName, lastName, profile_photo } = users?.find(el => el?.username === username) || {};
   return (
     <div className='comment-card flex'>
-      <span ><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699' alt='user-profile' className='user-comment-profile' /></span>
-      <div className='user-comment letter-spacing-1 flex justify-between'>
-        <div>
-          <p className='comment-user-name'>{firstName} {lastName}</p>
-          <p className='comment-desc'>{text}</p>
+      <span ><img src={profile_photo} alt='user-profile' className='user-comment-profile' /></span>
+      <div className={`user-comment letter-spacing-1 flex justify-between ${isDarkMode && "bg-dark"}`}>
+        <div className='comment-info'>
+          <p className={`comment-user-name ${isDarkMode && "color-white"}`}>{firstName} {lastName}</p>
+
+          <p className={`comment-desc ${isDarkMode && "color-white"}`}>{text}</p>
         </div>
         {
           socialUser?.username === username && <div className='comment-operations flex'>

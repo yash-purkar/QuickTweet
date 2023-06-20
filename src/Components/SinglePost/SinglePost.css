@@ -80,46 +80,6 @@
   position: relative;
 }
 
-.comment-profile-icon {
-  font-size: 1.6rem;
-  color: var(--primary);
-  width: 10%;
-  top: 6px;
-  position: absolute;
-}
-.comment-inner-box {
-  width: 85%;
-
-  padding: 0.3rem 0rem;
-  border-radius: 0.5rem;
-  /* flex-wrap: wrap; */
-}
-.comment-input {
-  width: 80%;
-  border: none;
-  outline: none;
-  border: 1px solid #bfc4c8;
-  padding: 0.3rem 0.5rem;
-  padding-left: 1.7rem;
-  color: var(--gray);
-  font-size: 0.9rem;
-  border-top-left-radius: 0.4rem;
-  border-bottom-left-radius: 0.4rem;
-}
-.post-comment-btn {
-  /* width: 15%; */
-  background-color: var(--primary);
-  font-size: 0.9rem;
-  color: var(--white);
-  border: none;
-  font-weight: bold;
-  padding: 0.32rem 0.5rem;
-  border-top-right-radius: 0.4rem;
-  border-bottom-right-radius: 0.4rem;
-  position: absolute;
-  right: 20%;
-}
-
 .comments-container {
   margin-top: 1.5rem;
   margin-left: 7%;

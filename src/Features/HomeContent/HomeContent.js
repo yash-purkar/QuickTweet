@@ -74,7 +74,7 @@ export const HomeContent = () => {
         </div>
       }
       {
-        likedPosts?.length === 0 &&
+        likedPosts?.length === 0 && postsByType?.length === 0 &&
         <h2 className={`likes-posts-heading text-center ${isDarkMode && "color-white"}`}>Liked Some Posts To See Trending</h2>
       }
 
