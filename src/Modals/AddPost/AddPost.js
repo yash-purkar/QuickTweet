@@ -71,7 +71,7 @@ export const AddPost = () => {
           <div className='flex justify-between align-center'>
 
             <div className="input-file-container ">
-              <label for="file-upload" className="btn-upload cursor-pointer flex align-center letter-spacing-1">
+              <label htmlFor="file-upload" className="btn-upload cursor-pointer flex align-center letter-spacing-1">
                 <span className={`add-photo-icon ${isDarkMode && "color-white"}`}>  <BiImageAdd /> </span>
                 <span className={`add-photo-text ${isDarkMode && "color-white"}`}>Photo/GIF</span>
               </label>
