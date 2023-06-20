@@ -87,7 +87,7 @@ export const AddPost = () => {
             </div>
 
 
-            <button className='new-post-button cursor-pointer' onClick={handlePostClick}>Post</button>
+            <button className={`new-post-button cursor-pointer ${isDarkMode && "dark-hover-effect"}`} onClick={handlePostClick}>Post</button>
           </div>
 
 

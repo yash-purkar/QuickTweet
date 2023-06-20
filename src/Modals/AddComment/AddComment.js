@@ -34,7 +34,7 @@ export const AddComment = () => {
           <textarea name="" id="" className={`comment-text-area letter-spacing-1 ${isDarkMode && "bg-dark-light color-white"}`} onChange={(e) => setCommentText(e.target.value)} placeholder='Comment Your Thoughts...' autoFocus></textarea>
 
           <div className='flex justify-center'>
-            <button className='new-comment-button cursor-pointer letter-spacing-1' onClick={handleAddComment}>Comment</button>
+            <button className={`new-comment-button cursor-pointer letter-spacing-1 ${isDarkMode && "dark-hover-effect"}`} onClick={handleAddComment}>Comment</button>
           </div>
         </div>
       </div>

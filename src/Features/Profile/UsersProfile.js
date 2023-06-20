@@ -17,12 +17,8 @@ export const UsersProfile = () => {
   const socialToken = localStorage.getItem("socialToken")
 
   const foundUser = users?.find(el => el.userHandler === userhandler);
-  console.log(foundUser, "Fuuuuuuu")
 
-  const userPosts = posts?.filter(post => post.username === foundUser.username)
-
-
-
+  const userPosts = posts?.filter(post => post.username === foundUser?.username)
 
   const handleFollow = (followUserId, socialToken, dataDispatch) => {
     followUserHandler(followUserId, socialToken, dataDispatch)
@@ -41,23 +37,23 @@ export const UsersProfile = () => {
 
           <div className='flex justify-between align-center profile-name-info'>
             <div>
-              <h2 className='profile-user-name letter-spacing-1'>{foundUser.firstName} {foundUser.lastName}</h2>
-              <p className={`user-name-2 letter-spacing-1 ${isDarkMode && "color-white"}`}>{foundUser.userHandler}</p>
+              <h2 className='profile-user-name letter-spacing-1'>{foundUser?.firstName} {foundUser?.lastName}</h2>
+              <p className={`user-name-2 letter-spacing-1 ${isDarkMode && "color-white"}`}>{foundUser?.userHandler}</p>
             </div>
 
             {
-              loggedInUser?.following?.some(el => el.username === foundUser.username)
+              loggedInUser?.following?.some(el => el.username === foundUser?.username)
                 ?
-                <button onClick={() => handleUnfollow(foundUser._id, socialToken, dataDispatch)} className={`unfollow-profile-btn letter-spacing-1 profile-btns cursor-pointer ${isDarkMode && "bg-dark-light"}`}>Unfollow</button>
+                <button onClick={() => handleUnfollow(foundUser?._id, socialToken, dataDispatch)} className={`unfollow-profile-btn letter-spacing-1 profile-btns cursor-pointer ${isDarkMode && "bg-dark-light"}`}>Unfollow</button>
                 :
-                <button onClick={() => handleFollow(foundUser._id, socialToken, dataDispatch)} className={`follow-profile-btn letter-spacing-1 profile-btns cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Follow</button>
+                <button onClick={() => handleFollow(foundUser?._id, socialToken, dataDispatch)} className={`follow-profile-btn letter-spacing-1 profile-btns cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Follow</button>
             }
 
           </div>
 
           <p className='letter-spacing-1 user-profile-status'>{foundUser?.bio}</p>
 
-          <a href={foundUser?.link} className='user-portfolio-link letter-spacing-1' target='_blank' rel='noreferrer'>{foundUser.link}</a>
+          <a href={foundUser?.link} className='user-portfolio-link letter-spacing-1' target='_blank' rel='noreferrer'>{foundUser?.link}</a>
 
           <div className='flex follow-details letter-spacing-1 justify-between'>
             <p><span className='font-bold'>{userPosts?.length}</span> Posts</p>

@@ -19,6 +19,10 @@ export const Navbar = () => {
     localStorage.removeItem("socialUser")
   }
 
+  const handleModeClick = (mode) => {
+    setIsDarkMode(prev => !prev);
+    localStorage.setItem("QUICK_TWEET_THEME", mode)
+  }
 
   const getActiveStyle = ({ isActive }) => {
     if (isActive && isDarkMode) {
@@ -48,9 +52,9 @@ export const Navbar = () => {
         <NavLink to="/bookmark" className={`icon-li tab-style-lg letter-spacing-1 ${isDarkMode && "dark-hover-effect"}`} style={getActiveStyle} ><BsFillBookmarkFill className='icon bookmark-icon' /><span className={`icon-page-name ${isDarkMode && "color-white"}`} >BOOKMARK</span></NavLink>
 
         {
-          isDarkMode ? <button onClick={() => setIsDarkMode(false)} className={`icon-li theme-btn tab-style-lg letter-spacing-1 ${isDarkMode && "dark-hover-effect"}`}><MdLightMode className='icon' /><span className={`dark-light-text icon-page-name ${isDarkMode && "color-white"}`}>LIGHT MODE</span></button>
+          isDarkMode ? <button onClick={() => handleModeClick("LIGHT")} className={`icon-li theme-btn tab-style-lg letter-spacing-1 ${isDarkMode && "dark-hover-effect"}`}><MdLightMode className='icon' /><span className={`dark-light-text icon-page-name ${isDarkMode && "color-white"}`}>LIGHT MODE</span></button>
             :
-            <button onClick={() => setIsDarkMode(true)} className={`icon-li tab-style-lg theme-btn letter-spacing-1 ${isDarkMode && "dark-hover-effect"} `}><MdOutlineDarkMode className='icon' /><span className={`dark-light-text icon-page-name ${isDarkMode && "color-white"}`}>DARK MODE</span></button>
+            <button onClick={() => handleModeClick("DARK")} className={`icon-li tab-style-lg theme-btn letter-spacing-1 ${isDarkMode && "dark-hover-effect"} `}><MdOutlineDarkMode className='icon' /><span className={`dark-light-text icon-page-name ${isDarkMode && "color-white"}`}>DARK MODE</span></button>
         }
 
         <NavLink to={`/profile`} className={`icon-li tab-style-lg letter-spacing-1 ${isDarkMode && "dark-hover-effect"}`} style={getActiveStyle} ><CgProfile className='icon' /><span className={`icon-page-name ${isDarkMode && "color-white"}`}>PROFILE</span></NavLink>

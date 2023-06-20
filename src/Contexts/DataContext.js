@@ -11,7 +11,8 @@ const DataContext = createContext();
 export const DataContextProvider = ({ children }) => {
   const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState);
   const [searchedUserValue, setSearchedUserValue] = useState("")
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const themeMode = localStorage.getItem("QUICK_TWEET_THEME")
+  const [isDarkMode, setIsDarkMode] = useState(themeMode === "DARK");
   const getAllPosts = async () => {
     try {
       const { status, data: { posts } } = await axios.get('/api/posts');

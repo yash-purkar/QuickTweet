@@ -8,8 +8,8 @@ export const PostDetail = () => {
   const { postId } = useParams();
   const { dataState: { posts } } = UseData();
 
-  const foundPost = posts?.find(post => post?._id === postId);
-  console.log(foundPost)
+  const foundPost = posts?.find(post => post?.id === postId) || {};
+  // console.log(foundPost)
   return (
     <div className='post-detail-container'>
       <SinglePost post={foundPost} showDetail />

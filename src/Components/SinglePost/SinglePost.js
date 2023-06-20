@@ -19,7 +19,6 @@ export const SinglePost = ({ post, showDetail }) => {
 
   const { modalDispatch } = UseModal();
 
-  const { _id, content, likes: { likeCount }, username, comments, postImg } = post;
 
 
   const socialToken = localStorage.getItem("socialToken");
@@ -28,17 +27,17 @@ export const SinglePost = ({ post, showDetail }) => {
   const loggedInUser = users?.find(el => el.username === socialUser.username)
 
 
-  const postUser = users?.find((el) => el.username === username);
+  const postUser = users?.find((el) => el.username === post?.username);
   // console.log(user)
 
   const { firstName, lastName, profile_photo, userHandler, bookmarks } = postUser || {}
 
   const handlePostLike = () => {
-    likePostHandler(_id, socialToken, dataDispatch)
+    likePostHandler(post?._id, socialToken, dataDispatch)
   }
 
   const handlePostDislike = () => {
-    dislikePostHandler(_id, socialToken, dataDispatch)
+    dislikePostHandler(post?._id, socialToken, dataDispatch)
   }
 
   const handlePostClick = (postId) => {
@@ -46,11 +45,11 @@ export const SinglePost = ({ post, showDetail }) => {
   }
 
   const handleBookmarkClick = () => {
-    bookmarkPostHandler(_id, socialToken, dataDispatch, loggedInUser)
+    bookmarkPostHandler(post?._id, socialToken, dataDispatch, loggedInUser)
   }
 
   const handleRemoveBookmark = () => {
-    removeBookmarkPostHandler(_id, socialToken, dataDispatch, loggedInUser)
+    removeBookmarkPostHandler(post?._id, socialToken, dataDispatch, loggedInUser)
   }
 
   const handleUserProfile = (userHandler) => {
@@ -65,18 +64,18 @@ export const SinglePost = ({ post, showDetail }) => {
 
   const isUserLiked = post?.likes?.likedBy?.some(post => post.username === loggedInUser.username);
 
-  const isBookMarked = loggedInUser?.bookmarks?.includes(_id);
+  const isBookMarked = loggedInUser?.bookmarks?.includes(post?._id);
 
 
   const handleEditClick = () => {
     setShowEditDeleteBox(false)
-    dataDispatch({ type: "POST_ID_TO_EDIT", payload: _id })
+    dataDispatch({ type: "POST_ID_TO_EDIT", payload: post?._id })
     modalDispatch({ type: "SHOW_POST_MODAL" })
   }
 
   const handleDeletePost = () => {
     setShowEditDeleteBox(false);
-    deletePostHandler(_id, socialToken, dataDispatch)
+    deletePostHandler(post?._id, socialToken, dataDispatch)
   }
 
   return (
@@ -88,13 +87,18 @@ export const SinglePost = ({ post, showDetail }) => {
             <img src={profile_photo} className='post-user-img' alt="user-img" /></span>
 
           <div className='letter-spacing-1'>
-            <p onClick={() => handleUserProfile(userHandler)}><span className={`font-bold letter-spacing-1 user-name-1 cursor-pointer ${isDarkMode && "color-white"}`}>{firstName} {lastName}</span> <small className={`user-name-2 letter-spacing-1 cursor-pointer ${isDarkMode && "color-white"}`}>@{userHandler}</small></p>
+
+            <p onClick={() => handleUserProfile(userHandler)}><span className={`font-bold letter-spacing-1 user-name-1 cursor-pointer ${isDarkMode && "color-white"}`}>
+              {firstName} {lastName}
+            </span>
+              <small className={`user-name-2 letter-spacing-1 cursor-pointer ${isDarkMode && "color-white"}`}>@{userHandler}</small></p>
+
             <p ><span className={`post-date ${isDarkMode && "color-white"}`}>2022/09/06</span><span className={`post-time ${isDarkMode && "color-white"}`}>11:46</span></p>
           </div>
 
         </div>
         {
-          loggedInUser?.username === username && <>
+          loggedInUser?.username === post?.username && <>
             {
               showEditDeleteBox ?
                 <span onClick={() => setShowEditDeleteBox(false)} className={`options-icon cursor-pointer ${isDarkMode && "color-white"}`}><AiOutlineClose /></span>
@@ -115,13 +119,13 @@ export const SinglePost = ({ post, showDetail }) => {
 
       </div>
 
-      <div onClick={() => handlePostClick(_id)} className={`post-content-box ${isDarkMode && " border-color-dark"}`}>{
-        content && <p className={`post-desc letter-spacing-1 cursor-pointer ${isDarkMode && "color-white"}`}>{content}</p>
+      <div onClick={() => handlePostClick(post?.id)} className={`post-content-box ${isDarkMode && " border-color-dark"}`}>{
+        post?.content && <p className={`post-desc letter-spacing-1 cursor-pointer ${isDarkMode && "color-white"}`}>{post?.content}</p>
       }
-        {postImg &&
+        {post?.postImg &&
           <>
             <br />
-            <img src={postImg} alt="img" className='post-img' />
+            <img src={post?.postImg} alt="img" className='post-img' />
           </>
         }
       </div>
@@ -133,14 +137,14 @@ export const SinglePost = ({ post, showDetail }) => {
             isUserLiked ? <span className='like-icon liked' onClick={handlePostDislike}><AiFillHeart /> </span> : <span className='like-icon' onClick={handlePostLike}><AiOutlineHeart /> </span>
           }
 
-          {likeCount}
+          {post?.likeCount}
         </div>
         <div className={`comment-option flex ${isDarkMode && "color-white"}`} onClick={() => modalDispatch({
           type: "SHOW_COMMENT_MODAL", payload: {
-            commentPostId: _id
+            commentPostId: post?._id
           }
         })}>
-          <span className='comment-icon'><FaRegComment /></span> {comments?.length}
+          <span className='comment-icon'><FaRegComment /></span> {post?.comments?.length}
         </div>
         <div className={`bookmark-option flex ${isDarkMode && "color-white"}`} >
           {
@@ -158,7 +162,7 @@ export const SinglePost = ({ post, showDetail }) => {
         {
           showDetail && <>
             {
-              comments?.map(comment => <SingleComment key={comment._id} comment={comment} postId={_id} />)
+              post?.comments?.map(comment => <SingleComment key={comment._id} comment={comment} postId={post?._id} />)
             }
           </>
         }
