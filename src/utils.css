@@ -24,6 +24,10 @@
   align-items: center;
 }
 
+.relative {
+  position: relative;
+}
+
 /*  */
 .text-center {
   text-align: center;

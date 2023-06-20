@@ -1,6 +1,7 @@
 export const dataInitialState = {
   posts: [],
   users: [],
+  postIdToBeEdit: null
 }
 
 export const dataReducer = (state, action) => {
@@ -48,6 +49,13 @@ export const dataReducer = (state, action) => {
       } : el)
     }
 
+    case "POST_ID_TO_EDIT": return {
+      ...state, postIdToBeEdit: payload
+    }
+
+    case "CLEAR_ID_TO_EDIT": return {
+      ...state, postIdToBeEdit: null
+    }
     default: return state;
   }
 }

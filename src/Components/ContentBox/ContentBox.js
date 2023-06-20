@@ -33,7 +33,7 @@ export const ContentBox = ({ children }) => {
 
       <div className={`content-box-container ${isDarkMode && "bg-dark"}`}>
 
-        <div className={`hide-on-md ${isDarkMode && "bg-dark"}`}>
+        <div style={{ zIndex: "1" }} className={`hide-on-md ${isDarkMode && "bg-dark"}`}>
           <Search />
         </div>
         {searchedUserValue && <div className={`searched-users ${isDarkMode && "bg-dark-light color-white"}`}>

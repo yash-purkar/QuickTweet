@@ -1,25 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { v4 as uuid } from "uuid";
 import { BiArrowBack, BiImageAdd } from 'react-icons/bi'
 import { IoMdRemoveCircle } from 'react-icons/io'
 import './AddPost.css'
-import { createPostHandler } from '../../Services/PostServices';
+import { createPostHandler, editPostHandler } from '../../Services/PostServices';
 import { useState } from 'react';
 import { UseModal } from '../../Contexts/ModalContext';
 import { UseData } from '../../Contexts/DataContext';
 
 export const AddPost = () => {
-  const [postData, setPostData] = useState({
-    _id: uuid(),
-    content: "",
-    comments: [],
-    postImg: ""
-  })
+  const [postData, setPostData] = useState()
 
-  const { isDarkMode } = UseData();
-
-  const { dataDispatch } = UseData();
+  const { dataDispatch, isDarkMode, dataState: { posts, postIdToBeEdit } } = UseData();
   const { modalDispatch } = UseModal();
+
+
+  useEffect(() => {
+    const editPostData = posts?.find(post => post._id === postIdToBeEdit);
+    setPostData(postIdToBeEdit ? editPostData : {
+      _id: uuid(),
+      content: "",
+      comments: [],
+      postImg: ""
+    })
+  }, [])
 
   const socialToken = localStorage.getItem("socialToken");
 
@@ -30,9 +34,18 @@ export const AddPost = () => {
   }
 
   const handlePostClick = () => {
-    if (postData.content || postData.postImg) {
-      createPostHandler(postData, socialToken, dataDispatch)
+    if (postIdToBeEdit) {
+      editPostHandler(postIdToBeEdit, postData, socialToken, dataDispatch)
+      dataDispatch({ type: "CLEAR_ID_TO_EDIT" })
       modalDispatch({ type: "HIDE_POST_MODAL" })
+    }
+
+    else {
+      if (postData.content || postData.postImg) {
+        createPostHandler(postData, socialToken, dataDispatch)
+        dataDispatch({ type: "CLEAR_ID_TO_EDIT" })
+        modalDispatch({ type: "HIDE_POST_MODAL" })
+      }
     }
   }
 
@@ -40,13 +53,18 @@ export const AddPost = () => {
     setPostData(prev => ({ ...prev, postImg: "" }))
   }
 
+  const handleGoBack = () => {
+    modalDispatch({ type: "HIDE_POST_MODAL" })
+    dataDispatch({ type: "CLEAR_ID_TO_EDIT" })
+  }
+
   return (
     <div className="create-post-main">
       <div className={`create-post-container ${isDarkMode && "bg-dark"}`}>
         <div className='create-post-inner-container'>
-          <span className={`go-back cursor-pointer ${isDarkMode && "color-white"}`} onClick={() => modalDispatch({ type: "HIDE_POST_MODAL" })}><BiArrowBack /></span>
+          <span className={`go-back cursor-pointer ${isDarkMode && "color-white"}`} onClick={handleGoBack}><BiArrowBack /></span>
 
-          <textarea name="" id="" className={`post-textarea letter-spacing-1 ${isDarkMode && "bg-dark-light color-white"}`} onChange={(e) => setPostData(prev => ({ ...prev, content: e.target.value }))} placeholder='What is happening?' autoFocus>
+          <textarea name="" id="" className={`post-textarea letter-spacing-1 ${isDarkMode && "bg-dark-light color-white"}`} onChange={(e) => setPostData(prev => ({ ...prev, content: e.target.value }))} value={postData?.content} placeholder='What is happening?' autoFocus>
           </textarea>
 
 

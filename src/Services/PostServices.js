@@ -148,3 +148,22 @@ export const deleteCommentHandler = async (postId, commentId, socialToken, dataD
     console.log(error)
   }
 }
+
+
+export const editPostHandler = async (postId, postData, socialToken, dataDispatch) => {
+  try {
+    const { status, data: { posts } } = await axios.post(`/api/posts/edit/${postId}`, {
+      postData
+    },
+      {
+        headers: {
+          authorization: socialToken
+        }
+      })
+    if (status === 200 || status === 201) {
+      dataDispatch({ type: "POST_OPERATIONS", payload: posts })
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}

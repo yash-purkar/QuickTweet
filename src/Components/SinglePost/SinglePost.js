@@ -1,6 +1,6 @@
 import React from 'react'
 import './SinglePost.css'
-import { AiFillHeart, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai'
+import { AiFillDelete, AiFillHeart, AiOutlineClose, AiOutlineHeart, AiOutlineShareAlt } from 'react-icons/ai'
 import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs'
 import { SlOptionsVertical } from 'react-icons/sl'
 import { FaRegComment } from 'react-icons/fa'
@@ -9,10 +9,13 @@ import { bookmarkPostHandler, dislikePostHandler, likePostHandler, removeBookmar
 import { useNavigate } from 'react-router'
 import { SingleComment } from './SingleComment/SingleComment'
 import { UseModal } from '../../Contexts/ModalContext'
+import { BiEdit } from 'react-icons/bi'
+import { useState } from 'react'
 
 export const SinglePost = ({ post, showDetail }) => {
   const { dataState: { users, posts }, dataDispatch, isDarkMode } = UseData();
   const navigate = useNavigate();
+  const [showEditDeleteBox, setShowEditDeleteBox] = useState(false);
 
   const { modalDispatch } = UseModal();
 
@@ -64,11 +67,20 @@ export const SinglePost = ({ post, showDetail }) => {
 
   const isBookMarked = loggedInUser?.bookmarks?.includes(_id);
 
-  console.log(isBookMarked, "isBokmarkedddd", userHandler)
-  console.log(bookmarks, "userbookmarks", userHandler)
+
+  const handleEditClick = () => {
+    setShowEditDeleteBox(false)
+    dataDispatch({ type: "POST_ID_TO_EDIT", payload: _id })
+    modalDispatch({ type: "SHOW_POST_MODAL" })
+  }
+
+  const handleDeletePost = () => {
+    setShowEditDeleteBox(false);
+  }
+
   return (
     <div className={`single-post-card ${isDarkMode && "bg-dark-light"}`}>
-      <div className='flex justify-between'>
+      <div className='flex justify-between relative'>
         <div className='flex align-center post-user-details'>
           <span className='post-profile cursor-pointer' onClick={() => handleUserProfile(userHandler)}>
 
@@ -80,7 +92,25 @@ export const SinglePost = ({ post, showDetail }) => {
           </div>
 
         </div>
-        <span className={`options-icon cursor-pointer ${isDarkMode && "color-white"}`}><SlOptionsVertical /></span>
+        {
+          loggedInUser?.username === username && <>
+            {
+              showEditDeleteBox ?
+                <span onClick={() => setShowEditDeleteBox(false)} className={`options-icon cursor-pointer ${isDarkMode && "color-white"}`}><AiOutlineClose /></span>
+                :
+                <span onClick={() => setShowEditDeleteBox(true)} className={`options-icon cursor-pointer ${isDarkMode && "color-white"}`}><SlOptionsVertical /></span>
+            }
+          </>
+        }
+
+        {
+          showEditDeleteBox && <div className={`${isDarkMode && "bg-dark"} post-operations-container flex direction-column`}>
+
+            <button className={`operation-btn letter-spacing-1 cursor-pointer edit-post-btn flex align-center ${isDarkMode && "bg-dark color-white"}`} onClick={handleEditClick}><span><BiEdit /></span><span>Edit</span></button>
+
+            <button className={`operation-btn letter-spacing-1 cursor-pointer delete-post-btn flex-align-center ${isDarkMode && "bg-dark color-white "}`}><span><AiFillDelete /></span><span>Delete</span></button>
+          </div>
+        }
 
       </div>
 
