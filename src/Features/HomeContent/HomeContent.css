@@ -34,7 +34,7 @@
 .latest-btn {
   background-color: var(--white);
   border: none;
-  color: var(--gray);
+  color: var(--primary);
   font-size: 0.9rem;
   padding-left: 0.3rem;
 }
@@ -54,11 +54,10 @@
 }
 .type-active {
   font-weight: bold;
-  color: var(--primary);
+  color: var(--primary) !important;
 }
 
 .likes-posts-heading {
-  color: #45454585;
   margin-bottom: 1rem;
   letter-spacing: 3px;
   text-transform: uppercase;

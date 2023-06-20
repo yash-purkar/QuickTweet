@@ -14,7 +14,7 @@ export const ContentBox = ({ children }) => {
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"))
 
-  const { searchedUserValue, setSearchedUserValue, dataState: { users } } = UseData();
+  const { searchedUserValue, setSearchedUserValue, dataState: { users }, isDarkMode } = UseData();
 
   const navigate = useNavigate();
 
@@ -31,26 +31,26 @@ export const ContentBox = ({ children }) => {
       {showCommentModal && <AddComment />}
       {showProfileEditModal && <EditProfile />}
 
-      <div className='content-box-container'>
+      <div className={`content-box-container ${isDarkMode && "bg-dark"}`}>
 
-        <div className='hide-on-md'>
+        <div className={`hide-on-md ${isDarkMode && "bg-dark"}`}>
           <Search />
         </div>
-        {searchedUserValue && <div className="searched-users ">
+        {searchedUserValue && <div className={`searched-users ${isDarkMode && "bg-dark-light color-white"}`}>
           <ul>
             {
               usersBySearch?.map(el => {
-                const { firstName, lastName, profileImage, userHandler } = el;
+                const { firstName, lastName, profile_photo, userHandler } = el;
                 return (
                   <li className='searched-user flex align-center cursor-pointer' onClick={() => handleSearchUserClick(userHandler)}>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699" alt="profile" className='searched-user-profile' />
+                    <img src={profile_photo} alt="profile" className='searched-user-profile' />
                     <span className='search-user-name letter-spacing-1'>{firstName} {lastName}</span>
                   </li>
                 )
               })
             }
           </ul>
-          {usersBySearch.length === 0 && <h3 className='user-not-found letter-spacing-1 text-center'>
+          {usersBySearch.length === 0 && <h3 className={`user-not-found letter-spacing-1 text-center ${isDarkMode && "color-white"}`}>
             User Not Found
           </h3>}
         </div>

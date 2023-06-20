@@ -11,14 +11,13 @@ import { SingleComment } from './SingleComment/SingleComment'
 import { UseModal } from '../../Contexts/ModalContext'
 
 export const SinglePost = ({ post, showDetail }) => {
-  const { dataState: { users, posts }, dataDispatch } = UseData();
+  const { dataState: { users, posts }, dataDispatch, isDarkMode } = UseData();
   const navigate = useNavigate();
 
   const { modalDispatch } = UseModal();
 
   const { _id, content, likes: { likeCount }, username, comments, postImg } = post;
 
-  console.log(comments, "cmtttttttttttts")
 
   const socialToken = localStorage.getItem("socialToken");
 
@@ -68,7 +67,7 @@ export const SinglePost = ({ post, showDetail }) => {
   console.log(isBookMarked, "isBokmarkedddd", userHandler)
   console.log(bookmarks, "userbookmarks", userHandler)
   return (
-    <div className='single-post-card'>
+    <div className={`single-post-card ${isDarkMode && "bg-dark-light"}`}>
       <div className='flex justify-between'>
         <div className='flex align-center post-user-details'>
           <span className='post-profile cursor-pointer' onClick={() => handleUserProfile(userHandler)}>
@@ -76,17 +75,17 @@ export const SinglePost = ({ post, showDetail }) => {
             <img src={profile_photo} className='post-user-img' alt="user-img" /></span>
 
           <div className='letter-spacing-1'>
-            <p onClick={() => handleUserProfile(userHandler)}><span className='font-bold letter-spacing-1 user-name-1 cursor-pointer'>{firstName} {lastName}</span> <small className='user-name-2 letter-spacing-1 cursor-pointer'>@{userHandler}</small></p>
-            <p><span className='post-date'>2022/09/06</span><span className='post-time'>11:46</span></p>
+            <p onClick={() => handleUserProfile(userHandler)}><span className={`font-bold letter-spacing-1 user-name-1 cursor-pointer ${isDarkMode && "color-white"}`}>{firstName} {lastName}</span> <small className={`user-name-2 letter-spacing-1 cursor-pointer ${isDarkMode && "color-white"}`}>@{userHandler}</small></p>
+            <p ><span className={`post-date ${isDarkMode && "color-white"}`}>2022/09/06</span><span className={`post-time ${isDarkMode && "color-white"}`}>11:46</span></p>
           </div>
 
         </div>
-        <span className='options-icon cursor-pointer'><SlOptionsVertical /></span>
+        <span className={`options-icon cursor-pointer ${isDarkMode && "color-white"}`}><SlOptionsVertical /></span>
 
       </div>
 
-      <div onClick={() => handlePostClick(_id)} className='post-content-box'>{
-        content && <p className='post-desc letter-spacing-1 cursor-pointer'>{content}</p>
+      <div onClick={() => handlePostClick(_id)} className={`post-content-box ${isDarkMode && " border-color-dark"}`}>{
+        content && <p className={`post-desc letter-spacing-1 cursor-pointer ${isDarkMode && "color-white"}`}>{content}</p>
       }
         {postImg &&
           <>
@@ -97,7 +96,7 @@ export const SinglePost = ({ post, showDetail }) => {
       </div>
 
       <div className='flex letter-spacing-1 align-center justify-around'>
-        <div className='like-option flex ' >
+        <div className={`like-option flex ${isDarkMode && "color-white"}`} >
 
           {
             isUserLiked ? <span className='like-icon liked' onClick={handlePostDislike}><AiFillHeart /> </span> : <span className='like-icon' onClick={handlePostLike}><AiOutlineHeart /> </span>
@@ -105,20 +104,20 @@ export const SinglePost = ({ post, showDetail }) => {
 
           {likeCount}
         </div>
-        <div className='comment-option flex' onClick={() => modalDispatch({
+        <div className={`comment-option flex ${isDarkMode && "color-white"}`} onClick={() => modalDispatch({
           type: "SHOW_COMMENT_MODAL", payload: {
             commentPostId: _id
           }
         })}>
           <span className='comment-icon'><FaRegComment /></span> {comments?.length}
         </div>
-        <div className='bookmark-option flex' >
+        <div className={`bookmark-option flex ${isDarkMode && "color-white"}`} >
           {
             isBookMarked ? <span onClick={handleRemoveBookmark} className='bookmark-icon-2'><BsFillBookmarkFill /></span> :
               <span onClick={handleBookmarkClick} className='bookmark-icon-2'><BsBookmark /></span>
           }
         </div>
-        <div className='share-option flex'>
+        <div className={`share-option flex ${isDarkMode && "color-white"}`}>
           <span className='share-icon'><AiOutlineShareAlt /></span>
         </div>
 

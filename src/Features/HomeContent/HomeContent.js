@@ -9,7 +9,7 @@ import { UseData } from '../../Contexts/DataContext'
 import { UseModal } from '../../Contexts/ModalContext'
 import { useState } from 'react'
 export const HomeContent = () => {
-  const { dataState: { posts, users } } = UseData();
+  const { dataState: { posts, users }, isDarkMode } = UseData();
   const { modalDispatch } = UseModal();
   const [postsType, setPostsType] = useState("latest");
 
@@ -35,9 +35,11 @@ export const HomeContent = () => {
 
   return (
     <>
-      <div className='flex justify-between add-post-bar align-center'>
-        <p className='add-post-text flex align-center'>
-          <span className='addpost-profile-icon'><img src={loggedInUser?.profile_photo} alt="user-img" className='user-image' /> </span>
+      <div className={`flex justify-between add-post-bar align-center ${isDarkMode && "bg-dark-light color-white"}`}>
+        <p className={`add-post-text flex align-center ${isDarkMode && "bg-dark-light color-white"}`}>
+          <span className='addpost-profile-icon'>
+            <img src={loggedInUser?.profile_photo} alt="user-img" className='user-image' />
+          </span>
           <span className='add-post-text letter-spacing-1  cursor-pointer' onClick={openPostModel}>What is happening?</span>
         </p>
         <span className='addpost-plus-icon  cursor-pointer' onClick={openPostModel}>
@@ -45,17 +47,17 @@ export const HomeContent = () => {
         </span>
       </div>
 
-      <div className='flex justify-around trending-latest-box '>
+      <div className={`flex justify-around trending-latest-box ${isDarkMode && "bg-dark-light"}`}>
 
-        <div className='latest-box'>
-          <button onClick={() => setPostsType("latest")} className={`latest-btn letter-spacing-1 cursor-pointer ${postsType === "latest" && "type-active"}`} ><MdOpenInNew /><span className='padding-left-03'>Latest</span></button>
+        <div className="latest-box">
+          <button onClick={() => setPostsType("latest")} className={`latest-btn letter-spacing-1 cursor-pointer ${postsType === "latest" && "type-active"} ${isDarkMode && "bg-dark-light"}`} ><MdOpenInNew /><span className='padding-left-03'>Latest</span></button>
         </div>
 
         <div className='trending-mid-line'></div>
 
         <div className='trending-box flex align-center'>
-          <span></span>
-          <button onClick={() => setPostsType("trending")} className={`trending-btn letter-spacing-1 cursor-pointer ${postsType === "trending" && "type-active"}`}><BiTrendingUp /><span className='padding-left-03'>Trending</span></button>
+
+          <button onClick={() => setPostsType("trending")} className={`trending-btn letter-spacing-1 cursor-pointer ${postsType === "trending" && "type-active"} ${isDarkMode && "bg-dark-light"}`}><BiTrendingUp /><span className='padding-left-03'>Trending</span></button>
         </div>
       </div>
 
@@ -65,14 +67,17 @@ export const HomeContent = () => {
 
 
       {
-        postsByType?.length > 0 ? <div className='posts'>
+        postsByType?.length > 0 && <div className='posts'>
           {
             [...postsByType]?.reverse().map(post => <SinglePost key={post._id} post={post} />)
           }
         </div>
-          :
-          <h2 className='likes-posts-heading text-center'>Liked Some Posts To See</h2>
       }
+      {
+        likedPosts?.length === 0 &&
+        <h2 className={`likes-posts-heading text-center ${isDarkMode && "color-white"}`}>Liked Some Posts To See Trending</h2>
+      }
+
     </>
   )
 }

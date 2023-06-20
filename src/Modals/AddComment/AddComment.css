@@ -25,13 +25,7 @@
 .go-back {
   font-size: 1.3rem;
   color: var(--light-font-clr);
-  border-right: 2px solid var(--white);
-  border-radius: 2rem;
   padding-top: 0.2rem;
-}
-.go-back:hover {
-  border-color: var(--light-font-clr);
-  transition: border-color 0.5s;
 }
 
 .new-comment-button {

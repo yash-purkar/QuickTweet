@@ -4,7 +4,7 @@ import './Bookmark.css'
 import { UseData } from '../../Contexts/DataContext'
 
 export const Bookmark = () => {
-  const { dataState: { posts, users } } = UseData();
+  const { dataState: { posts, users }, isDarkMode } = UseData();
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
   const loggedInUser = users?.find(el => el.username === socialUser.username)
@@ -13,7 +13,7 @@ export const Bookmark = () => {
 
   return (
     <div className='bookmarks-container'>
-      <h2 className='bookmarke-heading text-center letter-spacing-1'>{bookmarkPosts.length > 0 ? "Bookmarked" : "No Bookmarks Yet"}</h2>
+      <h2 className={`bookmarke-heading text-center letter-spacing-1 ${isDarkMode && "color-white"}`}>{bookmarkPosts.length > 0 ? "Bookmarked" : "No Bookmarks Yet"}</h2>
       {
         bookmarkPosts?.map(post => <SinglePost key={post._id} post={post} />)
       }

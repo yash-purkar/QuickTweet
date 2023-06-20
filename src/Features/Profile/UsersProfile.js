@@ -9,7 +9,7 @@ export const UsersProfile = () => {
 
   const { userhandler } = useParams();
 
-  const { dataState: { users, posts }, dataDispatch } = UseData();
+  const { dataState: { users, posts }, dataDispatch, isDarkMode } = UseData();
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
   const loggedInUser = users?.find(el => el.username === socialUser.username)
@@ -34,23 +34,23 @@ export const UsersProfile = () => {
 
   return (
     <div>
-      <div className="profile-container flex ">
+      <div className={`profile-container flex ${isDarkMode && "bg-dark-light"}`}>
         <img src={foundUser?.profile_photo} alt="profile" className='profile-img' />
 
-        <div className='profile-info'>
+        <div className={`profile-info ${isDarkMode && "color-white"}`}>
 
           <div className='flex justify-between align-center profile-name-info'>
             <div>
               <h2 className='profile-user-name letter-spacing-1'>{foundUser.firstName} {foundUser.lastName}</h2>
-              <p className='user-name-2 letter-spacing-1'>{foundUser.userHandler}</p>
+              <p className={`user-name-2 letter-spacing-1 ${isDarkMode && "color-white"}`}>{foundUser.userHandler}</p>
             </div>
 
             {
               loggedInUser?.following?.some(el => el.username === foundUser.username)
                 ?
-                <button onClick={() => handleUnfollow(foundUser._id, socialToken, dataDispatch)} className='unfollow-profile-btn letter-spacing-1 profile-btns cursor-pointer'>Unfollow</button>
+                <button onClick={() => handleUnfollow(foundUser._id, socialToken, dataDispatch)} className={`unfollow-profile-btn letter-spacing-1 profile-btns cursor-pointer ${isDarkMode && "bg-dark-light"}`}>Unfollow</button>
                 :
-                <button onClick={() => handleFollow(foundUser._id, socialToken, dataDispatch)} className='follow-profile-btn letter-spacing-1 profile-btns cursor-pointer'>Follow</button>
+                <button onClick={() => handleFollow(foundUser._id, socialToken, dataDispatch)} className={`follow-profile-btn letter-spacing-1 profile-btns cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Follow</button>
             }
 
           </div>

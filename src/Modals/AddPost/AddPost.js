@@ -16,6 +16,8 @@ export const AddPost = () => {
     postImg: ""
   })
 
+  const { isDarkMode } = UseData();
+
   const { dataDispatch } = UseData();
   const { modalDispatch } = UseModal();
 
@@ -39,12 +41,12 @@ export const AddPost = () => {
   }
 
   return (
-    <div className='create-post-main'>
-      <div className='create-post-container'>
+    <div className="create-post-main">
+      <div className={`create-post-container ${isDarkMode && "bg-dark"}`}>
         <div className='create-post-inner-container'>
-          <span className='go-back cursor-pointer' onClick={() => modalDispatch({ type: "HIDE_POST_MODAL" })}><BiArrowBack /></span>
+          <span className={`go-back cursor-pointer ${isDarkMode && "color-white"}`} onClick={() => modalDispatch({ type: "HIDE_POST_MODAL" })}><BiArrowBack /></span>
 
-          <textarea name="" id="" className='post-textarea letter-spacing-1' onChange={(e) => setPostData(prev => ({ ...prev, content: e.target.value }))} placeholder='What is happening?' autoFocus>
+          <textarea name="" id="" className={`post-textarea letter-spacing-1 ${isDarkMode && "bg-dark-light color-white"}`} onChange={(e) => setPostData(prev => ({ ...prev, content: e.target.value }))} placeholder='What is happening?' autoFocus>
           </textarea>
 
 
@@ -52,8 +54,8 @@ export const AddPost = () => {
 
             <div className="input-file-container ">
               <label for="file-upload" className="btn-upload cursor-pointer flex align-center letter-spacing-1">
-                <span className='add-photo-icon'>  <BiImageAdd /> </span>
-                <span className='add-photo-text'>Photo/GIF</span>
+                <span className={`add-photo-icon ${isDarkMode && "color-white"}`}>  <BiImageAdd /> </span>
+                <span className={`add-photo-text ${isDarkMode && "color-white"}`}>Photo/GIF</span>
               </label>
               <input id="file-upload" type="file" onChange={handleImageUpload} />
 

@@ -4,7 +4,7 @@ import { UseData } from '../../Contexts/DataContext'
 import { useNavigate } from 'react-router';
 import { followUserHandler } from '../../Services/UserServices';
 export const FollowBar = () => {
-  const { dataState: { users }, dataDispatch } = UseData();
+  const { dataState: { users }, dataDispatch, isDarkMode } = UseData();
 
   const navigate = useNavigate();
 
@@ -24,25 +24,25 @@ export const FollowBar = () => {
   const notFollowedUsers = users?.filter(el => el.username !== loggedInUser.username && loggedInUser.following.every(item => item.username !== el.username));
 
 
-  // console.log(notFollowedUsers)
   return (
-    <div className='followbar-main-container'>
-      <div className='followbar-container flex  align-center '>
+    <div className={`followbar-main-container ${isDarkMode && "bg-dark"}`}>
+      <div className={`followbar-container flex  align-center ${isDarkMode && "bg-dark"}`}>
         <h2 className='letter-spacing-1 follow-header'>Who to follow</h2>
 
         {notFollowedUsers?.map(user => {
-          const { _id, firstName, lastName, userHandler, username } = user
+          const { _id, firstName, lastName, userHandler, profile_photo } = user
           return (
-            <div key={_id} className='flex justify-between follow-user-card'>
+            <div key={_id} className={`flex justify-between follow-user-card ${isDarkMode && "bg-dark-light  border-color-dark"}`}>
               <div className='flex followbar-card-inner align-center'>
-                <span className='follow-user-profile cursor-pointer' onClick={() => handleUserProfile(userHandler)}><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs2qYGz5830vmlcv3GkXFoZsIvRucQcaCD6zfE3UZE0w&usqp=CAU&ec=48665699" className='follow-user-img ' alt="user-img" /></span>
-                <div onClick={() => handleUserProfile(userHandler)} className='cursor-pointer'>
+                <span className='follow-user-profile cursor-pointer' onClick={() => handleUserProfile(userHandler)}>
+                  <img src={profile_photo} className='follow-user-img ' alt="user-img" /></span>
+                <div onClick={() => handleUserProfile(userHandler)} className={`cursor-pointer ${isDarkMode && "color-white"}`}>
                   <h4 className='follow-user-name text-center' >{firstName} {lastName}</h4>
                   <small className='follow-username-2'>@{userHandler}</small>
                 </div>
               </div>
 
-              <button onClick={() => handleFollowUser(_id, socialToken, dataDispatch)} className='follow-btn letter-spacing-1 cursor-pointer'>Follow</button>
+              <button onClick={() => handleFollowUser(_id, socialToken, dataDispatch)} className={`follow-btn letter-spacing-1 cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Follow</button>
 
             </div>
           )

@@ -5,7 +5,9 @@
   text-transform: uppercase;
 }
 .bookmarks-container {
-  margin-top: 5rem;
+  margin-top: 4.5rem;
+  padding: 0.5rem;
+  height: 100vh;
 }
 
 @media (min-width: 1024px) {

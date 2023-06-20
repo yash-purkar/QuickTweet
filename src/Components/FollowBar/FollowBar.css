@@ -68,6 +68,7 @@
 .follow-user-img {
   width: 60px;
   height: 60px;
+  border-radius: 50%;
 }
 .follow-username-2 {
   font-size: 0.83rem;
@@ -93,9 +94,9 @@
   .follow-user-card {
     flex-direction: row;
     border: none;
-    padding: 0.8rem;
+    padding: 1rem;
     border-bottom: 1px solid var(--border-clr);
-    margin: 0.2rem 0rem;
+    margin: 0;
   }
   .follow-btn {
     padding: 0.3rem 0.9rem;

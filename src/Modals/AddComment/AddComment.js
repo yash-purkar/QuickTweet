@@ -8,7 +8,7 @@ import { UseData } from '../../Contexts/DataContext'
 import { useState } from 'react'
 export const AddComment = () => {
   const [commentText, setCommentText] = useState();
-  const { dataState: { users } } = UseData()
+  const { dataState: { users }, isDarkMode } = UseData()
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
   const socialToken = localStorage.getItem("socialToken");
@@ -27,11 +27,11 @@ export const AddComment = () => {
 
   return (
     <div className='add-comment-main'>
-      <div className='add-comment-container'>
+      <div className={`add-comment-container ${isDarkMode && "bg-dark"}`}>
         <div className='add-comment-inner-container'>
-          <span className='go-back cursor-pointer' onClick={() => modalDispatch({ type: "HIDE_COMMENT_MODAL" })}><BiArrowBack /></span>
+          <span className={`go-back cursor-pointer ${isDarkMode && "color-white"}`} onClick={() => modalDispatch({ type: "HIDE_COMMENT_MODAL" })}><BiArrowBack /></span>
 
-          <textarea name="" id="" className='comment-text-area letter-spacing-1' onChange={(e) => setCommentText(e.target.value)} placeholder='Comment Your Thoughts...' autoFocus></textarea>
+          <textarea name="" id="" className={`comment-text-area letter-spacing-1 ${isDarkMode && "bg-dark-light color-white"}`} onChange={(e) => setCommentText(e.target.value)} placeholder='Comment Your Thoughts...' autoFocus></textarea>
 
           <div className='flex justify-center'>
             <button className='new-comment-button cursor-pointer letter-spacing-1' onClick={handleAddComment}>Comment</button>

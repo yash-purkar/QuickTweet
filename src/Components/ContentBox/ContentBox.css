@@ -1,6 +1,10 @@
 .hide-on-md {
   display: none;
 }
+.content-box-container {
+  min-height: 100vh;
+  max-height: fit-content;
+}
 
 .searched-users {
   min-height: 50px;
@@ -16,16 +20,17 @@
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: var(--light-font-clr);
 }
 .searched-user-profile {
   width: 35px;
   height: 35px;
   background-color: var(--bg-color);
   margin-bottom: 1rem;
+  border-radius: 50%;
 }
 .search-user-name {
   margin-left: 0.5rem;
-  color: var(--light-font-clr);
 }
 .user-not-found {
   color: var(--light-font-clr);
