@@ -55,7 +55,10 @@
   cursor: pointer;
   color: var(--gray);
 }
-
+.share-option {
+  background-color: inherit;
+  border: none;
+}
 .like-icon,
 .bookmark-icon-2,
 .comment-icon,

@@ -1,4 +1,6 @@
 import axios from "axios"
+import { success, warning } from "./ToastsServices";
+
 
 export const LoginUser = async (creds, setIsLoggedIn, prevLocation, navigate) => {
   try {
@@ -17,10 +19,12 @@ export const LoginUser = async (creds, setIsLoggedIn, prevLocation, navigate) =>
       else {
         navigate("/")
       }
+      success("Login Successfully")
     }
 
   } catch (error) {
     console.log(error)
+    warning("No details found")
   }
 }
 
@@ -37,8 +41,10 @@ export const SignupUser = async (creds, setIsLoggedIn, navigate, dataDispatch) =
       navigate("/")
 
       dataDispatch({ type: "ADD_NEW_USER", payload: createdUser })
+      success("SignUp Succesfully")
     }
   } catch (error) {
     console.log(error)
+    warning("Email already exists")
   }
 }

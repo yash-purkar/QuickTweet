@@ -11,6 +11,7 @@ import { SingleComment } from './SingleComment/SingleComment'
 import { UseModal } from '../../Contexts/ModalContext'
 import { BiEdit } from 'react-icons/bi'
 import { useState } from 'react'
+import { success } from '../../Services/ToastsServices'
 
 export const SinglePost = ({ post, showDetail }) => {
   const { dataState: { users, posts }, dataDispatch, isDarkMode } = UseData();
@@ -19,7 +20,7 @@ export const SinglePost = ({ post, showDetail }) => {
 
   const { modalDispatch } = UseModal();
 
-
+  const [disabledShareBtn, setDisabledShareBtn] = useState(false);
 
   const socialToken = localStorage.getItem("socialToken");
 
@@ -76,6 +77,17 @@ export const SinglePost = ({ post, showDetail }) => {
   const handleDeletePost = () => {
     setShowEditDeleteBox(false);
     deletePostHandler(post?._id, socialToken, dataDispatch)
+  }
+
+  const handleShareClick = () => {
+    setDisabledShareBtn(true)
+    const currentLocation = window.location.href;
+    navigator.clipboard.writeText(currentLocation);
+    success("Copied To Clipboard");
+    setTimeout(() => {
+      setDisabledShareBtn(false)
+    }, 1000)
+
   }
 
   return (
@@ -137,7 +149,7 @@ export const SinglePost = ({ post, showDetail }) => {
             isUserLiked ? <span className='like-icon liked' onClick={handlePostDislike}><AiFillHeart /> </span> : <span className='like-icon' onClick={handlePostLike}><AiOutlineHeart /> </span>
           }
 
-          {post?.likeCount}
+          {post?.likes?.likeCount}
         </div>
         <div className={`comment-option flex ${isDarkMode && "color-white"}`} onClick={() => modalDispatch({
           type: "SHOW_COMMENT_MODAL", payload: {
@@ -152,9 +164,9 @@ export const SinglePost = ({ post, showDetail }) => {
               <span onClick={handleBookmarkClick} className='bookmark-icon-2'><BsBookmark /></span>
           }
         </div>
-        <div className={`share-option flex ${isDarkMode && "color-white"}`}>
+        <button onClick={handleShareClick} disabled={disabledShareBtn} className={`share-option flex ${isDarkMode && "color-white"}`}>
           <span className='share-icon'><AiOutlineShareAlt /></span>
-        </div>
+        </button>
 
       </div>
 

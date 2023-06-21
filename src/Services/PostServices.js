@@ -1,4 +1,5 @@
 import axios from "axios"
+import { remove, success, warning } from "./ToastsServices"
 
 export const createPostHandler = async (postData, socialToken, dataDispatch) => {
   try {
@@ -14,6 +15,7 @@ export const createPostHandler = async (postData, socialToken, dataDispatch) => 
     )
     if (status === 200 || status === 201) {
       dataDispatch({ type: "POST_OPERATIONS", payload: posts })
+      success("Post Added")
     }
   } catch (error) {
     console.log(error)
@@ -75,6 +77,7 @@ export const bookmarkPostHandler = async (postId, socialToken, dataDispatch, soc
     console.log(bookmarks, "newwwwwwwwwwwwww")
     if (status === 200 || status === 201) {
       dataDispatch({ type: "BOOKMARK_OPERATIONS", payload: { bookmarks, username: socialUser.username } })
+      success("Added To Bookmark")
     }
 
 
@@ -100,6 +103,7 @@ export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatc
           bookmarks, username: socialUser.username
         }
       })
+      warning("Removed from bookmark")
     }
 
   } catch (error) {
@@ -162,6 +166,7 @@ export const editPostHandler = async (postId, postData, socialToken, dataDispatc
       })
     if (status === 200 || status === 201) {
       dataDispatch({ type: "POST_OPERATIONS", payload: posts })
+      success("Post Edited")
     }
   } catch (error) {
     console.log(error)
@@ -178,6 +183,7 @@ export const deletePostHandler = async (postId, socialToken, dataDispatch) => {
 
     if (status === 200 || status === 201) {
       dataDispatch({ type: "POST_OPERATIONS", payload: posts })
+      remove("Post Deleted")
     }
 
   } catch (error) {

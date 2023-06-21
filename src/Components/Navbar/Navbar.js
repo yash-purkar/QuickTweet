@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom'
 import { BiLogOut } from 'react-icons/bi'
 import { UseAuth } from '../../Contexts/AuthContext'
 import { UseData } from '../../Contexts/DataContext'
+import { warning } from '../../Services/ToastsServices'
 export const Navbar = () => {
   const { setIsLoggedIn } = UseAuth();
   const { isDarkMode, setIsDarkMode } = UseData();
@@ -17,6 +18,7 @@ export const Navbar = () => {
     setIsLoggedIn(false);
     localStorage.removeItem("socialToken")
     localStorage.removeItem("socialUser")
+    warning("Logged Out")
   }
 
   const handleModeClick = (mode) => {

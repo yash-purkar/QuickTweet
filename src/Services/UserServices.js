@@ -1,4 +1,5 @@
 import axios from "axios"
+import { success } from "./ToastsServices";
 
 export const followUserHandler = async (followUserId, socialToken, dataDispatch) => {
   try {
@@ -65,6 +66,7 @@ export const editUserHandler = async (userData, socialToken, dataDispatch) => {
 
     if (status === 200 || status === 201) {
       dataDispatch({ type: "USER_OPERATIONS", payload: user })
+      success("User Info updated!")
     }
 
   } catch (error) {

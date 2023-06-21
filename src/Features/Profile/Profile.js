@@ -5,9 +5,10 @@ import { UseData } from '../../Contexts/DataContext';
 import { SinglePost } from '../../Components/SinglePost/SinglePost';
 import { followUserHandler, unfollowUserHandler } from '../../Services/UserServices';
 import { UseModal } from '../../Contexts/ModalContext';
+import { useEffect } from 'react';
 export const Profile = () => {
 
-  const { dataState: { users, posts }, isDarkMode } = UseData();
+  const { dataState: { users, posts }, isDarkMode, setIsLoading } = UseData();
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
 
@@ -16,6 +17,14 @@ export const Profile = () => {
   const profileUserPosts = posts?.filter(post => post.username === socialUser.username)
 
   const loggedInUser = users?.find(user => user.username === socialUser.username);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 300)
+  }, [])
 
   return (
     <div>

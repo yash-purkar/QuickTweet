@@ -31,7 +31,7 @@ export const SignUp = () => {
   const { dataDispatch, isDarkMode } = UseData();
 
   const handleCreateAccount = () => {
-    SignupUser({ ...signUpDetails, userHandler: `@${firstName}` }, setIsLoggedIn, navigate, dataDispatch)
+    SignupUser({ ...signUpDetails, userHandler: `${firstName}` }, setIsLoggedIn, navigate, dataDispatch)
   }
   return (
     <form onSubmit={(e) => e.preventDefault()} className={`login-main-container flex ${isDarkMode && "bg-dark"}`}>

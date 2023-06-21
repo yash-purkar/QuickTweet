@@ -4,16 +4,21 @@ import { UseData } from '../../Contexts/DataContext'
 import { useNavigate } from 'react-router';
 import { followUserHandler } from '../../Services/UserServices';
 export const FollowBar = () => {
-  const { dataState: { users }, dataDispatch, isDarkMode } = UseData();
+  const { dataState: { users }, dataDispatch, isDarkMode, setIsLoading } = UseData();
 
   const navigate = useNavigate();
 
   const socialToken = localStorage.getItem("socialToken");
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
-  const loggedInUser = users?.find(el => el.username === socialUser.username)
+  const loggedInUser = users?.find(el => el?.username === socialUser?.username)
 
   const handleUserProfile = (userHandler) => {
     navigate(`/user-profile/${userHandler}`)
+    window.scrollTo(0, 0)
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 300)
   }
 
   const handleFollowUser = (followUserId, socialToken, dataDispatch) => {
@@ -21,7 +26,7 @@ export const FollowBar = () => {
   }
 
   // bcz we don't want loggedIn user as followed user
-  const notFollowedUsers = users?.filter(el => el.username !== loggedInUser.username && loggedInUser.following.every(item => item.username !== el.username));
+  const notFollowedUsers = users?.filter(el => el?.username !== loggedInUser?.username && loggedInUser?.following?.every(item => item?.username !== el.username));
 
 
   return (
@@ -48,8 +53,7 @@ export const FollowBar = () => {
           )
         })}
 
-
-
+        {notFollowedUsers?.length === 0 && <p className={`letter-spacing-1 no-suggestions-text ${isDarkMode && "color-white"}`}>No Follow Suggestions</p>}
       </div>
     </div>
   )
