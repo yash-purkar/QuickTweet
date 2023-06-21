@@ -5,7 +5,7 @@ import './Explore.css'
 import { useEffect } from 'react'
 
 export const Explore = () => {
-  const { dataState: { posts }, setIsLoading } = UseData();
+  const { dataState: { posts }, setIsLoading, isDarkMode } = UseData();
   useEffect(() => {
     window.scrollTo(0, 0)
     setIsLoading(true)
@@ -15,6 +15,7 @@ export const Explore = () => {
   }, [])
   return (
     <div className='explore-container'>
+      <h2 className={`text-center letter-spacing-1 explore-heading ${isDarkMode && "color-white"}`}>EXPLORE</h2>
       {
         [...posts]?.reverse()?.map(post => <SinglePost key={post._id} post={post} />)
       }

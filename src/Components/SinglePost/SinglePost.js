@@ -78,6 +78,10 @@ export const SinglePost = ({ post, showDetail }) => {
     deletePostHandler(post?._id, socialToken, dataDispatch)
   }
 
+  const handleShareClick = () => {
+
+  }
+
   return (
     <div className={`single-post-card ${isDarkMode && "bg-dark-light"}`}>
       <div className='flex justify-between relative'>
@@ -152,7 +156,7 @@ export const SinglePost = ({ post, showDetail }) => {
               <span onClick={handleBookmarkClick} className='bookmark-icon-2'><BsBookmark /></span>
           }
         </div>
-        <div className={`share-option flex ${isDarkMode && "color-white"}`}>
+        <div onClick={handleShareClick} className={`share-option flex ${isDarkMode && "color-white"}`}>
           <span className='share-icon'><AiOutlineShareAlt /></span>
         </div>
 
