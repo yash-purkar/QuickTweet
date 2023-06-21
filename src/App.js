@@ -13,10 +13,14 @@ import { PostDetail } from './Features/PostDetail/PostDetail';
 import { UsersProfile } from './Features/Profile/UsersProfile';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { UseData } from './Contexts/DataContext';
+import { Loader } from './Components/Loader/Loader';
 
 function App() {
+  const { isLoading } = UseData();
   return (
     <div className="App">
+      {isLoading && <Loader />}
       <Routes>
         <Route path='/' element={<RequiresAuth><Home><HomeContent /></Home></RequiresAuth>} />
         <Route path='/explore' element={<RequiresAuth><Home><Explore /></Home></RequiresAuth>} />

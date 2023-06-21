@@ -66,7 +66,7 @@ export const editUserHandler = async (userData, socialToken, dataDispatch) => {
 
     if (status === 200 || status === 201) {
       dataDispatch({ type: "USER_OPERATIONS", payload: user })
-      success("User info updated!")
+      success("User Info updated!")
     }
 
   } catch (error) {

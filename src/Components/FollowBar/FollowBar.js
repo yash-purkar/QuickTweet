@@ -4,7 +4,7 @@ import { UseData } from '../../Contexts/DataContext'
 import { useNavigate } from 'react-router';
 import { followUserHandler } from '../../Services/UserServices';
 export const FollowBar = () => {
-  const { dataState: { users }, dataDispatch, isDarkMode } = UseData();
+  const { dataState: { users }, dataDispatch, isDarkMode, setIsLoading } = UseData();
 
   const navigate = useNavigate();
 
@@ -14,6 +14,11 @@ export const FollowBar = () => {
 
   const handleUserProfile = (userHandler) => {
     navigate(`/user-profile/${userHandler}`)
+    window.scrollTo(0, 0)
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 300)
   }
 
   const handleFollowUser = (followUserId, socialToken, dataDispatch) => {
@@ -48,8 +53,7 @@ export const FollowBar = () => {
           )
         })}
 
-
-
+        {notFollowedUsers?.length === 0 && <p className={`letter-spacing-1 no-suggestions-text ${isDarkMode && "color-white"}`}>No Follow Suggestions</p>}
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import { UseData } from '../../Contexts/DataContext';
 import { SinglePost } from '../../Components/SinglePost/SinglePost';
 import { followUserHandler, unfollowUserHandler } from '../../Services/UserServices';
+import { useEffect } from 'react';
 
 export const UsersProfile = () => {
 
