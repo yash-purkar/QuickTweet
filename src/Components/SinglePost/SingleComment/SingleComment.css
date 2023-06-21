@@ -3,6 +3,7 @@
 }
 .user-comment-profile {
   width: 35px;
+  height: 35px;
   margin-right: 0.5rem;
   color: var(--primary);
   border-radius: 50%;
