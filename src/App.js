@@ -11,6 +11,8 @@ import { SignUp } from './Features/SignUp/SignUp';
 import { RequiresAuth } from './Auth/RequiresAuth';
 import { PostDetail } from './Features/PostDetail/PostDetail';
 import { UsersProfile } from './Features/Profile/UsersProfile';
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -26,6 +28,17 @@ function App() {
         <Route path='/signUp' element={<SignUp />} />
         <Route path='/mockman' element={<Mockman />} />
       </Routes>
+      <ToastContainer position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 }

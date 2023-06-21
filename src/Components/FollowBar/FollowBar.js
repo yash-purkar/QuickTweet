@@ -10,7 +10,7 @@ export const FollowBar = () => {
 
   const socialToken = localStorage.getItem("socialToken");
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
-  const loggedInUser = users?.find(el => el.username === socialUser.username)
+  const loggedInUser = users?.find(el => el?.username === socialUser?.username)
 
   const handleUserProfile = (userHandler) => {
     navigate(`/user-profile/${userHandler}`)
@@ -21,7 +21,7 @@ export const FollowBar = () => {
   }
 
   // bcz we don't want loggedIn user as followed user
-  const notFollowedUsers = users?.filter(el => el.username !== loggedInUser.username && loggedInUser.following.every(item => item.username !== el.username));
+  const notFollowedUsers = users?.filter(el => el?.username !== loggedInUser?.username && loggedInUser?.following?.every(item => item?.username !== el.username));
 
 
   return (
