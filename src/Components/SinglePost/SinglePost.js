@@ -81,8 +81,7 @@ export const SinglePost = ({ post, showDetail }) => {
 
   const handleShareClick = () => {
     setDisabledShareBtn(true)
-    const currentLocation = window.location.href;
-    navigator.clipboard.writeText(currentLocation);
+    navigator.clipboard.writeText(`https://quicktweet.netlify.app/post/${post?.id}`);
     success("Copied To Clipboard");
     setTimeout(() => {
       setDisabledShareBtn(false)

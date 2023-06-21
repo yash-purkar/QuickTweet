@@ -21,12 +21,12 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        username: "amitshah@gmail.com",
+        username: "lunashade@gmail.com",
         text: "WOW🔥",
       },
       {
         _id: uuid(),
-        username: "akshaykumar@gmail.com",
+        username: "stellaceleste@gmail.com",
         text: "AWESOME🎉",
       }
     ],
@@ -42,11 +42,11 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "arjunrajput@gmail.com",
+    username: "scarlettrivers@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "amitshah@gmail.com",
+        username: "lunashade@gmail.com",
         text: "Nice👌🏻",
       }
     ],
@@ -65,12 +65,12 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        username: "amitshah@gmail.com",
+        username: "lunashade@gmail.com",
         text: "WOW🔥"
       },
       {
         _id: uuid(),
-        username: "akshaykumar@gmail.com",
+        username: "stellaceleste@gmail.com",
         text: "AWESOME🎉"
       }
     ],
@@ -85,16 +85,16 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "arjunrajput@gmail.com",
+    username: "scarlettrivers@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "johndoe@gmail.com",
+        username: "blazesummers@gmail.com",
         text: "Great post!"
       },
       {
         _id: uuid(),
-        username: "viratkohli@gmail.com",
+        username: "maxshasow@gmail.com",
         text: "I love it!"
       }
     ],
@@ -109,16 +109,16 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "yashpurkar@gmail.com",
+    username: "lunadreamer@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "mahidhoni@gmail.com",
+        username: "crystalwaters@gmail.com",
         text: "Amazing!"
       },
       {
         _id: uuid(),
-        username: "emmasmith@gmail.com",
+        username: "phoenixwright@gmail.com",
         text: "Well said."
       }
     ],
@@ -133,16 +133,16 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "akshaykumar@gmail.com",
+    username: "stellaceleste@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "emmasmith@gmail.com",
+        username: "phoenixwright@gmail.com",
         text: "Impressive!"
       },
       {
         _id: uuid(),
-        username: "johndoe@gmail.com",
+        username: "blazesummers@gmail.com",
         text: "Bravo!"
       }
     ],
@@ -157,7 +157,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "emmasmith@gmail.com",
+    username: "phoenixwright@gmail.com",
     comments: [
       {
         _id: uuid(),
@@ -166,7 +166,7 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "amitshah@gmail.com",
+        username: "lunashade@gmail.com",
         text: "I'm impressed!"
       }
     ],
@@ -181,16 +181,16 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "viratkohli@gmail.com",
+    username: "maxshasow@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "mahidhoni@gmail.com",
+        username: "crystalwaters@gmail.com",
         text: "Fantastic!"
       },
       {
         _id: uuid(),
-        username: "emmasmith@gmail.com",
+        username: "phoenixwright@gmail.com",
         text: "Love it!"
       }
     ],
@@ -205,16 +205,16 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "johndoe@gmail.com",
+    username: "blazesummers@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "amitshah@gmail.com",
+        username: "lunashade@gmail.com",
         text: "Absolutely!"
       },
       {
         _id: uuid(),
-        username: "emmasmith@gmail.com",
+        username: "phoenixwright@gmail.com",
         text: "Well articulated!"
       }
     ],
@@ -229,7 +229,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "mahidhoni@gmail.com",
+    username: "crystalwaters@gmail.com",
     comments: [
       {
         _id: uuid(),
@@ -238,7 +238,7 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "arjunrajput@gmail.com",
+        username: "scarlettrivers@gmail.com",
         text: "Nice"
       }
     ],
@@ -257,12 +257,12 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        username: "arjunrajput@gmail.com",
+        username: "scarlettrivers@gmail.com",
         text: "Well stated!"
       },
       {
         _id: uuid(),
-        username: "viratkohli@gmail.com",
+        username: "maxshasow@gmail.com",
         text: "Great job!"
       }
     ],
@@ -277,7 +277,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "arjunrajput@gmail.com",
+    username: "scarlettrivers@gmail.com",
     comments: [
       {
         _id: uuid(),
@@ -286,7 +286,7 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "amitshah@gmail.com",
+        username: "lunashade@gmail.com",
         text: "I agree!"
       }
     ],
@@ -301,16 +301,16 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "amitshah@gmail.com",
+    username: "lunashade@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "arjunrajput@gmail.com",
+        username: "scarlettrivers@gmail.com",
         text: "Great"
       },
       {
         _id: uuid(),
-        username: "johndoe@gmail.com",
+        username: "blazesummers@gmail.com",
         text: "Bravo!"
       }
     ],
@@ -325,16 +325,16 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "viratkohli@gmail.com",
+    username: "maxshasow@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "amitshah@gmail.com",
+        username: "lunashade@gmail.com",
         text: "Impressive!"
       },
       {
         _id: uuid(),
-        username: "arjunrajput@gmail.com",
+        username: "scarlettrivers@gmail.com",
         text: "Bravo!"
       }
     ],
@@ -349,11 +349,11 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "akshaykumar@gmail.com",
+    username: "stellaceleste@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "viratkohli@gmail.com",
+        username: "maxshasow@gmail.com",
         text: "Well done!"
       },
       {
@@ -373,16 +373,16 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "mahidhoni@gmail.com",
+    username: "crystalwaters@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "akshaykumar@gmail.com",
+        username: "stellaceleste@gmail.com",
         text: "Fantastic!"
       },
       {
         _id: uuid(),
-        username: "viratkohli@gmail.com",
+        username: "maxshasow@gmail.com",
         text: "Love it!"
       }
     ],
@@ -397,16 +397,16 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "johndoe@gmail.com",
+    username: "blazesummers@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "mahidhoni@gmail.com",
+        username: "crystalwaters@gmail.com",
         text: "Absolutely!"
       },
       {
         _id: uuid(),
-        username: "akshaykumar@gmail.com",
+        username: "stellaceleste@gmail.com",
         text: "Well articulated!"
       }
     ],
@@ -421,16 +421,16 @@ export const posts = [
       likedBy: [],
       dislikedBy: []
     },
-    username: "emmasmith@gmail.com",
+    username: "phoenixwright@gmail.com",
     comments: [
       {
         _id: uuid(),
-        username: "johndoe@gmail.com",
+        username: "blazesummers@gmail.com",
         text: "You nailed it!"
       },
       {
         _id: uuid(),
-        username: "mahidhoni@gmail.com",
+        username: "crystalwaters@gmail.com",
         text: "Impressive work!"
       }
     ],

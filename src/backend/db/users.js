@@ -11,8 +11,8 @@ export const users = [
     firstName: "Yash",
     lastName: "Purkar",
     username: "yashpurkar@gmail.com",
-    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
-    userHandler: "yash_02",
+    profile_photo: "https://i.ibb.co/VSjR9js/IMG-1918-01.jpg",
+    userHandler: "yash_purkar",
     password: "100",
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -24,11 +24,11 @@ export const users = [
   },
   {
     _id: uuid(),
-    firstName: "Arjun",
-    lastName: "Rajput",
-    username: "arjunrajput@gmail.com",
-    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
-    userHandler: "arjun28",
+    firstName: "Scarlett",
+    lastName: "Rivers",
+    username: "scarlettrivers@gmail.com",
+    profile_photo: "https://images.unsplash.com/photo-1560759226-14da22a643ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZGFyayUyMG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    userHandler: "CrimsonTide",
     password: "100",
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -36,15 +36,15 @@ export const users = [
     followers: [],
     following: [],
     link: "https://yashpurkar-portfolio.netlify.app/",
-    bio: "Aspiring Web Developer"
+    bio: "Nature enthusiast | Coffee addict | Wanderer"
   },
   {
     _id: uuid(),
-    firstName: "Amit",
-    lastName: "Shah",
-    username: "amitshah@gmail.com",
-    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
-    userHandler: "amit_23",
+    firstName: "Luna",
+    lastName: "Shade",
+    username: "lunashade@gmail.com",
+    profile_photo: "https://images.unsplash.com/photo-1503944168849-8bf86875bbd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRyZWFtZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+    userHandler: "LunaDremer",
     password: "100",
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -52,15 +52,15 @@ export const users = [
     followers: [],
     following: [],
     link: "https://yashpurkar-portfolio.netlify.app/",
-    bio: "Aspiring Web Developer"
+    bio: "Dreamer | Moonchild | Artist"
   },
   {
     _id: uuid(),
-    firstName: "Virat",
-    lastName: "Kohli",
-    username: "viratkohli@gmail.com",
-    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
-    userHandler: "virat22",
+    firstName: "Max",
+    lastName: "Shadow",
+    username: "maxshasow@gmail.com",
+    profile_photo: "https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGdhbWVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    userHandler: "CyberNinja",
     password: "100",
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -68,15 +68,15 @@ export const users = [
     followers: [],
     following: [],
     link: "https://yashpurkar-portfolio.netlify.app/",
-    bio: "Aspiring Web Developer"
+    bio: "Tech geek | Gaming enthusiast | Future coder"
   },
   {
     _id: uuid(),
-    firstName: "Akshay",
-    lastName: "Kumar",
-    username: "akshaykumar@gmail.com",
-    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
-    userHandler: "akshay_11",
+    firstName: "Stella",
+    lastName: "Celeste",
+    username: "stellaceleste@gmail.com",
+    profile_photo: "https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8QXN0cm9ub215fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+    userHandler: "StarGazer",
     password: "100",
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -84,15 +84,15 @@ export const users = [
     followers: [],
     following: [],
     link: "https://yashpurkar-portfolio.netlify.app/",
-    bio: "Aspiring Web Developer"
+    bio: "Astronomy lover | Star seeker | Science nerd"
   },
   {
     _id: uuid(),
-    firstName: "Mahi",
-    lastName: "Dhoni",
-    username: "mahidhoni@gmail.com",
-    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
-    userHandler: "mahi_11",
+    firstName: "Crystal",
+    lastName: "Waters",
+    username: "crystalwaters@gmail.com",
+    profile_photo: "https://images.unsplash.com/photo-1607301614848-2341363f5f48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHBvZXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+    userHandler: "SapphireScribe",
     password: "100",
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -100,15 +100,15 @@ export const users = [
     followers: [],
     following: [],
     link: "https://yashpurkar-portfolio.netlify.app/",
-    bio: "Aspiring Web Developer"
+    bio: "Writer | Poet | Lover of words"
   },
   {
     _id: uuid(),
-    firstName: "John",
-    lastName: "Doe",
-    username: "johndoe@gmail.com",
-    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
-    userHandler: "john_d",
+    firstName: "Blaze",
+    lastName: "Summers",
+    username: "blazesummers@gmail.com",
+    profile_photo: "https://images.unsplash.com/photo-1547469447-4afec158715b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFkdmVudHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    userHandler: "Wildfire",
     password: "abc123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -116,16 +116,16 @@ export const users = [
     followers: [],
     following: [],
     link: "https://yashpurkar-portfolio.netlify.app/",
-    bio: "Aspiring Web Developer"
+    bio: "Adventure seeker | Fire dancer | Free spirit"
   }
   ,
   {
     _id: uuid(),
-    firstName: "Emma",
-    lastName: "Smith",
-    username: "emmasmith@gmail.com",
-    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699",
-    userHandler: "emma_s",
+    firstName: "Phoenix",
+    lastName: "Wright",
+    username: "phoenixwright@gmail.com",
+    profile_photo: "https://images.unsplash.com/photo-1604684116250-e79276b241fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U3Rvcnl0ZWxsZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+    userHandler: "MysticScribe",
     password: "pass123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
@@ -133,7 +133,7 @@ export const users = [
     followers: [],
     following: [],
     link: "https://yashpurkar-portfolio.netlify.app/",
-    bio: "Aspiring Web Developer"
+    bio: "Seeker of ancient knowledge | Storyteller | Occult enthusiast"
   }
 
 ];

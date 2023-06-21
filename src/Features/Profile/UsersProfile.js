@@ -39,7 +39,7 @@ export const UsersProfile = () => {
           <div className='flex justify-between align-center profile-name-info'>
             <div>
               <h2 className='profile-user-name letter-spacing-1'>{foundUser?.firstName} {foundUser?.lastName}</h2>
-              <p className={`user-name-2 letter-spacing-1 ${isDarkMode && "color-white"}`}>{foundUser?.userHandler}</p>
+              <p className={`user-name-2 letter-spacing-1 ${isDarkMode && "color-white"}`}>@{foundUser?.userHandler}</p>
             </div>
 
             {

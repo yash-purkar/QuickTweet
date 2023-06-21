@@ -9,7 +9,7 @@ export const PostDetail = () => {
   const { dataState: { posts } } = UseData();
 
   const foundPost = posts?.find(post => post?.id === postId) || {};
-  // console.log(foundPost)
+
   return (
     <div className='post-detail-container'>
       <SinglePost post={foundPost} showDetail />

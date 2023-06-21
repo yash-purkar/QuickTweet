@@ -1,9 +1,7 @@
 import React from 'react'
 import './Profile.css'
-import { useParams } from 'react-router';
 import { UseData } from '../../Contexts/DataContext';
 import { SinglePost } from '../../Components/SinglePost/SinglePost';
-import { followUserHandler, unfollowUserHandler } from '../../Services/UserServices';
 import { UseModal } from '../../Contexts/ModalContext';
 import { useEffect } from 'react';
 export const Profile = () => {
@@ -36,7 +34,7 @@ export const Profile = () => {
           <div className='flex justify-between align-center profile-name-info'>
             <div>
               <h2 className='profile-user-name letter-spacing-1'>{loggedInUser?.firstName} {loggedInUser?.lastName}</h2>
-              <p className={`user-name-2 letter-spacing-1 ${isDarkMode && "color-white"}`}>{loggedInUser?.userHandler}</p>
+              <p className={`user-name-2 letter-spacing-1 ${isDarkMode && "color-white"}`}>@{loggedInUser?.userHandler}</p>
             </div>
 
             <button onClick={() => modalDispatch({ type: "SHOW_PROFILE_EDIT_MODAL" })} className={`edit-profile-btn letter-spacing-1 profile-btns cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Edit</button>
