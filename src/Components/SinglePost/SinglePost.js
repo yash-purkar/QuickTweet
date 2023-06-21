@@ -137,7 +137,7 @@ export const SinglePost = ({ post, showDetail }) => {
             isUserLiked ? <span className='like-icon liked' onClick={handlePostDislike}><AiFillHeart /> </span> : <span className='like-icon' onClick={handlePostLike}><AiOutlineHeart /> </span>
           }
 
-          {post?.likeCount}
+          {post?.likes?.likeCount}
         </div>
         <div className={`comment-option flex ${isDarkMode && "color-white"}`} onClick={() => modalDispatch({
           type: "SHOW_COMMENT_MODAL", payload: {
