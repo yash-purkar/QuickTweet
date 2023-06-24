@@ -12,7 +12,7 @@ export const DataContextProvider = ({ children }) => {
   const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState);
   const [searchedUserValue, setSearchedUserValue] = useState("")
   const themeMode = localStorage.getItem("QUICK_TWEET_THEME")
-  const [isDarkMode, setIsDarkMode] = useState(themeMode !== "LIGHT");
+  const [isDarkMode, setIsDarkMode] = useState(themeMode === "DARK");
   const [isLoading, setIsLoading] = useState(true);
   const getAllPosts = async () => {
     try {
