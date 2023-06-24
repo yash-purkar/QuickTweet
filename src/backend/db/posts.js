@@ -185,7 +185,7 @@ export const posts = [
     _id: uuid(),
     content: "Creativity takes courage.",
     likes: {
-      likeCount: 0,
+      likeCount: 1,
       likedBy: [{
         _id: uuid(),
         firstName: "Yash",
@@ -220,7 +220,7 @@ export const posts = [
     _id: uuid(),
     content: "Though my soul may set in darkness, it will rise in perfect light; I have loved the stars too fondly to be fearful of the night",
     likes: {
-      likeCount: 0,
+      likeCount: 1,
       likedBy: [{
         _id: uuid(),
         firstName: "Luna",
@@ -259,7 +259,7 @@ export const posts = [
     _id: uuid(),
     content: "If I have seen farther than others, it is because I have stood on the shoulders of giants.",
     likes: {
-      likeCount: 0,
+      likeCount: 2,
       likedBy: [{
         _id: uuid(),
         firstName: "Crystal",
@@ -302,7 +302,7 @@ export const posts = [
     _id: uuid(),
     content: "Gaming brings people together.",
     likes: {
-      likeCount: 0,
+      likeCount: 1,
       likedBy: [{
         _id: uuid(),
         firstName: "Crystal",
@@ -360,7 +360,7 @@ export const posts = [
     _id: uuid(),
     content: "A good writer possesses not only his own spirit but also the spirit of his friends.",
     likes: {
-      likeCount: 0,
+      likeCount: 1,
       likedBy: [{
         _id: uuid(),
         firstName: "Yash",
