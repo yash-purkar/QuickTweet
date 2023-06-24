@@ -16,7 +16,7 @@
   width: 100%;
   background-color: var(--white);
   padding: 1.5rem;
-  padding-top: 0;
+  padding-top: 0.5rem;
   padding-bottom: 0.6rem;
   border-right: 1px solid var(--border-clr);
   color: var(--light-gray);
@@ -26,6 +26,9 @@
 
 .followbar-card-inner {
   flex-direction: column;
+
+  width: 120px;
+  height: 100px;
 }
 
 .follow-header {
@@ -108,6 +111,8 @@
   }
   .followbar-card-inner {
     flex-direction: row;
+    width: 100%;
+    height: unset;
   }
   .follow-user-img {
     width: 50px;

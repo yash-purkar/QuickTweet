@@ -19,8 +19,8 @@ export const users = [
     bookmarks: [],
     followers: [],
     following: [],
-    link: "https://yashpurkar-portfolio.netlify.app/",
-    bio: "Aspiring Web Developer"
+    link: "https://yashpurkar.netlify.app/",
+    bio: "Web Developer | Nature | love sunset"
   },
   {
     _id: uuid(),
@@ -35,7 +35,7 @@ export const users = [
     bookmarks: [],
     followers: [],
     following: [],
-    link: "https://yashpurkar-portfolio.netlify.app/",
+    link: "https://scarlettrivers.netlify.app/",
     bio: "Nature enthusiast | Coffee addict | Wanderer"
   },
   {
@@ -51,7 +51,7 @@ export const users = [
     bookmarks: [],
     followers: [],
     following: [],
-    link: "https://yashpurkar-portfolio.netlify.app/",
+    link: "https://lunashade.netlify.app/",
     bio: "Dreamer | Moonchild | Artist"
   },
   {
@@ -67,7 +67,7 @@ export const users = [
     bookmarks: [],
     followers: [],
     following: [],
-    link: "https://yashpurkar-portfolio.netlify.app/",
+    link: "https://maxshasow.netlify.app/",
     bio: "Tech geek | Gaming enthusiast | Future coder"
   },
   {
@@ -83,7 +83,7 @@ export const users = [
     bookmarks: [],
     followers: [],
     following: [],
-    link: "https://yashpurkar-portfolio.netlify.app/",
+    link: "https://stellaceleste.netlify.app/",
     bio: "Astronomy lover | Star seeker | Science nerd"
   },
   {
@@ -99,7 +99,7 @@ export const users = [
     bookmarks: [],
     followers: [],
     following: [],
-    link: "https://yashpurkar-portfolio.netlify.app/",
+    link: "https://crystalwatersnetlify.app/",
     bio: "Writer | Poet | Lover of words"
   },
   {
@@ -115,7 +115,7 @@ export const users = [
     bookmarks: [],
     followers: [],
     following: [],
-    link: "https://yashpurkar-portfolio.netlify.app/",
+    link: "https://blazesummers.netlify.app/",
     bio: "Adventure seeker | Fire dancer | Free spirit"
   }
   ,
@@ -132,7 +132,7 @@ export const users = [
     bookmarks: [],
     followers: [],
     following: [],
-    link: "https://yashpurkar-portfolio.netlify.app/",
+    link: "https://blazesummers.netlify.app/",
     bio: "Seeker of ancient knowledge | Storyteller | Occult enthusiast"
   }
 

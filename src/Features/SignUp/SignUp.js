@@ -16,7 +16,7 @@ export const SignUp = () => {
     bookmarks: [],
     following: [],
     followers: [],
-    profile_photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4BqaiKMRdXXKaozTUZToGKHZj0LV-qlt7bTpuuVRN5A&usqp=CAU&ec=48665699"
+    profile_photo: "https://static.vecteezy.com/system/resources/previews/008/442/086/original/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg"
   })
   const { setIsLoggedIn } = UseAuth();
 
