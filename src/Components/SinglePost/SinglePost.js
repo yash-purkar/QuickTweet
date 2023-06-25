@@ -31,7 +31,12 @@ export const SinglePost = ({ post, showDetail }) => {
   const postUser = users?.find((el) => el.username === post?.username);
   // console.log(user)
 
-  const { firstName, lastName, profile_photo, userHandler, bookmarks } = postUser || {}
+  const { firstName, lastName, profile_photo, userHandler, bookmarks, } = postUser || {}
+
+
+  // console.log(post?.createdAt?.slice(11, 16))
+  const postCreateDate = new Date(post?.createdAt).toLocaleDateString();
+  const createTime = new Date(post?.createdAt).toLocaleTimeString();
 
   const handlePostLike = () => {
     likePostHandler(post?._id, socialToken, dataDispatch)
@@ -63,7 +68,7 @@ export const SinglePost = ({ post, showDetail }) => {
   }
 
 
-  const isUserLiked = post?.likes?.likedBy?.some(post => post.username === loggedInUser.username);
+  const isUserLiked = post?.likes?.likedBy?.some(user => user.username === loggedInUser.username);
 
   const isBookMarked = loggedInUser?.bookmarks?.includes(post?._id);
 
@@ -104,7 +109,7 @@ export const SinglePost = ({ post, showDetail }) => {
             </span>
               <small className={`user-name-2 letter-spacing-1 cursor-pointer ${isDarkMode && "color-white"}`}>@{userHandler}</small></p>
 
-            <p ><span className={`post-date ${isDarkMode && "color-white"}`}>2022/09/06</span><span className={`post-time ${isDarkMode && "color-white"}`}>11:46</span></p>
+            <p ><span className={`post-date ${isDarkMode && "color-white"}`}>{postCreateDate}</span><span className={`post-time ${isDarkMode && "color-white"}`}>{createTime}</span></p>
           </div>
 
         </div>

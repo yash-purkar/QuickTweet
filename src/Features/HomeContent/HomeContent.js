@@ -27,11 +27,13 @@ export const HomeContent = () => {
   const homePosts = posts?.filter(post => loggedInUser?.following?.some(el => el.username === post.username));
 
   // For trending
-  const likedPosts = posts?.filter(post => post?.likes?.likedBy?.length > 0);
+  const likedPosts = posts?.filter(post => loggedInUser?.following?.some(el => el?.username === post?.username) || loggedInUser?.username === post?.username);
 
-  const sortPostsByLikes = [...likedPosts]?.sort((a, b) => a.likes.likedBy.length - b.likes.likedBy.length)
+  const sortPostsByLikes = likedPosts?.sort((a, b) => b?.likes?.likeCount - a?.likes?.likeCount)
+  // const formattedCreatedAt = new Date(data?.createdAt).toLocaleDateString();
 
-  const postsByType = postsType === "latest" ? [...loggedInUserPosts.reverse(), ...homePosts].reverse() : sortPostsByLikes;
+  // const sortPostByLatest = 
+  const postsByType = postsType === "latest" ? [...loggedInUserPosts, ...homePosts].sort((a, b) => new Date(b?.createdAt) - new Date(a?.createdAt)) : sortPostsByLikes;
 
   return (
     <>
@@ -69,7 +71,7 @@ export const HomeContent = () => {
       {
         postsByType?.length > 0 && <div className='posts'>
           {
-            [...postsByType]?.reverse().map(post => <SinglePost key={post._id} post={post} />)
+            postsByType?.map(post => <SinglePost key={post._id} post={post} />)
           }
         </div>
       }

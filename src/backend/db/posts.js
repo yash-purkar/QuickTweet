@@ -1,6 +1,5 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
-import IMG1 from '../../assets/img1.jpg'
 
 /**
  * Posts can be added here.
@@ -46,7 +45,7 @@ export const posts = [
         text: "Agree👍🏻",
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2020, 5, 25, 11, 27),
     updatedAt: formatDate(),
   },
   {
@@ -97,7 +96,7 @@ export const posts = [
         text: "Nice👌🏻",
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2020, 5, 25, 18, 4),
     updatedAt: formatDate(),
   },
   {
@@ -108,11 +107,11 @@ export const posts = [
       likedBy: [
         {
           _id: uuid(),
-          firstName: "Yash",
-          lastName: "Purkar",
-          username: "yashpurkar@gmail.com",
-          profile_photo: "https://i.ibb.co/VSjR9js/IMG-1918-01.jpg",
-          userHandler: "yash_purkar",
+          firstName: "Stella",
+          lastName: "Celeste",
+          username: "stellaceleste@gmail.com",
+          profile_photo: "https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8QXN0cm9ub215fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+          userHandler: "StarGazer",
           password: "100",
           createdAt: formatDate(),
           updatedAt: formatDate(),
@@ -120,8 +119,8 @@ export const posts = [
           followers: [],
           following: [],
           link: "https://yashpurkar-portfolio.netlify.app/",
-          bio: "Aspiring Web Developer"
-        },
+          bio: "Astronomy lover | Star seeker | Science nerd"
+        }
       ],
       dislikedBy: []
     },
@@ -139,7 +138,7 @@ export const posts = [
         text: "😍😍"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2023, 6, 23, 6, 49),
     updatedAt: formatDate()
   },
   {
@@ -178,7 +177,7 @@ export const posts = [
         text: "I love it!"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2023, 5, 18, 15, 1),
     updatedAt: formatDate()
   },
   {
@@ -188,20 +187,20 @@ export const posts = [
       likeCount: 1,
       likedBy: [{
         _id: uuid(),
-        firstName: "Yash",
-        lastName: "Purkar",
-        username: "yashpurkar@gmail.com",
-        profile_photo: "https://i.ibb.co/VSjR9js/IMG-1918-01.jpg",
-        userHandler: "yash_purkar",
-        password: "100",
+        firstName: "Blaze",
+        lastName: "Summers",
+        username: "blazesummers@gmail.com",
+        profile_photo: "https://images.unsplash.com/photo-1547469447-4afec158715b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFkdmVudHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        userHandler: "Wildfire",
+        password: "abc123",
         createdAt: formatDate(),
         updatedAt: formatDate(),
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
-        bio: "Web Developer | Nature | love sunset"
-      },],
+        link: "https://blazesummers.netlify.app/",
+        bio: "Adventure seeker | Fire dancer | Free spirit"
+      }],
       dislikedBy: []
     },
     username: "lunashade@gmail.com",
@@ -213,7 +212,7 @@ export const posts = [
         text: "Amazing!"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2023, 1, 11, 9, 12),
     updatedAt: formatDate()
   },
   {
@@ -252,7 +251,7 @@ export const posts = [
         text: "Bravo!"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2022, 12, 31, 7, 19),
     updatedAt: formatDate()
   },
   {
@@ -277,25 +276,25 @@ export const posts = [
         bio: "Writer | Poet | Lover of words"
       }, {
         _id: uuid(),
-        firstName: "Yash",
-        lastName: "Purkar",
-        username: "yashpurkar@gmail.com",
-        profile_photo: "https://i.ibb.co/VSjR9js/IMG-1918-01.jpg",
-        userHandler: "yash_purkar",
-        password: "100",
+        firstName: "Blaze",
+        lastName: "Summers",
+        username: "blazesummers@gmail.com",
+        profile_photo: "https://images.unsplash.com/photo-1547469447-4afec158715b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFkdmVudHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        userHandler: "Wildfire",
+        password: "abc123",
         createdAt: formatDate(),
         updatedAt: formatDate(),
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
-        bio: "Web Developer | Nature | love sunset"
-      },],
+        link: "https://blazesummers.netlify.app/",
+        bio: "Adventure seeker | Fire dancer | Free spirit"
+      }],
       dislikedBy: []
     },
     username: "phoenixwright@gmail.com",
     comments: [],
-    createdAt: formatDate(),
+    createdAt: new Date(2022, 6, 11, 5, 28),
     updatedAt: formatDate()
   },
   {
@@ -329,7 +328,7 @@ export const posts = [
         text: "May be"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2022, 5, 11, 3, 11),
     updatedAt: formatDate()
   },
   {
@@ -353,7 +352,7 @@ export const posts = [
         text: "💯"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2022, 3, 25, 25, 20),
     updatedAt: formatDate()
   },
   {
@@ -363,20 +362,20 @@ export const posts = [
       likeCount: 1,
       likedBy: [{
         _id: uuid(),
-        firstName: "Yash",
-        lastName: "Purkar",
-        username: "yashpurkar@gmail.com",
-        profile_photo: "https://i.ibb.co/VSjR9js/IMG-1918-01.jpg",
-        userHandler: "yash_purkar",
-        password: "100",
+        firstName: "Blaze",
+        lastName: "Summers",
+        username: "blazesummers@gmail.com",
+        profile_photo: "https://images.unsplash.com/photo-1547469447-4afec158715b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFkdmVudHVyZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        userHandler: "Wildfire",
+        password: "abc123",
         createdAt: formatDate(),
         updatedAt: formatDate(),
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
-        bio: "Web Developer | Nature | love sunset"
-      },],
+        link: "https://blazesummers.netlify.app/",
+        bio: "Adventure seeker | Fire dancer | Free spirit"
+      }],
       dislikedBy: []
     },
     username: "crystalwaters@gmail.com",
@@ -388,7 +387,7 @@ export const posts = [
         text: "💯"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2022, 2, 1, 11, 10),
     updatedAt: formatDate()
   },
   {
@@ -441,7 +440,7 @@ export const posts = [
         text: "haha😃😃"
       },
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2021, 8, 11, 17, 30),
     updatedAt: formatDate()
   },
   {
@@ -481,7 +480,7 @@ export const posts = [
         text: "Nice😍"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2021, 6, 21, 11, 13),
     updatedAt: formatDate()
   },
   {
@@ -520,7 +519,7 @@ export const posts = [
         text: "True💯"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2021, 3, 19, 19, 10),
     updatedAt: formatDate()
   },
   {
@@ -545,7 +544,7 @@ export const posts = [
         text: "Bravo!"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2021, 1, 31, 22, 24),
     updatedAt: formatDate()
   },
   {
@@ -570,7 +569,7 @@ export const posts = [
         text: "I'm impressed!"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2020, 12, 31, 17, 25),
     updatedAt: formatDate()
   },
   {
@@ -586,7 +585,7 @@ export const posts = [
         profile_photo: "https://images.unsplash.com/photo-1604684116250-e79276b241fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U3Rvcnl0ZWxsZXJ8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
         userHandler: "MysticScribe",
         password: "pass123",
-        createdAt: formatDate(),
+        createdAt: new Date(2020, 11, 30, 1, 1),
         updatedAt: formatDate(),
         bookmarks: [],
         followers: [],
@@ -610,7 +609,7 @@ export const posts = [
         text: "Love it!"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2020, 8, 10, 24, 20),
     updatedAt: formatDate()
   },
   {
@@ -666,7 +665,7 @@ export const posts = [
         text: "True💯!"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2020, 6, 10, 15, 25),
     updatedAt: formatDate()
   },
   {
@@ -706,7 +705,7 @@ export const posts = [
         text: "Agree💯"
       }
     ],
-    createdAt: formatDate(),
+    createdAt: new Date(2020, 5, 25, 16, 30),
     updatedAt: formatDate()
   }
 
