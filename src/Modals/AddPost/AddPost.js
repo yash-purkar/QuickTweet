@@ -42,7 +42,7 @@ export const AddPost = () => {
     }
 
     else {
-      if (postData.content && postData.postImg) {
+      if (postData.content) {
         createPostHandler(postData, socialToken, dataDispatch)
         dataDispatch({ type: "CLEAR_ID_TO_EDIT" })
         modalDispatch({ type: "HIDE_POST_MODAL" })
