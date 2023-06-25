@@ -138,7 +138,7 @@ export const posts = [
         text: "😍😍"
       }
     ],
-    createdAt: new Date(2023, 6, 23, 6, 49),
+    createdAt: new Date(2023, 5, 23, 6, 49),
     updatedAt: formatDate()
   },
   {
