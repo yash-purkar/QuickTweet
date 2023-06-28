@@ -8,7 +8,7 @@ import { editUserHandler } from '../../Services/UserServices'
 
 export const EditProfile = () => {
   const { modalDispatch } = UseModal();
-  const { dataState: { users }, dataDispatch } = UseData();
+  const { dataState: { users }, dataDispatch, isDarkMode } = UseData();
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
 
@@ -49,7 +49,7 @@ export const EditProfile = () => {
   return (
 
     <div className='edit-profile-main'>
-      <div className='edit-profile-container'>
+      <div className={`edit-profile-container ${isDarkMode && "bg-dark color-white"}`}>
         <div className='edit-profile-inner-container'>
 
           <div className="input-file-container flex align-center">
@@ -66,21 +66,21 @@ export const EditProfile = () => {
 
           <label htmlFor="" className='link-box flex'>
             <span className='link-text'>Link</span>
-            <input type="text" className='link-input letter-spacing-1' name="link" onChange={handleChange} value={link} />
+            <input type="text" className={`link-input letter-spacing-1 ${isDarkMode && "bg-dark-light color-white border-color-dark"}`} name="link" onChange={handleChange} value={link} />
           </label>
 
           <label htmlFor="" className='flex'>
             Bio
-            <textarea id="" className='edit-bio-textarea letter-spacing-1' placeholder='Edit' name="bio" onChange={handleChange} value={bio}>
+            <textarea id="" className={`edit-bio-textarea letter-spacing-1 ${isDarkMode && "bg-dark-light color-white border-color-dark"}`} placeholder='Edit' name="bio" onChange={handleChange} value={bio}>
             </textarea>
           </label>
 
 
           <div className='flex justify-end'>
 
-            <button onClick={handleUpdateClick} className='update-btn cursor-pointer' >Update</button>
+            <button onClick={handleUpdateClick} className={`update-btn cursor-pointer ${isDarkMode && "dark-hover-effect"}`} >Update</button>
 
-            <button onClick={handleCancel} className='cancel-btn cursor-pointer'>Cancel</button>
+            <button onClick={handleCancel} className={`cancel-btn cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Cancel</button>
           </div>
 
 

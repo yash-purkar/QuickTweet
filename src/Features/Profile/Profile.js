@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 export const Profile = () => {
 
   const { dataState: { users, posts }, isDarkMode, setIsLoading } = UseData();
-
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
 
   const { modalDispatch } = UseModal();
@@ -23,6 +22,12 @@ export const Profile = () => {
       setIsLoading(false)
     }, 300)
   }, [])
+
+  const showFollowFollowing = (type) => {
+    if (loggedInUser[type].length > 0) {
+      modalDispatch({ type: "SHOW_FOLLOW_DETAIL_MODAL", payload: { id: loggedInUser?.id, type } })
+    }
+  }
 
   return (
     <div>
@@ -46,8 +51,8 @@ export const Profile = () => {
 
           <div className={`flex follow-details letter-spacing-1 justify-between ${isDarkMode && "color-white"}`}>
             <p><span className='font-bold'>{profileUserPosts?.length}</span> Posts</p>
-            <p><span className='font-bold'>{loggedInUser?.followers?.length}</span> Followers</p>
-            <p><span className='font-bold'>{loggedInUser?.following?.length}</span> Following</p>
+            <p className='cursor-pointer' onClick={() => showFollowFollowing("followers")}><span className='font-bold'>{loggedInUser?.followers?.length}</span> Followers</p>
+            <p className='cursor-pointer' onClick={() => showFollowFollowing("following")}><span className='font-bold'>{loggedInUser?.following?.length}</span> Following</p>
           </div>
 
         </div>
@@ -56,7 +61,7 @@ export const Profile = () => {
 
       <div className='posts'>
         {
-          [...profileUserPosts]?.reverse().map(post => <SinglePost key={post.username} post={post} />)
+          [...profileUserPosts]?.reverse().map(post => <SinglePost key={post?._id} post={post} />)
         }
       </div>
 
