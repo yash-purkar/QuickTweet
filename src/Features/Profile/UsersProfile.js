@@ -38,6 +38,10 @@ export const UsersProfile = () => {
     }
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div>
       <div className={`profile-container flex ${isDarkMode && "bg-dark-light"}`}>

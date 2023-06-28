@@ -29,6 +29,7 @@ export const Profile = () => {
     }
   }
 
+
   return (
     <div>
       <div className={`profile-container flex ${isDarkMode && "bg-dark-light color-white"}`}>
