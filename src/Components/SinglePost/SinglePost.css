@@ -46,7 +46,7 @@
 }
 .post-desc {
   padding-bottom: 0.9rem;
-  color: var(--gray);
+  font-family: "Montserrat", sans-serif;
 }
 .like-option,
 .bookmark-option,

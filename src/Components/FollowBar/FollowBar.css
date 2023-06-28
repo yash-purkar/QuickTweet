@@ -73,6 +73,7 @@
 .follow-username-2 {
   font-size: 0.83rem;
   text-align: center;
+  color: var(--black);
 }
 .no-suggestions-text {
   color: var(--light-font-clr);

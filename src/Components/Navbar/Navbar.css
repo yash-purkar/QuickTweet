@@ -33,7 +33,8 @@
 
 .icon-page-name {
   display: none;
-  color: var(--light-font-clr);
+  color: var(--black);
+  font-family: "Montserrat", sans-serif;
 }
 
 .bookmark-icon {
