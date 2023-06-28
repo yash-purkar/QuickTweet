@@ -36,7 +36,7 @@ export const HomeContent = () => {
   const postsByType = postsType === "latest" ? [...loggedInUserPosts, ...homePosts].sort((a, b) => new Date(b?.createdAt) - new Date(a?.createdAt)) : sortPostsByLikes;
 
   return (
-    <>
+    <div>
       <div className={`flex justify-between add-post-bar align-center ${isDarkMode && "bg-dark-light color-white"}`}>
         <p className={`add-post-text flex align-center ${isDarkMode && "bg-dark-light color-white"}`}>
           <span className='addpost-profile-icon'>
@@ -79,6 +79,6 @@ export const HomeContent = () => {
         likedPosts?.length === 0 && postsType === "trending" &&
         <h2 className={`likes-posts-heading text-center ${isDarkMode && "color-white"}`}>Liked Some Posts To See Trending</h2>
       }
-    </>
+    </div>
   )
 }

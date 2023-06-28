@@ -2,7 +2,11 @@ export const modalInitialState = {
   showPostModal: false,
   showCommentModal: false,
   commentPostId: null,
-  showProfileEditModal: false
+  showProfileEditModal: false,
+  showFollowDetailModel: false,
+  showFollowDetailId: null,
+  showDetailType: null
+
 }
 
 export const modalReducer = (state, action) => {
@@ -33,7 +37,19 @@ export const modalReducer = (state, action) => {
       ...state, showProfileEditModal: false
     }
 
+    case "SHOW_FOLLOW_DETAIL_MODAL": return {
+      ...state, showFollowDetailModel: true,
+      showFollowDetailId: action?.payload?.id, showDetailType: action?.payload?.type
+    }
 
+    case "HIDE_FOLLOW_DETAIL_MODAL": return {
+      ...state, showFollowDetailModel: false
+    }
+
+
+    case "RESET_FOLLOW_DETAIL_ID": return {
+      ...state, showFollowDetailId: null
+    }
     default: return state
   }
 }
