@@ -43,7 +43,7 @@ export const FollowBar = () => {
                   <img src={profile_photo} className='follow-user-img ' alt="user-img" /></span>
                 <div onClick={() => handleUserProfile(userHandler)} className={`cursor-pointer ${isDarkMode && "color-white"}`}>
                   <h4 className='follow-user-name text-center' >{firstName} {lastName}</h4>
-                  <small className='follow-username-2'>@{userHandler}</small>
+                  <small className={`follow-username-2 ${isDarkMode && "color-white"}`}>@{userHandler}</small>
                 </div>
               </div>
 

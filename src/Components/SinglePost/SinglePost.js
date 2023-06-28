@@ -160,7 +160,7 @@ export const SinglePost = ({ post, showDetail }) => {
             commentPostId: post?._id
           }
         })}>
-          <span className='comment-icon'><FaRegComment /></span> {post?.comments?.length}
+          <span className='comment-icon flex align-center'><FaRegComment /></span> {post?.comments?.length}
         </div>
         <div className={`bookmark-option flex ${isDarkMode && "color-white"}`} >
           {
