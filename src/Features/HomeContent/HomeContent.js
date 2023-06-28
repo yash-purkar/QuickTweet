@@ -30,10 +30,8 @@ export const HomeContent = () => {
   const likedPosts = posts?.filter(post => loggedInUser?.following?.some(el => el?.username === post?.username) || loggedInUser?.username === post?.username);
 
   const sortPostsByLikes = likedPosts?.sort((a, b) => b?.likes?.likeCount - a?.likes?.likeCount)
-  // const formattedCreatedAt = new Date(data?.createdAt).toLocaleDateString();
 
-  // const sortPostByLatest = 
-  const postsByType = postsType === "latest" ? [...loggedInUserPosts, ...homePosts].sort((a, b) => new Date(b?.createdAt) - new Date(a?.createdAt)) : sortPostsByLikes;
+  const postsByType = postsType === "latest" ? [...loggedInUserPosts, ...homePosts].sort((a, b) => new Date(b?.createdAt) - new Date(a?.createdAt)) : postsType === "oldest" ? [...loggedInUserPosts, ...homePosts].sort((a, b) => new Date(a?.createdAt) - new Date(b?.createdAt)) : sortPostsByLikes;
 
   return (
     <div>
@@ -58,7 +56,12 @@ export const HomeContent = () => {
         <div className='trending-mid-line'></div>
 
         <div className='trending-box flex align-center'>
+          <button onClick={() => setPostsType("oldest")} className={`trending-btn letter-spacing-1 cursor-pointer ${postsType === "oldest" && "type-active"} ${isDarkMode && "bg-dark-light"}`}><BiTrendingUp /><span className='padding-left-03'>Oldest</span></button>
+        </div>
 
+        <div className='trending-mid-line'></div>
+
+        <div className='trending-box flex align-center'>
           <button onClick={() => setPostsType("trending")} className={`trending-btn letter-spacing-1 cursor-pointer ${postsType === "trending" && "type-active"} ${isDarkMode && "bg-dark-light"}`}><BiTrendingUp /><span className='padding-left-03'>Trending</span></button>
         </div>
       </div>

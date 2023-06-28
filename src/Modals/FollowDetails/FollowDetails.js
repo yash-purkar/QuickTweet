@@ -23,13 +23,14 @@ export const FollowDetails = () => {
 
   const handleFollow = (id) => {
     followUserHandler(id, socialToken, dataDispatch)
+
   }
   const handleUnFollow = (id) => {
     unfollowUserHandler(id, socialToken, dataDispatch)
   }
 
   const viewProfile = (userHandler) => {
-    if (userHandler === loggedInUser?.username) {
+    if (userHandler === loggedInUser?.userHandler) {
       navigate(`/profile`)
     }
     else {
@@ -52,13 +53,19 @@ export const FollowDetails = () => {
                     <img src={el?.profile_photo} alt="" className='follow-detail-img' />
                     <p>{el?.firstName} {el?.lastName}</p>
                   </div>
+
+
                   {
-                    el?.username !== loggedInUser?.username && <>
+                    loggedInUser?.username !== el?.username && <>
                       {
-                        loggedInUser?.following?.some((user) => user?.id === el?.id) ? <button onClick={() => handleUnFollow(el?._id)} className={`follow-btn letter-spacing-1 cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Unfollow</button> : <button onClick={() => handleFollow(el?._id)} className={`follow-btn letter-spacing-1 cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Follow</button>
+                        loggedInUser?.following?.some(item => item?.id === el?.id) ? <button onClick={() => handleUnFollow(el?._id)} className={`follow-btn letter-spacing-1 cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Unfollow</button>
+                          :
+                          <button onClick={() => handleFollow(el?._id)} className={`follow-btn letter-spacing-1 cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Follow</button>
+
                       }
                     </>
                   }
+
 
                 </div>
               )
@@ -69,3 +76,5 @@ export const FollowDetails = () => {
     </>
   )
 }
+
+// className={`follow-btn letter-spacing-1 cursor-pointer ${isDarkMode && "dark-hover-effect"}`}
