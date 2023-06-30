@@ -5,7 +5,6 @@ import { UseData } from '../../Contexts/DataContext';
 import { SinglePost } from '../../Components/SinglePost/SinglePost';
 import { followUserHandler, unfollowUserHandler } from '../../Services/UserServices';
 import { useEffect } from 'react';
-import { UseModal } from '../../Contexts/ModalContext';
 
 export const UsersProfile = () => {
 
@@ -13,7 +12,6 @@ export const UsersProfile = () => {
 
   const { dataState: { users, posts }, dataDispatch, isDarkMode } = UseData();
 
-  const { modalDispatch } = UseModal();
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
   const loggedInUser = users?.find(el => el.username === socialUser.username)
@@ -34,7 +32,7 @@ export const UsersProfile = () => {
 
   const showFollowFollowing = (type) => {
     if (foundUser[type].length > 0) {
-      modalDispatch({ type: "SHOW_FOLLOW_DETAIL_MODAL", payload: { id: foundUser?.id, type } })
+      dataDispatch({ type: "SHOW_FOLLOW_DETAIL_MODAL", payload: { id: foundUser?.id, type } })
     }
   }
 

@@ -1,17 +1,15 @@
 import React from 'react'
 import './FollowDetails.css'
-import { UseModal } from '../../Contexts/ModalContext'
 import { UseData } from '../../Contexts/DataContext';
 import { BiArrowBack } from 'react-icons/bi';
 import { followUserHandler, unfollowUserHandler } from '../../Services/UserServices';
 import { useNavigate } from 'react-router';
 
 export const FollowDetails = () => {
-  const { modalDispatch, modalState: { showFollowDetailId, showDetailType } } = UseModal();
-  const { isDarkMode, dataState: { users }, dataDispatch } = UseData();
+  const { isDarkMode, dataState: { users, modals: { showFollowDetailId, showDetailType } }, dataDispatch } = UseData();
   const navigate = useNavigate();
   const closeFollowDetail = () => {
-    modalDispatch({ type: "HIDE_FOLLOW_DETAIL_MODAL" })
+    dataDispatch({ type: "HIDE_FOLLOW_DETAIL_MODAL" })
   }
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
@@ -36,7 +34,7 @@ export const FollowDetails = () => {
     else {
       navigate(`/user-profile/${userHandler}`)
     }
-    modalDispatch({ type: "HIDE_FOLLOW_DETAIL_MODAL" })
+    dataDispatch({ type: "HIDE_FOLLOW_DETAIL_MODAL" })
   }
 
   return (

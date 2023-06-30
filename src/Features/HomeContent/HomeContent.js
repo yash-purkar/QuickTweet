@@ -6,11 +6,9 @@ import { MdOpenInNew } from 'react-icons/md'
 import './HomeContent.css'
 import { FollowBar } from '../../Components/FollowBar/FollowBar'
 import { UseData } from '../../Contexts/DataContext'
-import { UseModal } from '../../Contexts/ModalContext'
 import { useState } from 'react'
 export const HomeContent = () => {
-  const { dataState: { posts, users }, isDarkMode } = UseData();
-  const { modalDispatch } = UseModal();
+  const { dataState: { posts, users }, isDarkMode, dataDispatch } = UseData();
   const [postsType, setPostsType] = useState("latest");
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
@@ -18,7 +16,7 @@ export const HomeContent = () => {
 
 
   const openPostModel = () => {
-    modalDispatch({ type: "SHOW_POST_MODAL" })
+    dataDispatch({ type: "SHOW_POST_MODAL" })
   }
 
 

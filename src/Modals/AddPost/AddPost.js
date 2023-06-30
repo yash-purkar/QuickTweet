@@ -5,7 +5,6 @@ import { IoMdRemoveCircle } from 'react-icons/io'
 import './AddPost.css'
 import { createPostHandler, editPostHandler } from '../../Services/PostServices';
 import { useState } from 'react';
-import { UseModal } from '../../Contexts/ModalContext';
 import { UseData } from '../../Contexts/DataContext';
 import { warning } from '../../Services/ToastsServices';
 
@@ -13,7 +12,6 @@ export const AddPost = () => {
   const [postData, setPostData] = useState()
 
   const { dataDispatch, isDarkMode, dataState: { posts, postIdToBeEdit } } = UseData();
-  const { modalDispatch } = UseModal();
 
 
   useEffect(() => {
@@ -37,14 +35,14 @@ export const AddPost = () => {
     if (postIdToBeEdit) {
       editPostHandler(postIdToBeEdit, postData, socialToken, dataDispatch)
       dataDispatch({ type: "CLEAR_ID_TO_EDIT" })
-      modalDispatch({ type: "HIDE_POST_MODAL" })
+      dataDispatch({ type: "HIDE_POST_MODAL" })
     }
 
     else {
       if (postData.content) {
         createPostHandler(postData, socialToken, dataDispatch)
         dataDispatch({ type: "CLEAR_ID_TO_EDIT" })
-        modalDispatch({ type: "HIDE_POST_MODAL" })
+        dataDispatch({ type: "HIDE_POST_MODAL" })
       }
       else {
         warning("Add Content!")
@@ -57,7 +55,7 @@ export const AddPost = () => {
   }
 
   const handleGoBack = () => {
-    modalDispatch({ type: "HIDE_POST_MODAL" })
+    dataDispatch({ type: "HIDE_POST_MODAL" })
     dataDispatch({ type: "CLEAR_ID_TO_EDIT" })
   }
 

@@ -8,7 +8,6 @@ import { UseData } from '../../Contexts/DataContext'
 import { bookmarkPostHandler, deletePostHandler, dislikePostHandler, likePostHandler, removeBookmarkPostHandler } from '../../Services/PostServices'
 import { useNavigate } from 'react-router'
 import { SingleComment } from './SingleComment/SingleComment'
-import { UseModal } from '../../Contexts/ModalContext'
 import { BiEdit } from 'react-icons/bi'
 import { useState } from 'react'
 import { success } from '../../Services/ToastsServices'
@@ -18,7 +17,6 @@ export const SinglePost = ({ post, showDetail }) => {
   const navigate = useNavigate();
   const [showEditDeleteBox, setShowEditDeleteBox] = useState(false);
 
-  const { modalDispatch } = UseModal();
 
   const [disabledShareBtn, setDisabledShareBtn] = useState(false);
 
@@ -30,7 +28,7 @@ export const SinglePost = ({ post, showDetail }) => {
 
   const postUser = users?.find((el) => el.username === post?.username);
 
-  const { firstName, lastName, profile_photo, userHandler, bookmarks, } = postUser || {}
+  const { firstName, lastName, profile_photo, userHandler, } = postUser || {}
 
 
   const postCreateDate = new Date(post?.createdAt).toLocaleDateString();
@@ -74,7 +72,7 @@ export const SinglePost = ({ post, showDetail }) => {
   const handleEditClick = () => {
     setShowEditDeleteBox(false)
     dataDispatch({ type: "POST_ID_TO_EDIT", payload: post?._id })
-    modalDispatch({ type: "SHOW_POST_MODAL" })
+    dataDispatch({ type: "SHOW_POST_MODAL" })
   }
 
   const handleDeletePost = () => {
@@ -153,7 +151,7 @@ export const SinglePost = ({ post, showDetail }) => {
 
           {post?.likes?.likeCount}
         </div>
-        <div className={`comment-option flex ${isDarkMode && "color-white"}`} onClick={() => modalDispatch({
+        <div className={`comment-option flex ${isDarkMode && "color-white"}`} onClick={() => dataDispatch({
           type: "SHOW_COMMENT_MODAL", payload: {
             commentPostId: post?._id
           }

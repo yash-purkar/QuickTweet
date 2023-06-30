@@ -3,7 +3,6 @@ import './ContentBox.css'
 import { Search } from '../Search/Search'
 import { AddPost } from '../../Modals/AddPost/AddPost'
 import { AddComment } from '../../Modals/AddComment/AddComment'
-import { UseModal } from '../../Contexts/ModalContext'
 import { UseData } from '../../Contexts/DataContext'
 import { useNavigate } from 'react-router'
 import { EditProfile } from '../../Modals/EditProfile/EditProfile'
@@ -11,11 +10,10 @@ import { FollowDetails } from '../../Modals/FollowDetails/FollowDetails'
 
 
 export const ContentBox = ({ children }) => {
-  const { modalState: { showPostModal, showCommentModal, showProfileEditModal, showFollowDetailModel } } = UseModal();
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"))
 
-  const { searchedUserValue, setSearchedUserValue, dataState: { users }, isDarkMode } = UseData();
+  const { searchedUserValue, setSearchedUserValue, dataState: { users, modals: { showPostModal, showCommentModal, showProfileEditModal, showFollowDetailModel } }, isDarkMode } = UseData();
 
   const navigate = useNavigate();
 
