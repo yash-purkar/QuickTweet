@@ -2,14 +2,12 @@ import React from 'react'
 import './Profile.css'
 import { UseData } from '../../Contexts/DataContext';
 import { SinglePost } from '../../Components/SinglePost/SinglePost';
-import { UseModal } from '../../Contexts/ModalContext';
 import { useEffect } from 'react';
 export const Profile = () => {
 
-  const { dataState: { users, posts }, isDarkMode, setIsLoading } = UseData();
+  const { dataState: { users, posts }, isDarkMode, setIsLoading, dataDispatch } = UseData();
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
 
-  const { modalDispatch } = UseModal();
 
   const profileUserPosts = posts?.filter(post => post.username === socialUser.username)
 
@@ -25,7 +23,7 @@ export const Profile = () => {
 
   const showFollowFollowing = (type) => {
     if (loggedInUser[type].length > 0) {
-      modalDispatch({ type: "SHOW_FOLLOW_DETAIL_MODAL", payload: { id: loggedInUser?.id, type } })
+      dataDispatch({ type: "SHOW_FOLLOW_DETAIL_MODAL", payload: { id: loggedInUser?.id, type } })
     }
   }
 
@@ -43,7 +41,7 @@ export const Profile = () => {
               <p className={`user-name-2 letter-spacing-1 ${isDarkMode && "color-white"}`}>@{loggedInUser?.userHandler}</p>
             </div>
 
-            <button onClick={() => modalDispatch({ type: "SHOW_PROFILE_EDIT_MODAL" })} className={`edit-profile-btn letter-spacing-1 profile-btns cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Edit</button>
+            <button onClick={() => dataDispatch({ type: "SHOW_PROFILE_EDIT_MODAL" })} className={`edit-profile-btn letter-spacing-1 profile-btns cursor-pointer ${isDarkMode && "dark-hover-effect"}`}>Edit</button>
           </div>
 
           <p className='letter-spacing-1 user-profile-status'>{loggedInUser?.bio}</p>

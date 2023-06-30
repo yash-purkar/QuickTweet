@@ -8,7 +8,6 @@ import { makeServer } from "./server";
 import { BrowserRouter as Router } from 'react-router-dom'
 import { AuthContextProvider } from './Contexts/AuthContext';
 import { DataContextProvider } from './Contexts/DataContext';
-import { ModalContextProvider } from './Contexts/ModalContext';
 
 
 // Call make Server
@@ -20,9 +19,7 @@ root.render(
     <Router>
       <AuthContextProvider>
         <DataContextProvider>
-          <ModalContextProvider>
-            <App />
-          </ModalContextProvider>
+          <App />
         </DataContextProvider>
       </AuthContextProvider>
     </Router>

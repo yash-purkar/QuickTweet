@@ -1,13 +1,11 @@
 import React from 'react'
 import './EditProfile.css'
-import { UseModal } from '../../Contexts/ModalContext'
 import { UseData } from '../../Contexts/DataContext'
 import { useState } from 'react'
 import { AiFillCamera } from 'react-icons/ai'
 import { editUserHandler } from '../../Services/UserServices'
 
 export const EditProfile = () => {
-  const { modalDispatch } = UseModal();
   const { dataState: { users }, dataDispatch, isDarkMode } = UseData();
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
@@ -37,12 +35,12 @@ export const EditProfile = () => {
 
   const handleUpdateClick = () => {
     editUserHandler(editedData, socialToken, dataDispatch);
-    modalDispatch({ type: "HIDE_PROFILE_EDIT_MODAL" })
+    dataDispatch({ type: "HIDE_PROFILE_EDIT_MODAL" })
 
   }
 
   const handleCancel = () => {
-    modalDispatch({ type: "HIDE_PROFILE_EDIT_MODAL" })
+    dataDispatch({ type: "HIDE_PROFILE_EDIT_MODAL" })
   }
 
   return (

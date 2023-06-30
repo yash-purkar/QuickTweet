@@ -1,7 +1,16 @@
 export const dataInitialState = {
   posts: [],
   users: [],
-  postIdToBeEdit: null
+  postIdToBeEdit: null,
+  modals: {
+    showPostModal: false,
+    showCommentModal: false,
+    commentPostId: null,
+    showProfileEditModal: false,
+    showFollowDetailModel: false,
+    showFollowDetailId: null,
+    showDetailType: null
+  }
 }
 
 export const dataReducer = (state, action) => {
@@ -55,6 +64,54 @@ export const dataReducer = (state, action) => {
 
     case "CLEAR_ID_TO_EDIT": return {
       ...state, postIdToBeEdit: null
+    }
+
+    // For All Modals
+
+    case "SHOW_POST_MODAL": return {
+      ...state, modals: { ...state.modals, showPostModal: true }
+    }
+
+    case "HIDE_POST_MODAL": return {
+      ...state, modals: { ...state.modsls, showPostModal: false }
+    }
+
+    case "SHOW_COMMENT_MODAL": return {
+      ...state, modals: {
+        ...state.modals, showCommentModal: true,
+        commentPostId: action?.payload?.commentPostId
+      }
+    }
+
+    case "HIDE_COMMENT_MODAL": return {
+      ...state, modals: {
+        ...state.modals, showCommentModal: false,
+        commentPostId: null
+      }
+    }
+
+    case "SHOW_PROFILE_EDIT_MODAL": return {
+      ...state, modals: { ...state.modals, showProfileEditModal: true }
+    }
+
+    case "HIDE_PROFILE_EDIT_MODAL": return {
+      ...state, modals: { ...state.modals, showProfileEditModal: false }
+    }
+
+    case "SHOW_FOLLOW_DETAIL_MODAL": return {
+      ...state, modals: {
+        ...state.modals, showFollowDetailModel: true,
+        showFollowDetailId: action?.payload?.id, showDetailType: action?.payload?.type
+      }
+    }
+
+    case "HIDE_FOLLOW_DETAIL_MODAL": return {
+      ...state, modals: { ...state.modals, showFollowDetailModel: false }
+    }
+
+
+    case "RESET_FOLLOW_DETAIL_ID": return {
+      ...state, modals: { ...state.modals, showFollowDetailId: null }
     }
     default: return state;
   }
