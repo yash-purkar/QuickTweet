@@ -35,7 +35,7 @@ export const likePostHandler = async (postId, socialToken, dataDispatch) => {
     if (status === 200 || status === 201) {
       dataDispatch({ type: "POST_OPERATIONS", payload: posts })
     }
-    console.log(posts)
+
   } catch (error) {
     console.log(error)
   }
@@ -74,7 +74,7 @@ export const bookmarkPostHandler = async (postId, socialToken, dataDispatch, soc
         }
       }
     )
-    console.log(bookmarks, "newwwwwwwwwwwwww")
+
     if (status === 200 || status === 201) {
       dataDispatch({ type: "BOOKMARK_OPERATIONS", payload: { bookmarks, username: socialUser.username } })
       success("Added To Bookmark")
@@ -96,7 +96,7 @@ export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatc
         }
       }
     )
-    // console.log(bookmarks, "removeClick")
+
     if (status === 200 || status === 201) {
       dataDispatch({
         type: "BOOKMARK_OPERATIONS", payload: {

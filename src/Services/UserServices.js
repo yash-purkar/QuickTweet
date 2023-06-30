@@ -12,7 +12,6 @@ export const followUserHandler = async (followUserId, socialToken, dataDispatch)
       }
     )
 
-    console.log(data)
     if (status === 200 || status === 201) {
       dataDispatch({ type: "FOLLOWING_OPERATIONS", payload: { user: data.user } });
       dataDispatch({ type: "ADD_FOLLOWER", payload: { followUser: data.followUser } });

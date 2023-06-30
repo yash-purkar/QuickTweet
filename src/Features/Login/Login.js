@@ -30,7 +30,6 @@ export const Login = () => {
 
   const handleLoginClick = () => {
     const prevLocation = location?.state?.from?.pathname;
-    // console.log(prevLocation)
     if (username && password) {
       LoginUser({ username, password }, setIsLoggedIn, prevLocation, navigate);
     }

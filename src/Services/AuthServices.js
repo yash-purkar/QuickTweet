@@ -7,8 +7,6 @@ export const LoginUser = async (creds, setIsLoggedIn, prevLocation, navigate) =>
     const { status, data: { encodedToken, foundUser } } = await axios.post('/api/auth/login', {
       ...creds
     });
-
-    // console.log(encodedToken, foundUser)
     if (status === 200 || status === 201) {
       localStorage.setItem("socialToken", encodedToken);
       localStorage.setItem("socialUser", JSON.stringify(foundUser))
