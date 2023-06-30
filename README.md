@@ -38,3 +38,6 @@ $ npm start
 - vanilla css
 
 ## **Demo -**
+
+https://github.com/yash-purkar/QuickTweet/assets/109805926/68ce4f48-5fce-4b4c-80ff-fd6c36c42632
+
