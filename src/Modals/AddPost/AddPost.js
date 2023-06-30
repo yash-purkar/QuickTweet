@@ -29,7 +29,6 @@ export const AddPost = () => {
   const socialToken = localStorage.getItem("socialToken");
 
   const handleImageUpload = (e) => {
-    console.log(e.target.value, "image")
     const selectedImg = e.target.files[0];
     setPostData((prev) => ({ ...prev, postImg: URL.createObjectURL(selectedImg) }))
   }

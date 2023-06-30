@@ -31,7 +31,6 @@ export const EditProfile = () => {
   }
 
   const handleImageUpload = (e) => {
-    console.log(e.target.value, "image")
     const selectedImg = e.target.files[0];
     setEditedData((prev) => ({ ...prev, profile_photo: URL.createObjectURL(selectedImg) }))
   }

@@ -29,12 +29,10 @@ export const SinglePost = ({ post, showDetail }) => {
 
 
   const postUser = users?.find((el) => el.username === post?.username);
-  // console.log(user)
 
   const { firstName, lastName, profile_photo, userHandler, bookmarks, } = postUser || {}
 
 
-  // console.log(post?.createdAt?.slice(11, 16))
   const postCreateDate = new Date(post?.createdAt).toLocaleDateString();
   const createTime = new Date(post?.createdAt).toLocaleTimeString();
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { SinglePost } from '../../Components/SinglePost/SinglePost'
 import { AiFillPlusCircle } from 'react-icons/ai'
 import { BiTrendingUp } from 'react-icons/bi'
@@ -33,6 +33,9 @@ export const HomeContent = () => {
 
   const postsByType = postsType === "latest" ? [...loggedInUserPosts, ...homePosts].sort((a, b) => new Date(b?.createdAt) - new Date(a?.createdAt)) : postsType === "oldest" ? [...loggedInUserPosts, ...homePosts].sort((a, b) => new Date(a?.createdAt) - new Date(b?.createdAt)) : sortPostsByLikes;
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div>
       <div className={`flex justify-between add-post-bar align-center ${isDarkMode && "bg-dark-light color-white"}`}>
