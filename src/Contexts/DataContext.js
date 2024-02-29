@@ -14,6 +14,7 @@ export const DataContextProvider = ({ children }) => {
   const themeMode = localStorage.getItem("QUICK_TWEET_THEME")
   const [isDarkMode, setIsDarkMode] = useState(themeMode === "DARK");
   const [isLoading, setIsLoading] = useState(true);
+  // This function fetches all posts
   const getAllPosts = async () => {
     try {
       const { status, data: { posts } } = await axios.get('/api/posts');
@@ -28,7 +29,7 @@ export const DataContextProvider = ({ children }) => {
     }
   }
 
-
+// This function is used to get all users
   const getAllUsers = async () => {
     try {
       const { status, data: { users } } = await axios.get('/api/users');
