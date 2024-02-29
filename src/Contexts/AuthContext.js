@@ -5,6 +5,7 @@ import { createContext } from "react";
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  // Check for token in localstorage
   const socialToken = localStorage.getItem("socialToken")
   const [isLoggedIn, setIsLoggedIn] = useState(socialToken ? true : false);
   return (

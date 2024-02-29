@@ -10,10 +10,8 @@ export const AddComment = () => {
   const { dataState: { modals: { commentPostId } }, isDarkMode, dataDispatch } = UseData()
 
   const socialToken = localStorage.getItem("socialToken");
-  // const loggedInUser = users?.find(el => el.username === socialUser.username)
 
   const handleAddComment = () => {
-    // addCommentHandler(posts, commentPostUser, comment, dataDispatch);
     if (commentText) {
       addCommentHandler(commentPostId, commentText, socialToken, dataDispatch)
       dataDispatch({ type: "HIDE_COMMENT_MODAL" })

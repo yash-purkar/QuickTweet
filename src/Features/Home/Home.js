@@ -15,12 +15,10 @@ export const Home = ({ children }) => {
       <div className='hide-on-lg'>
         <Search />
       </div>
-
       <ContentBox>
         {children}
       </ContentBox>
       <div className={`hide-on-md ${isDarkMode && "bg-dark"}`}>
-
         <FollowBar />
       </div>
     </div>
