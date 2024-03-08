@@ -8,6 +8,7 @@ export const PostDetail = () => {
   const { postId } = useParams();
   const { dataState: { posts } } = UseData();
 
+  // getting post details to show.
   const foundPost = posts?.find(post => post?.id === postId) || {};
 
   useEffect(() => {

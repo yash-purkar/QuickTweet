@@ -6,11 +6,15 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   // Check for token in localstorage
-  const socialToken = localStorage.getItem("socialToken")
+  const socialToken = localStorage.getItem("socialToken");
+
+  // decides logged in or not based on the token
   const [isLoggedIn, setIsLoggedIn] = useState(socialToken ? true : false);
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>{children}</AuthContext.Provider>
-  )
-}
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
 export const UseAuth = () => useContext(AuthContext);

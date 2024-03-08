@@ -2,6 +2,7 @@ import axios from "axios"
 import { success, warning } from "./ToastsServices";
 
 
+// This function is used to login
 export const LoginUser = async (creds, setIsLoggedIn, prevLocation, navigate) => {
   try {
     const { status, data: { encodedToken, foundUser } } = await axios.post('/api/auth/login', {
@@ -26,6 +27,7 @@ export const LoginUser = async (creds, setIsLoggedIn, prevLocation, navigate) =>
   }
 }
 
+// This function is used to signUp
 export const SignupUser = async (creds, setIsLoggedIn, navigate, dataDispatch) => {
   try {
     const { status, data: { encodedToken, createdUser } } = await axios.post('/api/auth/signup', {

@@ -23,16 +23,19 @@ export const EditProfile = () => {
 
   const socialToken = localStorage.getItem("socialToken")
 
+  // on change handler
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditedData(prev => ({ ...prev, [name]: value }))
   }
 
+  // It handle image upload
   const handleImageUpload = (e) => {
     const selectedImg = e.target.files[0];
     setEditedData((prev) => ({ ...prev, profile_photo: URL.createObjectURL(selectedImg) }))
   }
 
+  // update click handler
   const handleUpdateClick = () => {
     editUserHandler(editedData, socialToken, dataDispatch);
     dataDispatch({ type: "HIDE_PROFILE_EDIT_MODAL" })

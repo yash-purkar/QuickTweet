@@ -13,7 +13,7 @@ export const AddPost = () => {
 
   const { dataDispatch, isDarkMode, dataState: { posts, postIdToBeEdit } } = UseData();
 
-
+// This is to fetch the existing data of posts.
   useEffect(() => {
     const editPostData = posts?.find(post => post._id === postIdToBeEdit);
     setPostData(postIdToBeEdit ? editPostData : {
@@ -26,11 +26,13 @@ export const AddPost = () => {
 
   const socialToken = localStorage.getItem("socialToken");
 
+  // Image upload handler
   const handleImageUpload = (e) => {
     const selectedImg = e.target.files[0];
     setPostData((prev) => ({ ...prev, postImg: URL.createObjectURL(selectedImg) }))
   }
 
+  // create new post handler
   const handlePostClick = () => {
     if (postIdToBeEdit) {
       editPostHandler(postIdToBeEdit, postData, socialToken, dataDispatch)

@@ -11,6 +11,7 @@ export const AddComment = () => {
 
   const socialToken = localStorage.getItem("socialToken");
 
+  // This functino adds the comment
   const handleAddComment = () => {
     if (commentText) {
       addCommentHandler(commentPostId, commentText, socialToken, dataDispatch)
