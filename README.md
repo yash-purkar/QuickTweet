@@ -28,14 +28,14 @@ $ npm start
   - User Signup
   - User Login
   - User Logout
- - Fully Responsive
+  - Fully Responsive
 
 ## **Built with -**
 
 - React JS
-- useReducer  & useContext Toolkit 
-- React Router v6
-- vanilla css
+- useReducer & useContext Toolkit 
+- React Router v6 for routing
+- vanilla css for styling
 
 ## **Demo -**
 
