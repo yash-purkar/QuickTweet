@@ -19,10 +19,12 @@ export const FollowDetails = () => {
 
   const socialToken = localStorage.getItem("socialToken")
 
+  // follow user handler
   const handleFollow = (id) => {
     followUserHandler(id, socialToken, dataDispatch)
-
   }
+
+  // unfollow user handler
   const handleUnFollow = (id) => {
     unfollowUserHandler(id, socialToken, dataDispatch)
   }

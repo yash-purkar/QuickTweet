@@ -1,6 +1,7 @@
 import axios from "axios"
 import { success } from "./ToastsServices";
 
+// follow user handler
 export const followUserHandler = async (followUserId, socialToken, dataDispatch) => {
   try {
     const { status, data } = await axios.post(`/api/users/follow/${followUserId}`,
@@ -22,7 +23,7 @@ export const followUserHandler = async (followUserId, socialToken, dataDispatch)
   }
 }
 
-
+// unfollow user handler
 export const unfollowUserHandler = async (followUserId, socialToken, dataDispatch) => {
   try {
     const { status, data } = await axios.post(`/api/users/unfollow/${followUserId}`,
@@ -52,6 +53,7 @@ export const unfollowUserHandler = async (followUserId, socialToken, dataDispatc
   }
 }
 
+// edit user handler
 export const editUserHandler = async (userData, socialToken, dataDispatch) => {
   try {
     const { status, data: { user } } = await axios.post(`/api/users/edit`, {

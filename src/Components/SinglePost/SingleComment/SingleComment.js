@@ -9,7 +9,7 @@ export const SingleComment = ({ comment, postId }) => {
   const { _id, username, text } = comment;
   const navigate = useNavigate()
 
-  const { dataState: { users, posts }, dataDispatch, isDarkMode, setIsLoading } = UseData();
+  const { dataState: { users }, dataDispatch, isDarkMode, setIsLoading } = UseData();
 
   const socialUser = JSON.parse(localStorage.getItem("socialUser"));
   const socialToken = localStorage.getItem("socialToken")
@@ -23,6 +23,7 @@ export const SingleComment = ({ comment, postId }) => {
     }, 300)
   }
 
+  // delete comment handler
   const handleDeleteComment = () => {
     deleteCommentHandler(postId, _id, socialToken, dataDispatch)
   }

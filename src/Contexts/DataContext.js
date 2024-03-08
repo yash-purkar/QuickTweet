@@ -10,50 +10,67 @@ const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [dataState, dataDispatch] = useReducer(dataReducer, dataInitialState);
-  const [searchedUserValue, setSearchedUserValue] = useState("")
-  const themeMode = localStorage.getItem("QUICK_TWEET_THEME")
+  const [searchedUserValue, setSearchedUserValue] = useState("");
+  const themeMode = localStorage.getItem("QUICK_TWEET_THEME");
   const [isDarkMode, setIsDarkMode] = useState(themeMode === "DARK");
   const [isLoading, setIsLoading] = useState(true);
-  // This function fetches all posts
+
+  // Fetching all posts initially
   const getAllPosts = async () => {
     try {
-      const { status, data: { posts } } = await axios.get('/api/posts');
+      const {
+        status,
+        data: { posts },
+      } = await axios.get("/api/posts");
 
       if (status === 200 || status === 201) {
-        dataDispatch({ type: "INITIALIZE_POSTS", payload: posts })
+        dataDispatch({ type: "INITIALIZE_POSTS", payload: posts });
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
-// This function is used to get all users
+  // Fetching all users initially
   const getAllUsers = async () => {
     try {
-      const { status, data: { users } } = await axios.get('/api/users');
+      const {
+        status,
+        data: { users },
+      } = await axios.get("/api/users");
       if (status === 200 || status === 201) {
-        dataDispatch({ type: "INITIALIZE_USERS", payload: users })
+        dataDispatch({ type: "INITIALIZE_USERS", payload: users });
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
-    getAllPosts()
-    getAllUsers()
+    getAllPosts();
+    getAllUsers();
   }, []);
 
-
-
   return (
-    <DataContext.Provider value={{ dataState, dataDispatch, searchedUserValue, setSearchedUserValue, isDarkMode, setIsDarkMode, isLoading, setIsLoading }}>{children}</DataContext.Provider>
-  )
-}
+    <DataContext.Provider
+      value={{
+        dataState,
+        dataDispatch,
+        searchedUserValue,
+        setSearchedUserValue,
+        isDarkMode,
+        setIsDarkMode,
+        isLoading,
+        setIsLoading,
+      }}
+    >
+      {children}
+    </DataContext.Provider>
+  );
+};
 
-
-export const UseData = () => useContext(DataContext)
+export const UseData = () => useContext(DataContext);

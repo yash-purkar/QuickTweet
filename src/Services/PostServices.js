@@ -1,6 +1,7 @@
 import axios from "axios"
 import { remove, success, warning } from "./ToastsServices"
 
+// create new post handler
 export const createPostHandler = async (postData, socialToken, dataDispatch) => {
   try {
     const { status, data: { posts } } = await axios.post(`/api/posts`, {
@@ -22,6 +23,7 @@ export const createPostHandler = async (postData, socialToken, dataDispatch) => 
   }
 }
 
+// like post handler
 export const likePostHandler = async (postId, socialToken, dataDispatch) => {
   try {
     const { status, data: { posts } } = await axios.post(`/api/posts/like/${postId}`,
@@ -41,7 +43,7 @@ export const likePostHandler = async (postId, socialToken, dataDispatch) => {
   }
 }
 
-
+// dislike post handler
 export const dislikePostHandler = async (postId, socialToken, dataDispatch) => {
   try {
     const { status, data: { posts } } = await axios.post(`/api/posts/dislike/${postId}`,
@@ -63,7 +65,7 @@ export const dislikePostHandler = async (postId, socialToken, dataDispatch) => {
 }
 
 
-
+// bookmark post handler
 export const bookmarkPostHandler = async (postId, socialToken, dataDispatch, socialUser) => {
   try {
     const { status, data: { bookmarks } } = await axios.post(`/api/users/bookmark/${postId}`,
@@ -86,6 +88,7 @@ export const bookmarkPostHandler = async (postId, socialToken, dataDispatch, soc
   }
 }
 
+// remove bookmark post handler
 export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatch, socialUser) => {
   try {
     const { status, data: { bookmarks } } = await axios.post(`/api/users/remove-bookmark/${postId}`,
@@ -111,7 +114,7 @@ export const removeBookmarkPostHandler = async (postId, socialToken, dataDispatc
   }
 }
 
-
+// add comment handler
 export const addCommentHandler = async (postId, commentData, socialToken, dataDispatch) => {
   try {
     const { status, data: { posts } } = await axios.post(`/api/comments/add/${postId}`,
@@ -134,7 +137,7 @@ export const addCommentHandler = async (postId, commentData, socialToken, dataDi
   }
 }
 
-
+// delete comment handler
 export const deleteCommentHandler = async (postId, commentId, socialToken, dataDispatch) => {
   try {
     const { status, data: { posts } } = await axios.delete(`/api/comments/delete/${postId}/${commentId}`, {
@@ -153,7 +156,7 @@ export const deleteCommentHandler = async (postId, commentId, socialToken, dataD
   }
 }
 
-
+// add post handler
 export const editPostHandler = async (postId, postData, socialToken, dataDispatch) => {
   try {
     const { status, data: { posts } } = await axios.post(`/api/posts/edit/${postId}`, {
@@ -173,6 +176,7 @@ export const editPostHandler = async (postId, postData, socialToken, dataDispatc
   }
 }
 
+// delete post handler
 export const deletePostHandler = async (postId, socialToken, dataDispatch) => {
   try {
     const { status, data: { posts } } = await axios.delete(`/api/posts/${postId}`, {
